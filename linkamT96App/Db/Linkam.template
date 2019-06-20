@@ -1,3 +1,8 @@
+# % macro, P, PV Prefix for Linkam temp. controller
+# % macro, PORT, Asyn PORT 
+# % macro, ADDR, Asyn ADDR
+# % macro, TIMEOUT, Asyn TIMEOUT
+
 record(seq, "$(P):INIT")
 {
 	field(DOL1,  "0")
@@ -220,9 +225,7 @@ record(ai, "$(P):LNP_SPEED")
 	field(EGU,  "%")
 	field(SDIS, "$(P):DISABLE")
 }
-
-record(bo, "$(P):LNP_MODE:SET")
-{
+record(bo, "$(P):LNP_MODE:SET") {
 	field(DTYP, "asynInt32")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_LNP_MODE_SET")
 	field(ZNAM, "Manual")

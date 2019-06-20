@@ -14,11 +14,13 @@ DBD += linkamT96.dbd
 linkamT96_DBD += base.dbd
 linkamT96_DBD += linkamT96Support.dbd
 
+LIB_INSTALLS += ../libLinkamSDK.so
+
 # Add all the support libraries needed by this IOC
 #LIBRARY_Linux += ../libLinkamSDK.so
 #LinkamSDK_DIR = $(TOP)/linkamT96App/src
-linkamT96_SYS_LIBS += usb-1.0 LinkamSDK
-linkamT96_LIBS += asyn 
+linkamT96_SYS_LIBS += usb-1.0
+linkamT96_LIBS += asyn LinkamSDK
 
 # linkamT96_registerRecordDeviceDriver.cpp derives from linkamT96.dbd
 linkamT96_SRCS += linkamT96_registerRecordDeviceDriver.cpp
