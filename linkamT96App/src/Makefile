@@ -17,8 +17,7 @@ linkamT96_DBD += linkamT96Support.dbd
 LIB_INSTALLS += ../libLinkamSDK.so
 
 # Add all the support libraries needed by this IOC
-#LIBRARY_Linux += ../libLinkamSDK.so
-#LinkamSDK_DIR = $(TOP)/linkamT96App/src
+LinkamSDK_DIR = $(TOP)/linkamT96App/src
 linkamT96_SYS_LIBS += usb-1.0
 linkamT96_LIBS += asyn LinkamSDK
 
