@@ -1,39 +1,18 @@
 TOP=../..
 
 include $(TOP)/configure/CONFIG
-#----------------------------------------
-#  ADD MACRO DEFINITIONS AFTER THIS LINE
-#=============================
 
-#=============================
-# Build the IOC application
+LIBRARY_IOC += linkamT96
 
-PROD_IOC = linkamT96
-
-DBD += linkamT96.dbd
-linkamT96_DBD += base.dbd
-linkamT96_DBD += linkamT96Support.dbd
+DBD += linkamT96Support.dbd
 
 LIB_INSTALLS += ../libLinkamSDK.so
-
-# Add all the support libraries needed by this IOC
 LinkamSDK_DIR = $(TOP)/linkamT96App/src
-linkamT96_SYS_LIBS += usb-1.0
-linkamT96_LIBS += asyn LinkamSDK
 
-# linkamT96_registerRecordDeviceDriver.cpp derives from linkamT96.dbd
-linkamT96_SRCS += linkamT96_registerRecordDeviceDriver.cpp
+LIB_SYS_LIBS += usb-1.0
+LIB_LIBS += asyn LinkamSDK
+
 linkamT96_SRCS += linkamT96.cpp
 
-# Build the main IOC entry point on workstation OSs.
-linkamT96_SRCS_DEFAULT += linkamT96Main.cpp
-linkamT96_SRCS_vxWorks += -nil-
-
-linkamT96_LIBS += $(EPICS_BASE_IOC_LIBS)
-
-#===========================
-
 include $(TOP)/configure/RULES
-#----------------------------------------
-#  ADD RULES AFTER THIS LINE
 
