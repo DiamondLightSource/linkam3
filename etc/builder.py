@@ -9,7 +9,7 @@ class LinkamT96(Device):
 
     Dependencies = (Asyn,)
     LibFileList = ['linkamT96']
-    DbdFileList = ['linkamT96'] 
+    DbdFileList = ['linkamT96Support']
 
     def __init__(self, name, P, serial='/dev/ttyUSB0'):
         self.__dict__.update(locals())
