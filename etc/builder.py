@@ -13,7 +13,7 @@ class LinkamT96(Device):
 
     def __init__(self, name, P, serial='/dev/ttyUSB0'):
         self.__dict__.update(locals())
-	self.template = _LinkamT96Pars(PORT='{}_AP'.format(P), P=P, ADDR=0, TIMEOUT=1)
+	self.template = _LinkamT96Pars(PORT='{}_AP'.format(P), P=P, ADDR=0, TIMEOUT=1, name=name)
         self.__super.__init__()
 
     ArgInfo = makeArgInfo(__init__,
