@@ -5,7 +5,7 @@
 *   Description:    This header defines the controller API for the Linkam
 *                   SDK.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__CONTROLLER_API_H
 #define LINKAM_SDK__CONTROLLER_API_H
@@ -73,31 +73,31 @@ namespace LinkamSDK
         eControllerErrorStageTempSensorOpenOverrange    =  3,    ///< Stage temperature sensor open circuit or over-range
         eControllerErrorLoadPowerOutputVoltageWrong     =  4,    ///< Load power supply output voltage incorrect
         eControllerErrorT95RelayMissing                 =  5,    ///< The stage requires a relay fitted in the T95
-        eControllerErrorT95OptionBoardWongConfig        =  6,    ///< The T95 has the wrong combination of option boards
+        eControllerErrorT95OptionBoardWongConfig        =  6,    ///< The controller has the wrong combination of option boards
         eControllerErrorOptionBoardCableDisconnect      =  7,    ///< Cable disconnected from one of the option boards
         eControllerErrorLoadPowerIncorrectForStage      =  8,    ///< Load power supply is incorrect for the stage type
         eControllerErrorOptionBoardIncorrectCable       =  9,    ///< Incorrect cable connected to one of the option boards
         eControllerErrorOptionBoardSensorOenOverrange   = 10,    ///< Sensor open circuit or overrange on one of the option boards
-        eControllerErrorT95FanNotWorking                = 11,    ///< The T95 unit fan is not working correctly
-        eControllerErrorLNP95Error                      = 12,    ///< The LNP95 is reporting an error
+        eControllerErrorT95FanNotWorking                = 11,    ///< The controller fan is not working correctly
+        eControllerErrorLNP95Error                      = 12,    ///< The LNP is reporting an error
         eControllerErrorCommsError                      = 13,    ///< There has been a communications error
         eControllerErrorCoolingWaterTooWarmNotFlowing   = 14,    ///< The cooling water is too warm or is not flowing through the stage
-        eControllerErrorCSS450MotorDriveOverTemp        = 15,    ///< CSS450 motor drive overheating error (reserved for future development)
-        eControllerErrorCSS450MotorWindingError1        = 16,    ///< CSS450 motor winding error (reserved for future development)
-        eControllerErrorCSS450MotorWindingError2        = 17,    ///< CSS450 motor winding error (reserved for future development)
+        eControllerErrorCSS450MotorDriveOverTemp        = 15,    ///< CSS motor drive overheating error (reserved for future development)
+        eControllerErrorCSS450MotorWindingError1        = 16,    ///< CSS motor winding error (reserved for future development)
+        eControllerErrorCSS450MotorWindingError2        = 17,    ///< CSS motor winding error (reserved for future development)
         eControllerErrorReserved1                       = 18,    ///< Reserved.
         eControllerErrorReserved2                       = 19,    ///< Reserved.
         eControllerErrorReserved3                       = 20,    ///< Reserved.
-        eControllerErrorCMS196ChamberSensorOpen         = 21,    ///< CMS196 Chamber sensor open circuit
-        eControllerErrorCMS196ChamberSensorOverrange    = 22,    ///< CMS196 Chamber sensor over range
-        eControllerErrorCMS196LN2SwitchSensorOpen       = 23,    ///< CMS196 LN2 Switch sensor open circuit
-        eControllerErrorCMS196LN2SwitchSensorOverrange  = 24,    ///< CMS196 LN2 Switch sensor over range
-        eControllerErrorCMS196DewarSensorOpen           = 25,    ///< CMS196 Dewar sensor open circuit
-        eControllerErrorCMS196DewarSensorOverrange      = 26,    ///< CMS196 Dewar sensor over range
-        eControllerErrorCMS196DewarEmpty                = 27,    ///< CMS196 Dewar empty
-        eControllerErrorCMS196BaseSensorOpen            = 28,    ///< CMS196 Base sensor open circuit
-        eControllerErrorCMS196BaseSensorOverrange       = 29,    ///< CMS196 Base sensor over range
-        eControllerErrorCMS196MotorPosnError            = 30     ///< CMS196 Motor position error
+        eControllerErrorCMS196ChamberSensorOpen         = 21,    ///< CMS Chamber sensor open circuit
+        eControllerErrorCMS196ChamberSensorOverrange    = 22,    ///< CMS Chamber sensor over range
+        eControllerErrorCMS196LN2SwitchSensorOpen       = 23,    ///< CMS LN2 Switch sensor open circuit
+        eControllerErrorCMS196LN2SwitchSensorOverrange  = 24,    ///< CMS LN2 Switch sensor over range
+        eControllerErrorCMS196DewarSensorOpen           = 25,    ///< CMS Dewar sensor open circuit
+        eControllerErrorCMS196DewarSensorOverrange      = 26,    ///< CMS Dewar sensor over range
+        eControllerErrorCMS196DewarEmpty                = 27,    ///< CMS Dewar empty
+        eControllerErrorCMS196BaseSensorOpen            = 28,    ///< CMS Base sensor open circuit
+        eControllerErrorCMS196BaseSensorOverrange       = 29,    ///< CMS Base sensor over range
+        eControllerErrorCMS196MotorPosnError            = 30     ///< CMS Motor position error
     };
 
     /*!
@@ -207,7 +207,7 @@ namespace LinkamSDK
             unsigned    humidityCtrlStarted             : 1;    ///< Bit  10:       The Humidity control started.
             unsigned    lnpCoolingPumpOn                : 1;    ///< Bit  11:       The Liquid Nitrogen Pump cooling pump pumping.
             unsigned    lnpCoolingPumpAuto              : 1;    ///< Bit  12:       The Liquid Nitrogen Pump cooling pump in automatic mode.
-            unsigned    ramp1                           : 1;    ///< Bit  13:       Ramp 1
+            unsigned    unused13                        : 1;    ///< Bit  13:       Reserved for future use.
             unsigned    HumidityDesiccantConditioning   : 1;    ///< Bit  14:       The humidity unit is in "desiccant conditioning" mode. For more information please refer to the "Desiccant Conditioning" section of the RH95 manual.
             unsigned    unused15                        : 1;    ///< Bit  15:       Reserved for future use.
             unsigned    unused16                        : 1;    ///< Bits 16:       Reserved for future use.
@@ -242,8 +242,8 @@ namespace LinkamSDK
             unsigned    motorTravelMaxY                 : 1;    ///< Bit  45:       The stage Y motor at max travel.
             unsigned    motorStoppedY                   : 1;    ///< Bit  46:       The stage Y motor stopped.
             unsigned    motorTravelMinZ                 : 1;    ///< Bit  47:       The stage Z motor at min travel; this can double up as a TST axis motor card value.
-            unsigned    motorTravelMaxZ                 : 1;    ///< Bit  48:       The stage Z motor at max travel; this can double up as a TST axis motor card value
-            unsigned    motorStoppedZ                   : 1;    ///< Bit  49:       The stage Z motor started; this can double up as a TST axis motor card value
+            unsigned    motorTravelMaxZ                 : 1;    ///< Bit  48:       The stage Z motor at max travel; this can double up as a TST axis motor card value.
+            unsigned    motorStoppedZ                   : 1;    ///< Bit  49:       The stage Z motor started; this can double up as a TST axis motor card value.
             unsigned    sampleCal                       : 1;    ///< Bit  50:       The stage is currently using user defined sample calibration values.
             unsigned    motorDistanceCalTST             : 1;    ///< Bit  51:       The TST stage motor is at the calibration distance.
             unsigned    cssRotMotorStopped              : 1;    ///< Bit  52:       The CSS stage rotation motor has stopped moving.
@@ -261,6 +261,387 @@ namespace LinkamSDK
         }               flags;                                  ///< Accessor to the flags.
         uint64_t        value;                                  ///< Flags as a single value;
     };
+
+    /*!
+     *  \struct     PowerSupplyUnitDetails
+     *  \brief      This structure defines a set of values which provide details
+     *              about the controller's power supply unit.
+     *
+     *  @ingroup    Controller_API
+     */
+    struct PowerSupplyUnitDetails
+    {
+        uint32_t    psu;                ///< PUS type code; 0 = PPS125-24 125W (24V 5.2A), 1 = PPS125-15 125W (15V 8.33A), 2 = PPS200-15 200W (15V 13.33A)
+        uint32_t    mainsFreq;          ///< The mains frequency of the power supply unit; 0 = 60HZ, 8 = 50HZ.
+        uint32_t    relay;              ///< Relay fitted.
+    };
+
+    /*!
+     *  \struct     HeaterDetails
+     *  \brief      This structure defines a set of values which provide
+     *              specification details about an installed heater.
+     *
+     *  @ingroup    Controller_API
+     */
+    struct HeaterDetails
+    {
+        float       minLimit;           ///< Heater min temperature limit.
+        float       maxLimit;           ///< Heater max temperature limit.
+        float       maxRate;            ///< Heater max temperature rate of change.
+        float       maxV;               ///< Heater max voltage rating.
+        float       maxI;               ///< Heater max current rating.
+    };
+
+    /*!
+     *  \union      StageCableConfig
+     *  \brief      A union structure used to hold status flag information
+     *              about the various elements of the stage cable. This
+     *              union can provide the configuration data as a set of
+     *              known flags or as a single integer value.
+     *  \note       Size of structure is 4 bytes.
+     *  @ingroup    Controller_API
+     */    
+    union StageCableConfig
+    {
+        struct
+        {
+            unsigned stageOk            :  4; ///< Stage OK status.
+            unsigned sensorA            :  1; ///< Sensor A present.
+            unsigned sensorB            :  1; ///< Sensor B present.
+            unsigned sensorC            :  1; ///< Sensor C present.
+            unsigned relay              :  1; ///< T95 Relay fitted.
+            unsigned motorised          :  1; ///< Stage is motorised.
+            unsigned postFitted         :  1; ///< Motor drive stage post is fitted.
+            unsigned lnpCanBeUsed       :  1; ///< Liquid Nitrogen Pump can be used with this stage.
+            unsigned lnpManOnly         :  1; ///< Liquid Nitrogen Pump can only be manually used.
+            unsigned sampleCal0         :  1; ///< Sample calibration state 0.
+            unsigned sampleCal1         :  1; ///< Sample calibration state 1.
+            unsigned ws96LensHeater     :  1; ///< WS96 lens heater is fitted.
+            unsigned unused             : 17; ///< Reserved for future use. 
+        }            flags;                   ///< Access to flag members.
+        uint32_t     value;                   ///< Access to the combined flag states as a single value.
+    };
+
+    /*!
+     *  \enum       InstrumentBusDeviceType
+     *  \brief      This enumerator defines the current supported instrument bus device
+     *              types.
+     *  @ingroup    Controller_API
+     */
+    enum InstrumentBusDeviceType
+    {
+        /*!
+         *  The type value for an unknown instrument bus device.
+         */
+        eInstrumentBusDeviceType_Unknown                                = 0x00000000,
+
+        /*!
+         *  The type value for an humidity controller.
+         */
+        eInstrumentBusDeviceType_HumidityController                     = 0x00000001,
+
+        /*!
+         *  The type value for a Linkpad device.
+         */
+        eInstrumentBusDeviceType_LiquidNitrogenPump                     = 0x00000002,
+
+        /*!
+         *  The type value for a Linkpad device.
+         */
+        eInstrumentBusDeviceType_Linkpad                                = 0x00000003,
+
+        /*!
+         *  The type value for a Linkpad device.
+         */
+        eInstrumentBusDeviceType_ImagingStation                         = 0x00000004
+    };
+
+    /*!
+     *  \enum       ControllerType
+     *  \brief      This enumerator defines the current supported controller
+     *              types.
+     *  @ingroup    Controller_API
+     */
+    enum ControllerType
+    {
+        /*!
+         *  The type value for an unknown instrument bus device.
+         *  \note   This can be used to work out if any controller is connected
+         *          or if an unknown controller is connected.
+         */
+        eControllerType_Unknown         = 0x00000000,
+
+        /*!
+         *  The type value for a T95 controller.
+         */
+        eControllerType_T95             = 0x00000001,
+
+        /*!
+         *  The type value for a any type of T96 controller.
+         */
+        eControllerType_T96             = 0x00000002,
+
+        /*!
+         *  The type value for a T96 P12 controller.
+         */
+        eControllerType_T96_P12         = 0x00000003,
+
+        /*!
+         *  The type value for a T96 S12 controller.
+         */
+        eControllerType_T96_S12         = 0x00000004,
+    };
+
+    /*!
+     *  \union      ControllerProgramStatus
+     *  \brief      The Controller program status is a bit feild of status flags
+     *              used to feed back information about various internal program
+     *              elements of the controller.
+     *  \note       Size of structure is 4 bytes.
+     *  @ingroup    Controller_API
+     */
+    union ControllerProgramStatus
+    {
+        struct
+        {
+            /*!
+             *  Bit  0: Direction of temperature to target setpoint.
+             *
+             *  \note       If set then the controller is applying heat to reach the setpoint temperature,
+             *              else unset then applying cooling to reach the setpoint temperature.
+             *  \note       This flag is a unified view of the heat and cool flags.
+             */
+            unsigned dirn               : 1;
+
+            /*!
+             *  Bit  1: Hold mode enabled.
+             *
+             *  \note       A general flag for indicating the controller is in a hold current state mode.
+             *              This will remain set until either a new temperature setpoint is programmed,
+             *              or an automatic heating/cooling mode is enabled. Automatic heating/cooling modes
+             *              are used to maintain temperature. The state of this flag may change during the
+             *              the period of a timed hold.
+             *  \see        timeHold
+             *  \see        inLimitTime
+             */
+            unsigned hold               : 1;
+
+            /*!
+             *  Bit  2: Heating mode enabled.
+             *
+             *  \see dirn.
+             */
+            unsigned heat               : 1;
+
+            /*!
+             *  Bit  3: Cooling mode enabled.
+             *
+             *  \see dirn.
+             */
+            unsigned cool               : 1;
+
+            /*!
+             *  Bit 4: Start the hold time.
+             *
+             *  \note       Set when the ramp programme detects the temperature is within the threshold of the setpoint.
+             *              Used by the firmware to invoke the hold time program. This is only reset when a new setpoint
+             *              is programmed.
+             *  \note       Can be used inconjunction with the inLimitTime flag to determine when to 
+             *              send/programme the new setpoint.
+             *  \see        timeHold
+             */
+            unsigned inLimitTime        : 1;
+
+            /*!
+             *  Bit 5: Holding temperature for defined time.
+             *
+             *  \note       Set when the temperature setpoint has been reached and the ramp hold time count down has started.
+             *              This is reset when the hold time period is completed.
+             *  \note       Can be used inconjunction with the inLimitTime
+             *              flag to determine when to send/programme the new setpoint.
+             *  \see        inLimitTime
+             */
+            unsigned timeHold           : 1;
+
+            /*!
+             *  Bit 6: Started ramp programme.
+             *
+             *  \note       Set when the controller begins a new ramp programme. A ramp programme is invoked when
+             *              the host programme sends a new temperature setpoint to the controller. The ramp
+             *              programme only manages the change in temperature to the current programmed setpoint.
+             */
+            unsigned started            : 1;
+
+            /*!
+             *  Bit 7: New rate set.
+             *
+             *  \note       Set when the controller receives instruction to change the rate of heating.
+             *              The rate of heating is defined as °C/min.
+             */
+            unsigned newRate            : 1;
+
+            /*!
+             *  Bit 8: Ramp completed.
+             *
+             *  \note       Set when a temperature ramp has been completed. A controller considers a ramp
+             *              as achiving a programmed setpoint.
+             *  \note       This flag can be used to inform a host application that the required temperature 
+             *              ramp has been completed and a new temperstaure setpoint can be sent to the controller.
+             */
+            unsigned rampDone           : 1;
+
+            /*!
+             *  Bit 9: Sensor over-range warning.
+             *
+             *  \note       Set when a sensor has been detected reading a value belyond the min/max range.
+             *              This is a system error flag.
+             */
+            unsigned overRange          : 1;
+
+            /*!
+             *  Bit 10: Linksys32 mode enabled.
+             *
+             *  \note       Provided for compatibility with older systems using the Linksys32 communications
+             *              module. This has been replaced by the LinkamSDK.
+             */
+            unsigned linksys32Mode      : 1;
+
+            /*!
+             *  Bit 11: Linkam driver mode enabled.
+             *
+             *  \note       Set when the Linkam SDK driver has successfully established a connection to the controller.
+             */
+            unsigned netDllMode         : 1;
+
+            /*!
+             *  Bit 12: Mode cooling to 300°C.
+             *
+             *  \note       Used by high temperature stages when they have completed a high temperature command
+             *              to indicate they have entered a cool down routine to reach 300°C or below.
+             */
+            unsigned coolTo300          : 1;
+
+            /*!
+             *  Bit 13: Rate slow down warning.
+             */
+            unsigned rateSlowDown       : 1;
+
+            /*!
+             *  Bit 14: The remote link is active.
+             *
+             *  \note       Set when the remote host has control over the controller unit.
+             *              Unset when the local host (linkpad) has control of the the controller unit.
+             */
+            unsigned linkMode           : 1;
+
+            /*!
+             *  Bit 15: Reserved for future use.
+             */
+            unsigned unused15           : 1;
+
+            /*!
+             *  Bit 16: Reserved for future use.
+             */
+            unsigned unused16           : 1;
+
+            /*!
+             *  Bit 17: Reserved for future use.
+             */
+            unsigned unused17           : 1;
+
+            /*!
+             *  Bit 18: Reserved for future use.
+             */
+            unsigned unused18           : 1;
+
+            /*!
+             *  Bit 19: Reserved for future use.
+             */
+            unsigned unused19           : 1;
+
+            /*!
+             *  Bit 20: Reserved for future use.
+             */
+            unsigned unused20           : 1;
+
+            /*!
+             *  Bit 21: Reserved for future use.
+             */
+            unsigned unused21           : 1;
+
+            /*!
+             *  Bit 22: Reserved for future use.
+             */
+            unsigned unused22           : 1;
+
+            /*!
+             *  Bit 23: Reserved for future use.
+             */
+            unsigned unused23           : 1;
+
+            /*!
+             *  Bit 24: An error has occurred.
+             */
+            unsigned errPtr             : 1;
+
+            /*!
+             *  Bit 25: Reserved for future use.
+             */
+            unsigned unused25           : 1;
+
+            /*!
+             *  Bit 26: Reserved for future use.
+             */
+            unsigned unused26           : 1;
+
+            /*!
+             *  Bit 27: Reserved for future use.
+             */
+            unsigned unused27           : 1;
+
+            /*!
+             *  Bit 28: Reserved for future use.
+             */
+            unsigned unused28           : 1;
+
+            /*!
+             *  Bit 29: Reserved for future use.
+             */
+            unsigned unused29           : 1;
+
+            /*!
+             *  Bit 30: Reserved for future use.
+             */
+            unsigned unused30           : 1;
+
+            /*!
+             *  Bit 31: Reserved for future use.
+             */
+            unsigned unused31           : 1;
+        }            flags;                     ///< The flag feild accessor.
+        uint32_t     value;                     ///< The value that represents the state of the flags as a 32-bit value.
+    };
+
+    /*!
+     *  \struct     Running
+     *  \brief      The Running information structure contains generic status information
+     *              about a ramp program running on the stage. This structure is used within 
+     *              applicable stage information structures, sent to the host PC on request.
+     *  \note       Size of structure is 36 bytes.
+     *  @ingroup    Controller_API
+     */
+    struct Running
+    {
+		float                       timeLeft;   ///< Time in seconds left for the current program.
+		float                       lnpSpeed;   ///< Current speed of the LNP.
+		float                       voltage;    ///< Current value of the voltage being drawn by the heater.
+		float                       current;    ///< Current value of the current being drawn by the heater.
+		float                       pwm;        ///< Current value of power being drawn (watts).
+		ControllerProgramStatus     status;     ///< This is the internal program/action states of the controller.
+		uint32_t                    auxStatus;  ///< Reserved for future use.
+        uint32_t                    padding;    ///< The host machine and controller align data to an 8-byte boundary, therefore we add 4-byte padding here to align the dllStatus.
+		ControllerStatus            dllStatus;  ///< This is the exposed status to the peripherial devices connected to the controller.
+	};
 }
 
 #ifdef __cplusplus

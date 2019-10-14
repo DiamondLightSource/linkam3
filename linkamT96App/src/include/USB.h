@@ -5,7 +5,7 @@
 *   Description:    This header defines the USB data types used by the
 *                   Linkam SDK library.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__USB_H
 #define LINKAM_SDK__USB_H

@@ -5,7 +5,7 @@
 *   Description:    This header defines the common data types used by the
 *                   Linkam SDK library.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__COMMON_TYPES_H
 #define LINKAM_SDK__COMMON_TYPES_H
@@ -56,7 +56,7 @@ typedef uint64_t    CommsHandle;
  *              amount of information printed to help reduce to size of log files.
  *  \note       The default level of logging is set to minimal, if you need
  *              to increase the level of information for tracking issues
- *              use the vobose level.
+ *              use the verbose level.
  *  @ingroup    Library_Functions
  */
 #define LOGGING_LEVEL_MINIMAL (0)
@@ -78,14 +78,14 @@ typedef uint64_t    CommsHandle;
 /*!
  *  \brief      Used in conjuction with the LinkamFunctionMsgCode, this macro
  *              can be passed under param1 of the eLinkamFunctionMsgCode_EnableLogging
- *              command message to set the log output level to vobose. This increases 
+ *              command message to set the log output level to verbose. This increases 
  *              the amount of information printed which increases the size of log files.
  *  \note       The default level of logging is set to minimal, if you need
  *              to increase the level of information for tracking issues
- *              use the vobose level.
+ *              use the verbose level.
  *  @ingroup    Library_Functions
  */
-#define LOGGING_LEVEL_VOBOSE  (2)
+#define LOGGING_LEVEL_VERBOSE  (2)
 
 /*!
  *  \brief      Used in conjuction with the LinkamFunctionMsgCode, this macro

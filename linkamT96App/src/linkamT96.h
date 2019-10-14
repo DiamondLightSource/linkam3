@@ -4,8 +4,8 @@
 #define P_TempString          "LINKAM_TEMP"
 #define P_RampRateSetString   "LINKAM_RAMPRATE_SET"
 #define P_RampRateString      "LINKAM_RAMPRATE"
-#define P_LimitSetString      "LINKAM_LIMIT_SET"
-#define P_LimitString         "LINKAM_LIMIT"
+#define P_SetpointSetString   "LINKAM_SETPOINT_SET"
+#define P_SetpointString      "LINKAM_SETPOINT"
 #define P_PowerString         "LINKAM_POWER"
 #define P_StartHeatingString  "LINKAM_START_HEATING"
 #define P_LNPSpeedString      "LINKAM_LNP_SPEED"
@@ -38,8 +38,8 @@ protected:
 	#define FIRST_LINKAM_COMMAND P_Temp
 	int P_RampRateSet;
 	int P_RampRate;
-	int P_LimitSet;
-	int P_Limit;
+	int P_SetpointSet;
+	int P_Setpoint;
 	int P_Power;
 	int P_StartHeating;
 	int P_LNPSpeed;

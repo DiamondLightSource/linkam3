@@ -5,7 +5,7 @@
 *   Description:    This header defines the export/import symbols for
 *                   the Linkam SDK library.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__EXPORT_API
 #define LINKAM_SDK__EXPORT_API
@@ -19,16 +19,13 @@
         #define LINKAM_API_IMPORT       __declspec(dllimport)        
     #endif
 #else
-    // Setting the global compiler visibility flag:
-    //
-    // -fvisibility=default
-    //
-    // or
-    //
-    // -fvisibility=hidden
-    //#define LINKAM_API_EXPORT       __attribute__ ((visibility("default")))
-    #define LINKAM_API_EXPORT       extern "C" __attribute__ ((visibility("default")))
-    #define LINKAM_API_IMPORT       extern "C"
+    #ifdef __cplusplus
+        #define LINKAM_API_EXPORT       extern "C" __attribute__ ((visibility("default")))
+        #define LINKAM_API_IMPORT       extern "C"
+    #else
+        #define LINKAM_API_EXPORT       __attribute__ ((visibility("default")))
+        #define LINKAM_API_IMPORT               
+    #endif
 #endif
 
 

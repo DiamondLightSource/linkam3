@@ -5,7 +5,7 @@
 *   Description:    This header defines the communication port handling
 *                   API used by the Linkam SDK.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__COMMS_API_H
 #define LINKAM_SDK__COMMS_API_H
@@ -131,13 +131,13 @@ extern "C" {
 /*!
  *  \brief      The USB HID product ID for Linkam ...
  *
- *  Use this product ID to request the LinkamSDK library to connect to an Imaging Station.
- *  If you have multiple Imaging Stations connected to the host machine then you must specify the serial
+ *  Use this product ID to request the LinkamSDK library to connect to a Remote Light Source (RLS).
+ *  If you have multiple RLS systems connected to the host machine then you must specify the serial
  *  number of the specific device you wish to connect to.
  *
  *  @ingroup    Comms_API
  */
-#define LINKAM_SDK__USB_HID__ISDARKFIELD1_ID    (0x000A)
+#define LINKAM_SDK__USB_HID__ISRLS_ID           (0x000A)
 
 /*!
  *  \brief      The USB HID product ID for Linkam ...

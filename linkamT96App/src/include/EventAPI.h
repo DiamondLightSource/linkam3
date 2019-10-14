@@ -5,7 +5,7 @@
 *   Description:    This header defines the controller event API for the
 *                   Linkam SDK.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__EVENT_API_H
 #define LINKAM_SDK__EVENT_API_H
@@ -193,6 +193,44 @@ namespace LinkamSDK
          *  \remark     Recommended action is to launch an error pop-up dialog box detailing the issue.
          */
         errorCodeUSBCommsUnknownRxError                 = 0xECF00010,
+
+        /*!
+         *  \brief      This error code is issued when the USB output socket raises a connection error. This error
+         *              will force the host-side USB device Tx service to shutdown. To recover from this error 
+         *              you are required to shut the USB device connection down and establish a new connection to
+         *              the device. Please report this problem to Linkam Scientific Instruments.
+         *
+         *  \remark     Recommended action is to launch an error pop-up dialog box detailing the issue.
+         */
+        errorCodeUSBCommsTxError                        = 0xECF00011,
+
+        /*!
+         *  \brief      This error code is issued when the USB output socket raises an unhandled error. This error
+         *              is ignored by the host-side USB device. Please report this problem to Linkam Scientific
+         *              Instruments.
+         *
+         *  \remark     Recommended action is to launch an error pop-up dialog box detailing the issue.
+         */
+        errorCodeUSBCommsUnknownTxError                 = 0xECF00012,
+
+        /*!
+         *  \brief      This error code is issued when the Serial output socket raises a connection error. This error
+         *              will force the host-side Serial device Tx service to shutdown. To recover from this error 
+         *              you are required to shut the USB device connection down and establish a new connection to
+         *              the device. Please report this problem to Linkam Scientific Instruments.
+         *
+         *  \remark     Recommended action is to launch an error pop-up dialog box detailing the issue.
+         */
+        errorCodeSerialCommsTxError                        = 0xECF00013,
+
+        /*!
+         *  \brief      This error code is issued when the Serial output socket raises an unhandled error. This error
+         *              is ignored by the host-side Serial device. Please report this problem to Linkam Scientific
+         *              Instruments.
+         *
+         *  \remark     Recommended action is to launch an error pop-up dialog box detailing the issue.
+         */
+        errorCodeSerialCommsUnknownTxError                 = 0xECF00014,
 
         /*!
          *  The maximum possible error code ID.

@@ -6,7 +6,7 @@
 *                   Linkam devices. This may be used on Windows and Linux
 *                   platforms.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK_H
 #define LINKAM_SDK_H
@@ -17,17 +17,22 @@
 
 /*!
  *	\brief		Call this once to initialise the Linkam SDK library.
+ *  \param[in]  logpath     An optional string holding the full path and filename of where the log file should be created. If this parameter is set to NULL, then the driver assumes the log file can be created in the currently set application directory.
+ *  \param[in]  licpath     An optional string holding the full path and filename of where the license file should be found, or a valid license code. If this parameter is set to NULL, then the driver assumes looking for a license file in the currently set application directory.
+ *  \param[in]  initCOM     The SDK license requires COM, if your application does not use COM then this parameter MUST be set to 'true', else false or leave the default value.
  *	\return		Returns 'true' if the SDK library was initialised correctly, else false.
+ *  \note       If logpath is left NULL then the log file will be created under the currently set directory.
+ *  \note       If licpath is left NULL then the driver assumes that the license file will be under the currently set directory.
  *
  *	This will initialise the SDK library for use; you cannot successfully call any SDK 
  *	function until this function has been called.
  *
  *  @ingroup    Library_Functions
  */
-LINKAM_API_CALL bool linkamInitialiseSDK();
+LINKAM_API_CALL bool linkamInitialiseSDK(const char* logpath = NULL, const char* licpath = NULL, bool initCOM = false);
 
 /*!
- *	\brief		Call this once to initialise the Linkam SDK library.
+ *	\brief		Call this once to close and clean-up the Linkam SDK library and all resources consumed.
  *	\return		Returns no value.
  *
  *	This will perform all internal clean-up and will close all currently open connections
@@ -38,7 +43,7 @@ LINKAM_API_CALL bool linkamInitialiseSDK();
 LINKAM_API_CALL void linkamExitSDK();
 
 /*!
- *  \brief      Call this function to obtain the version number for the SDK.
+ *  \brief      Call this function to obtain the version number for the driver. The version number is no longer than 20 characters.
  *  \param[in]  version         A valid char pointer to a buffer large enough to hold the version
  *  \param[in]  length          The size in bytes of the buffer to hold the version number.
  *  \return     Returns 'true' if successful, else 'false'.
@@ -48,7 +53,7 @@ LINKAM_API_CALL void linkamExitSDK();
 LINKAM_API_CALL bool linkamGetVersion(char* version, uint64_t length);
 
 /*!
- *  \brief      Call this function to pass a message to the SDK. Messages are just codes to invoke
+ *  \brief      Call this function to pass a message to the driver. Messages are just codes to invoke
  *              function calls in a generic format. This simplifies the Linkam interface to just
  *              four functions within this header file.
  *  \param[in]  msg             A value from \link LinkamSDK::LinkamFunctionMsgCode LinkamFunctionMsgCode \endlink, this will be the command function to invoke.
@@ -66,7 +71,7 @@ LINKAM_API_CALL bool linkamGetVersion(char* version, uint64_t length);
 LINKAM_API_CALL bool linkamProcessMessage(LinkamSDK::LinkamFunctionMsgCode msg, CommsHandle hDevice, LinkamSDK::Variant* result, LinkamSDK::Variant param1 = LinkamSDK::Variant(), LinkamSDK::Variant param2 = LinkamSDK::Variant(), LinkamSDK::Variant param3 = LinkamSDK::Variant());
 
 /*!
- *  \brief      This is a helper function for interfacing the SDK with languages that cannot support
+ *  \brief      This is a helper function for interfacing the driver to languages that cannot support
  *              union type structures. It performs the same operation as linkamProcessMessage.
  *  \param[in]  msg             A value from \link LinkamSDK::LinkamFunctionMsgCode LinkamFunctionMsgCode \endlink, this will be the command function to invoke.
  *  \param[in]  hDevice         A valid handle to a comms device or zero (0).
@@ -118,8 +123,8 @@ LINKAM_API_CALL void linkamSetCallbackControllerConnected(EventCallback callback
 /*!
  *  \brief      Call this function to add a callback function to receive disconnected event signals.
  *
- *  This function allows  developers to register one or more callback functions which will handle
- *  disconnection events thrown by the LinkamSDK library. This allows 3rd party applications to
+ *  This function allows developers to register one or more callback functions which will handle
+ *  disconnection events thrown by the driver. This allows 3rd party applications to
  *  handle disconnection events in an event driven application design.
  *
  *  \param[in]  callback        A valid function pointer to a disconnected handler.
@@ -131,9 +136,9 @@ LINKAM_API_CALL void linkamSetCallbackControllerDisconnected(EventCallback callb
  *  \brief      Call this function to add a callback function to receive error event signals.
  *
  *  This function allows developers to register one or more callback functions which will handle events
- *  thrown by the LinkamSDK library. These events typically require external handling or display using
- *  pop-up dialog boxes. This callback system allows custom handling of these events as the LinkamSDK 
- *  library does not support pop-up dialog boxes directly.
+ *  thrown by the driver. These events typically require external handling or display using
+ *  pop-up dialog boxes. This callback system allows custom handling of these events as the driver 
+ *  does not support pop-up dialog boxes directly.
  *
  *  \param[in]  callback        A valid function pointer to an error handler.
  *  @ingroup    Library_Functions

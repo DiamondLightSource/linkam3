@@ -11,7 +11,7 @@
 *                   start making the move over to the new API as defined
 *                   in version 3.0.0.0 and above.
 *
-*   Copyright © 2018 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM__SDK__DEPRECATED_API_H
 #define LINKAM__SDK__DEPRECATED_API_H
@@ -243,13 +243,14 @@ LINKAM_API_CALL char* GetStageName();
 /*!
  *  \brief      Call this function to obtain the current value of the \link LinkamSDK::StageValueType StageValueType \endlink passed.
  *  \param[in]  u32eValueType       A value from the \link LinkamSDK::StageValueType StageValueType \endlink enumerator.
+ *  \param[in]  param               An optional value dependent on the u32eValueType; provided for compatibility with new API, maintains compatibility with older API.
  *  \return     Returns the value of the \link LinkamSDK::StageValueType StageValueType \endlink, as a 32 bit float.
  *  \remark     Replace this call with GetValue under CommonStageAPI.h in the latest API.
  *  \warning    This type will be removed in future versions.
  *
  *  @ingroup    Deprecated_Functions
  */
-LINKAM_API_CALL float GetValue(unsigned int u32eValueType);
+LINKAM_API_CALL float GetValue(unsigned int u32eValueType, unsigned long long param = 0);
 
 /*!
  *  \brief      Call this function save the current sample values on the stage to the controller.
