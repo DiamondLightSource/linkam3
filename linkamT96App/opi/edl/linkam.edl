@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 2898
-y 231
+x 2926
+y 466
 w 620
 h 480
 font "arial-bold-r-14.0"
@@ -32,7 +32,7 @@ release 0
 x 322
 y 89
 w 140
-h 135
+h 144
 lineColor index 14
 fill
 fillColor index 5
@@ -96,7 +96,7 @@ release 0
 x 6
 y 55
 w 308
-h 169
+h 179
 lineColor index 14
 fill
 fillColor index 5
@@ -314,7 +314,7 @@ release 0
 x 472
 y 89
 w 135
-h 135
+h 146
 lineColor index 14
 fill
 fillColor index 5
@@ -714,8 +714,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 20
-y 101
+x 14
+y 99
 w 47
 h 16
 font "arial-bold-r-14.0"
@@ -734,8 +734,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 41
-y 202
+x 14
+y 212
 w 70
 h 16
 font "arial-bold-r-14.0"
@@ -754,7 +754,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 41
+x 14
 y 129
 w 77
 h 16
@@ -774,8 +774,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 41
-y 149
+x 14
+y 156
 w 58
 h 16
 font "arial-bold-r-14.0"
@@ -794,8 +794,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 140
-y 175
+x 124
+y 183
 w 128
 h 20
 fgColor index 25
@@ -814,8 +814,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 140
-y 101
+x 124
+y 95
 w 128
 h 20
 fgColor index 25
@@ -834,8 +834,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 20
-y 175
+x 14
+y 183
 w 100
 h 16
 font "arial-bold-r-14.0"
@@ -848,74 +848,14 @@ value {
 autoSize
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 230
-y 129
-w 42
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "C/min"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 230
-y 149
-w 11
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "C"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 231
-y 203
-w 14
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "%"
-}
-autoSize
-endObjectProperties
-
 # (Textentry)
 object TextentryClass
 beginObjectProperties
 major 10
 minor 0
 release 0
-x 125
-y 125
+x 99
+y 124
 w 95
 h 23
 controlPv "$(P):RAMPRATE:SET"
@@ -1072,11 +1012,11 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 125
-y 150
+x 99
+y 153
 w 95
 h 23
-controlPv "$(P):LIMIT:SET"
+controlPv "$(P):SETPOINT:SET"
 precision 2
 fgColor index 25
 fgAlarm
@@ -1091,8 +1031,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 125
-y 199
+x 99
+y 209
 w 95
 h 23
 controlPv "$(P):LNP_SPEED:SET"
@@ -1119,5 +1059,83 @@ lineColor index 14
 onColor index 20
 offColor index 24
 numBits 1
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 198
+y 126
+w 70
+h 20
+controlPv "$(P):RAMPRATE"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+limitsFromDb
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 198
+y 155
+w 70
+h 20
+controlPv "$(P):SETPOINT"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+limitsFromDb
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 198
+y 211
+w 70
+h 20
+controlPv "$(P):LNP_SPEED"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+limitsFromDb
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
 endObjectProperties
 
