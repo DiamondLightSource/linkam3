@@ -23,6 +23,6 @@ class LinkamT96(Device):
                           )
 
     def Initialise(self):
-	print('# Linkam 3.0 connect')
+        print('# Linkam 3.0 connect')
         print('linkamConnect "{P}_AP", "{serial}"'.format(**self.__dict__))
 
