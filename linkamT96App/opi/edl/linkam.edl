@@ -4,7 +4,7 @@ major 4
 minor 0
 release 1
 x 2926
-y 466
+y 503
 w 620
 h 480
 font "arial-bold-r-14.0"
@@ -59,8 +59,8 @@ gridColor index 33
 font "arial-bold-r-14.0"
 # Operating Modes
 plotMode "plotLastNPts"
-nPts 600
-updateTimerMs 1000
+nPts 3000
+updateTimerMs 100
 # X axis properties
 showXAxis
 xAxisStyle "time"
