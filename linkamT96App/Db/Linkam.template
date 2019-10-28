@@ -173,8 +173,17 @@ record(ai, "$(P):RAMPRATE")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_RAMPRATE")
 	field(EGU,  "C/min")
 	field(SDIS, "$(P):DISABLE")
+  field(FLNK, "$(P):RAMPTIME")
 }
 
+record(calc, "$(P):RAMPTIME") {
+  field(DESC, "Ramp time")
+  field(INPA, "$(P):RAMPRATE")
+  field(INPB, "$(P):TEMP")
+  field(INPC, "$(P):SETPOINT")
+  field(CALC, "ABS(C-B)/A")
+  field(EGU, "min")
+}
 
 record(ao, "$(P):HOLDTIME:SET")
 {
