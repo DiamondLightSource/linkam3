@@ -46,6 +46,7 @@ linkamPortDriver::linkamPortDriver(const char *portName)
 	createParam(P_StageSerialString, asynParamOctet,   &P_StageSerial);
 	createParam(P_FirmVerString,     asynParamOctet,   &P_FirmVer);
 	createParam(P_HardVerString,     asynParamOctet,   &P_HardVer);
+	createParam(P_CtrllrErrorString, asynParamOctet,   &P_CtrllrError);
 	createParam(P_CtrlConfigString,  asynParamInt32,   &P_CtrlConfig);
 	createParam(P_CtrlStatusString,  asynParamInt32,   &P_CtrlStatus);
 	createParam(P_StageConfigString, asynParamInt32,   &P_StageConfig);
@@ -77,8 +78,8 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 	} else if (function == P_DSC) {
 		param1.vStageValueType = LinkamSDK::eStageValueTypeDsc;
 	} else if (function == P_HoldTimeLeft) {
-        	param1.vStageValueType = LinkamSDK::eStageValueTypeRampHoldRemaining;
-	}
+    param1.vStageValueType = LinkamSDK::eStageValueTypeRampHoldRemaining;
+	} 
 
 	if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2))
 		*value = result.vFloat32;
@@ -125,20 +126,34 @@ asynStatus linkamPortDriver::readOctet(asynUser *pasynUser, char *value, size_t 
 		linkamMsgCode = LinkamSDK::eLinkamFunctionMsgCode_GetControllerFirmwareVersion;
 	} else if (function == P_HardVer) {
 		linkamMsgCode = LinkamSDK::eLinkamFunctionMsgCode_GetControllerHardwareVersion;
+	} else if (function == P_CtrllrError) {
+		linkamMsgCode = LinkamSDK::eLinkamFunctionMsgCode_GetControllerError;
 	}
 
-	result.vUint64 = 0;
-	param1.vPtr = string;
-	param2.vUint32 = 256;
-	if (linkamProcessMessage(linkamMsgCode, handle, &result, param1, param2)) {
-		rtrim(string);
-		setStringParam(function, string);
+  if(function == P_CtrllrError){
+	  if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result)) {
 
-		*nActual = strlen(string) + 1;
-		*eomReason = 0;
-	} else {
-		status = asynError;
-	}
+      strcpy(value, LinkamSDK::ControllerErrorStrings[result.vControllerError]);
+		  *eomReason = 0;
+
+	  } else {
+		  status = asynError;
+	  }
+  } else {
+	  result.vUint64 = 0;
+	  param1.vPtr = string;
+	  param2.vUint32 = 256;
+	  if (linkamProcessMessage(linkamMsgCode, handle, &result, param1, param2)) {	  		  
+      rtrim(string);	  
+		  setStringParam(function, string);
+
+		  *nActual = strlen(string) + 1;
+		  *eomReason = 0;
+
+	  } else {
+		  status = asynError;
+	  }
+  }
 
 	if (status)
 		epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,
@@ -207,10 +222,11 @@ asynStatus linkamPortDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
 	if (function == P_StartHeating) {
 		param2.vUint64 = 0; /* unused */
 
-		if (value > 0)
+		if (value > 0){
 			param1.vBoolean = true;
-		else
+		} else {
 			param1.vBoolean = false;
+		}
 
 		linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartHeating,
 		                     handle, &result, param1, param2);
@@ -373,8 +389,8 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 				 result.vStageConfig.flags.supportsHumidity            << 4;
 		} else {
 			status = asynError;
-		}
-	}
+		} 
+	} 
 
 	if (status)
 		epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,

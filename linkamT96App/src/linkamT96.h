@@ -20,6 +20,7 @@
 #define P_StageSerialString   "LINKAM_STAGE_SERIAL"
 #define P_FirmVerString       "LINKAM_FIRM_VERSION"
 #define P_HardVerString       "LINKAM_HARD_VERSION"
+#define P_CtrllrErrorString   "LINKAM_CTRLLR_ERROR"
 #define P_CtrlConfigString    "LINKAM_CONFIG"
 #define P_CtrlStatusString    "LINKAM_STATUS"
 #define P_StageConfigString   "LINKAM_STAGE_CONFIG"
@@ -52,6 +53,7 @@ protected:
 	int P_StageSerial;
 	int P_FirmVer;
 	int P_HardVer;
+	int P_CtrllrError;
 	int P_CtrlConfig;
 	int P_CtrlStatus;
 	int P_StageConfig;
