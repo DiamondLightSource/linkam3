@@ -125,7 +125,7 @@ record(ai, "$(P):STAGE:CONFIG") {
 
 record(ai, "$(P):TEMP")
 {
-	field(SCAN, "0.1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TEMP")
 	field(EGU,  "C")
@@ -143,7 +143,7 @@ record(bo, "$(P):DISABLE") {
 
 record(ai, "$(P):DSC")
 {
-	field(SCAN, "0.1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_DSC")
 	field(SDIS, "$(P):DISABLE")
@@ -168,12 +168,13 @@ record(ao, "$(P):RAMPRATE:SET")
 
 record(ai, "$(P):RAMPRATE")
 {
-	field(SCAN, "0.1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_RAMPRATE")
 	field(EGU,  "C/min")
 	field(SDIS, "$(P):DISABLE")
 }
+
 
 record(ao, "$(P):HOLDTIME:SET")
 {
@@ -185,7 +186,7 @@ record(ao, "$(P):HOLDTIME:SET")
 
 record(ai, "$(P):HOLDTIME")
 {
-	field(SCAN, "0.1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_HOLD_TIME_LEFT")
 	field(EGU,  "sec")
@@ -202,7 +203,7 @@ record(ao, "$(P):SETPOINT:SET")
 
 record(ai, "$(P):SETPOINT")
 {
-	field(SCAN, "0.1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SETPOINT")
 	field(EGU,  "C")
@@ -211,7 +212,7 @@ record(ai, "$(P):SETPOINT")
 
 record(ai, "$(P):POWER")
 {
-	field(SCAN, "0.1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_POWER")
 	field(EGU,  "%")
@@ -220,7 +221,7 @@ record(ai, "$(P):POWER")
 
 record(ai, "$(P):LNP_SPEED")
 {
-	field(SCAN, "0.1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_LNP_SPEED")
 	field(EGU,  "%")
