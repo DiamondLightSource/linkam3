@@ -2,7 +2,7 @@
 # % macro, PORT, Asyn PORT 
 # % macro, ADDR, Asyn ADDR
 # % macro, TIMEOUT, Asyn TIMEOUT
-# % gui, $(name=), edm, linkam.edl, P=$(P)
+# % gui, $(name=), edm, linkam3.edl, P=$(P)
 
 record(seq, "$(P):INIT")
 {
