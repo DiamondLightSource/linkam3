@@ -11,18 +11,19 @@ class LinkamT96(Device):
     LibFileList = ['linkamT96']
     DbdFileList = ['linkamT96Support']
 
-    def __init__(self, name, P, serial='/dev/ttyUSB0'):
+    def __init__(self, name, P, serial='/dev/ttyUSB0', logpath="/dev/null"):
         self.__dict__.update(locals())
-	self.template = _LinkamT96Pars(PORT='{}_AP'.format(P), P=P, ADDR=0, TIMEOUT=1, name=name)
+        self.template = _LinkamT96Pars(PORT='{}_AP'.format(P), P=P, ADDR=0, TIMEOUT=1, name=name)
         self.__super.__init__()
 
     ArgInfo = makeArgInfo(__init__,
                           name=Simple("GUI name", str),
                           P=Simple("Device Prefix", str),
-                          serial=Simple("Serial Device", str)
+                          serial=Simple("Serial Device", str),
+                          logpath=Simple("Log file path for the Linkam SDK", str)
                           )
 
     def Initialise(self):
         print('# Linkam 3.0 connect')
-        print('linkamConnect "{P}_AP", "{serial}"'.format(**self.__dict__))
+        print('linkamConnect "{P}_AP", "{serial}", "{logpath}"'.format(**self.__dict__))
 

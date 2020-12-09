@@ -454,8 +454,9 @@ static void linkamStatus_CallFunc(const iocshArgBuf *args)
  */
 static const iocshArg linkamConnect_Arg0 = { "asynPort", iocshArgString };
 static const iocshArg linkamConnect_Arg1 = { "serialPort", iocshArgString };
-static const iocshArg * const linkamConnect_Args[] = { &linkamConnect_Arg0, &linkamConnect_Arg1 };
-static const iocshFuncDef linkamConnect_FuncDef = { "linkamConnect", 2, linkamConnect_Args };
+static const iocshArg linkamConnect_Arg2 = { "logpath", iocshArgString };
+static const iocshArg * const linkamConnect_Args[] = { &linkamConnect_Arg0, &linkamConnect_Arg1, &linkamConnect_Arg2 };
+static const iocshFuncDef linkamConnect_FuncDef = { "linkamConnect", 3, linkamConnect_Args };
 
 static void linkamConnect_CallFunc(const iocshArgBuf *args)
 {
@@ -464,11 +465,13 @@ static void linkamConnect_CallFunc(const iocshArgBuf *args)
 	LinkamSDK::Variant param2;
 	LinkamSDK::Variant result;
 
-  //printf("Disable logging\n");
-  //linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_DisableLogging, 0, &result, param1, param2);
+	const char *logpath = args[2].sval;
 
-  printf("Initialising SDK\n");
-	if (linkamInitialiseSDK("/tmp/linkam.log", "/dls_sw/work/R3.14.12.7/support/linkam3/linkamT96App/src/Linkam.lsk", false))
+	if (!strcmp(logpath, "/dev/null")) {
+		linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_DisableLogging, 0, &result, param1, param2);
+	}
+	printf("Initialising SDK\n");
+	if (linkamInitialiseSDK(logpath, "/dls_sw/work/R3.14.12.7/support/linkam3/linkamT96App/src/Linkam.lsk", false))
 		printf("LinkamT96: linkamInitialiseSDK successful\n");
 	else
 		printf("LinkamT96: ERROR @ linkamInitialiseSDK\n");
