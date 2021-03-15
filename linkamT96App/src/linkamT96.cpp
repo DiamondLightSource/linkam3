@@ -479,27 +479,41 @@ static void linkamConnect_CallFunc(const iocshArgBuf *args)
 	char version[256];
 	linkamGetVersion(version, 256);
 	printf("Linkam SDK version: %s\n", version);
+	if (strlen(args[1].sval) == 0) {
+		linkamInitialiseUSBCommsInfo(&info, NULL);
+	} else {
+		linkamInitialiseSerialCommsInfo(&info, args[1].sval);
 
-	linkamInitialiseSerialCommsInfo(&info, args[1].sval);
+		LinkamSDK::SerialCommsInfo* serial = reinterpret_cast<LinkamSDK::SerialCommsInfo*>(info.info);
+		serial->baudrate = 115200;
+		serial->bytesize = (LinkamSDK::ByteSize) 8;
+		serial->flowcontrol = (LinkamSDK::FlowControl) 0;
+		serial->parity = (LinkamSDK::Parity) 0;
+		serial->stopbits = (LinkamSDK::Stopbits) 1;
+	}
 
-	LinkamSDK::SerialCommsInfo* serial = reinterpret_cast<LinkamSDK::SerialCommsInfo*>(info.info);
-	serial->baudrate = 115200;
-	serial->bytesize = (LinkamSDK::ByteSize) 8;
-	serial->flowcontrol = (LinkamSDK::FlowControl) 0;
-	serial->parity = (LinkamSDK::Parity) 0;
-	serial->stopbits = (LinkamSDK::Stopbits) 1;
+	param1.vPtr = &info;
+	param2.vPtr = &handle;
 
-  param1.vPtr = &info;
-  param2.vPtr = &handle;
+	linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_OpenComms, 0, &result, param1, param2);
 
-  linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_OpenComms, 0, &result, param1, param2);
-
-  if (result.vConnectionStatus.flags.connected) {
-  	printf("LinkamT96: We got a connection to the Serial device!\n");
-  } else {
-    printf( "Error openning connection:\n\nstatus.connected = %d\nstatus.flags.errorAllocationFailed = %d\nstatus.flags.errorAlreadyOpen = %d\nstatus.flags.errorCommsStreams = %d\nstatus.flags.errorHandleRegistrationFailed = %d\nstatus.flags.errorMultipleDevicesFound = %d\nstatus.flags.errorNoDeviceFound = %d\nstatus.flags.errorPortConfig = %d\nstatus.flags.errorPropertiesIncorrect = %d\nstatus.flags.errorSerialNumberRequired = %d\nstatus.flags.errorTimeout = %d\nstatus.flags.errorUnhandled = %d\n\n", result.vConnectionStatus.flags.connected, result.vConnectionStatus.flags.errorAllocationFailed, result.vConnectionStatus.flags.errorAlreadyOpen, result.vConnectionStatus.flags.errorCommsStreams, result.vConnectionStatus.flags.errorHandleRegistrationFailed, result.vConnectionStatus.flags.errorMultipleDevicesFound, result.vConnectionStatus.flags.errorNoDeviceFound, result.vConnectionStatus.flags.errorPortConfig, result.vConnectionStatus.flags.errorPropertiesIncorrect, result.vConnectionStatus.flags.errorSerialNumberRequired, result.vConnectionStatus.flags.errorTimeout, result.vConnectionStatus.flags.errorUnhandled);
-  }
-
+	if (result.vConnectionStatus.flags.connected) {
+		printf("LinkamT96: We got a connection to the device!\n");
+	} else {
+		printf( "Error openning connection:\n\nstatus.connected = %d\nstatus.flags.errorAllocationFailed = %d\n"
+		        "status.flags.errorAlreadyOpen = %d\nstatus.flags.errorCommsStreams = %d\n"
+				"status.flags.errorHandleRegistrationFailed = %d\nstatus.flags.errorMultipleDevicesFound = %d\n"
+				"status.flags.errorNoDeviceFound = %d\nstatus.flags.errorPortConfig = %d\n"
+				"status.flags.errorPropertiesIncorrect = %d\nstatus.flags.errorSerialNumberRequired = %d\n"
+				"status.flags.errorTimeout = %d\nstatus.flags.errorUnhandled = %d\n\n",
+				result.vConnectionStatus.flags.connected, result.vConnectionStatus.flags.errorAllocationFailed,
+				result.vConnectionStatus.flags.errorAlreadyOpen, result.vConnectionStatus.flags.errorCommsStreams,
+				result.vConnectionStatus.flags.errorHandleRegistrationFailed,
+				result.vConnectionStatus.flags.errorMultipleDevicesFound,
+				result.vConnectionStatus.flags.errorNoDeviceFound, result.vConnectionStatus.flags.errorPortConfig,
+				result.vConnectionStatus.flags.errorPropertiesIncorrect, result.vConnectionStatus.flags.errorSerialNumberRequired,
+				result.vConnectionStatus.flags.errorTimeout, result.vConnectionStatus.flags.errorUnhandled);
+	}
 	new linkamPortDriver(args[0].sval);
 }
 
