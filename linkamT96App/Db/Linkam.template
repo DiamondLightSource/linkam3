@@ -1,8 +1,17 @@
+#==============================================================================
+# Linkam template
+#
+# MACROS
 # % macro, P, PV Prefix for Linkam temp. controller
 # % macro, PORT, Asyn PORT 
 # % macro, ADDR, Asyn ADDR
 # % macro, TIMEOUT, Asyn TIMEOUT
+#
+# GUI
 # % gui, $(name=), edm, linkam3.edl, P=$(P)
+include "Linkam_detail.template"
+#
+#==============================================================================
 
 record(seq, "$(P):INIT")
 {
@@ -140,6 +149,7 @@ record(ai, "$(P):TEMP")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TEMP")
 	field(EGU,  "C")
+	field(PREC, "2")
 	field(SDIS, "$(P):DISABLE")
 }
 
@@ -218,6 +228,7 @@ record(ao, "$(P):SETPOINT:SET")
 	field(DTYP, "asynFloat64")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SETPOINT_SET")
 	field(EGU,  "C")
+	field(PREC, "2")
 	field(SDIS, "$(P):DISABLE")
 }
 
@@ -227,6 +238,7 @@ record(ai, "$(P):SETPOINT")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SETPOINT")
 	field(EGU,  "C")
+	field(PREC, "2")
 	field(SDIS, "$(P):DISABLE")
 }
 

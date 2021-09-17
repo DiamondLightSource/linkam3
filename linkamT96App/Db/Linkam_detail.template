@@ -1,0 +1,44 @@
+#==============================================================================
+# Linkam CSS screens
+#
+#==============================================================================
+
+## Embeddable and detail screens
+# % gui, $(name), boydetail, linkamT96App_opi/linkamT96_detail.opi,    P=$(P), DESC=Linkam T96
+# % gui, $(name), boyembed,  linkamT96App_opi/linkamT96_embed.opi,     P=$(P), DESC=Linkam T96
+# % gui, $(name), boyembed,  linkamT96App_opi/linkamT96_embed_box.opi, P=$(P), DESC=Linkam T96
+
+## Device info
+
+# % gui, $(name), groupHeading, Device info
+# % gui, $(name), readback,     Model,              $(P):MODEL
+# % gui, $(name), readback,     Serial,             $(P):SERIAL
+# % gui, $(name), readback,     Stage model,        $(P):STAGE:MODEL
+# % gui, $(name), readback,     Stage serial,       $(P):STAGE:SERIAL
+# % gui, $(name), readback,     Firmware version,   $(P):FIRM:VER
+# % gui, $(name), readback,     Hardware version,   $(P):HARD:VER
+# % gui, $(name), groupExit,    Device infoExit
+
+## Device control
+
+# % gui, $(name), groupHeading, Control
+# % gui, $(name), enum,         Communication,      $(P):DISABLE
+# % gui, $(name), enum,         Start,              $(P):STARTHEAT
+# % gui, $(name), demand,       Setpoint,           $(P):SETPOINT:SET
+# % gui, $(name), readback,     Setpoint,           $(P):SETPOINT
+# % gui, $(name), readback,     Temperature,        $(P):TEMP
+# % gui, $(name), readback,     Heater power,       $(P):POWER
+# % gui, $(name), demand,       Ramp rate,          $(P):RAMPRATE:SET
+# % gui, $(name), readback,     Ramp rate,          $(P):RAMPRATE
+# % gui, $(name), readback,     Estimated ramp time,$(P):RAMPTIME
+# % gui, $(name), enum,         Pump mode,          $(P):LNP_MODE:SET
+# % gui, $(name), demand,       Pump speed,         $(P):LNP_SPEED:SET
+# % gui, $(name), readback,     Pump speed,         $(P):LNP_SPEED
+# % gui, $(name), groupExit,    ControlExit
+
+## Device status
+
+# % gui, $(name), statusbits,   Device status,      $(P):STATUS, Error, At setpoint, Heater, Pump, Pump auto
+# % gui, $(name), readback,     Error message,      $(P):CTRLLR:ERR
+# % gui, $(name), statusbits,   Config,             $(P):CONFIG, DSC, LNP
+# % gui, $(name), statusbits,   Stage config,       $(P):STAGE:CONFIG, Standard, DSC, Manual, Auto
