@@ -17,7 +17,6 @@ static const char *driverName = "linkamT96Driver";
 linkamPortDriver::linkamPortDriver(const char *portName)
 	: asynPortDriver(portName,
 			 1, /* maxAddr */
-			 NUM_LINKAM_PARAMS,
 			 asynFloat64Mask | asynInt32Mask | asynOctetMask | asynDrvUserMask, /* Interface mask */
 			 asynFloat64Mask | asynInt32Mask | asynOctetMask, /* Interrupt mask */
 			 0, /* asynFlags */
