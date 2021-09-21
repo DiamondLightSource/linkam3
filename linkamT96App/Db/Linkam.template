@@ -109,16 +109,16 @@ record(waveform, "$(P):HARD:VER")
 	field(SDIS, "$(P):DISABLE")
 }
 
-record(waveform, "$(P):CTRLLR:ERR")
-{
-	field(SCAN, "1 second")
-	field(DTYP, "asynOctetRead")
-	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_CTRLLR_ERROR")
-	field(FTVL, "CHAR")
-	field(NELM, "256")
-	field(PINI, "NO")
-	field(SDIS, "$(P):DISABLE")
-}
+#record(waveform, "$(P):CTRLLR:ERR")
+#{
+#	field(SCAN, "1 second")
+#	field(DTYP, "asynOctetRead")
+#	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_CTRLLR_ERROR")
+#	field(FTVL, "CHAR")
+#	field(NELM, "256")
+#	field(PINI, "NO")
+#	field(SDIS, "$(P):DISABLE")
+#}
 
 record(ai, "$(P):CONFIG") {
 	field(SCAN, "2 second")
@@ -259,6 +259,7 @@ record(ai, "$(P):LNP_SPEED")
 	field(EGU,  "%")
 	field(SDIS, "$(P):DISABLE")
 }
+
 record(bo, "$(P):LNP_MODE:SET") {
 	field(DTYP, "asynInt32")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_LNP_MODE_SET")

@@ -80,7 +80,7 @@
     <row_0_row_height>109</row_0_row_height>
     <row_0_row_tooltip />
     <row_0_row_mode>1</row_0_row_mode>
-    <row_count>25</row_count>
+    <row_count>26</row_count>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -916,6 +916,94 @@
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
       <border_alarm_sensitive>false</border_alarm_sensitive>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
+        <widget_type>Text Input</widget_type>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <show_units>false</show_units>
+        <horizontal_alignment>1</horizontal_alignment>
+        <font>
+          <opifont.name fontName="Arial" height="11" style="0">Default</opifont.name>
+        </font>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="192" />
+        </foreground_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <height>25</height>
+        <rules>
+          <rule name="WaveformString" out_exp="false" prop_id="format_type">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):HOLDTIME:SET.RTYP</pv>
+          </rule>
+        </rules>
+        <width>100</width>
+        <x>0</x>
+        <y>1</y>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <name>auto(demand|Hold time)</name>
+        <pv_name>$(P):HOLDTIME:SET</pv_name>
+      </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <widget_type>Text Update</widget_type>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <horizontal_alignment>1</horizontal_alignment>
+        <font>
+          <opifont.name fontName="Arial" height="11" style="1">Default Bold</opifont.name>
+        </font>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <height>25</height>
+        <wrap_words>true</wrap_words>
+        <rules>
+          <rule name="WaveformString" out_exp="false" prop_id="format_type">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):HOLDTIME.RTYP</pv>
+          </rule>
+        </rules>
+        <width>100</width>
+        <x>100</x>
+        <y>1</y>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <name>auto(readback|Hold time)</name>
+        <pv_name>$(P):HOLDTIME</pv_name>
+      </widget>
+      <height>28</height>
+    </widget>
+    <row_16_row_name>Hold time</row_16_row_name>
+    <row_16_row_height>28</row_16_row_height>
+    <row_16_row_tooltip>Hold time</row_16_row_tooltip>
+    <row_16_row_mode>0</row_16_row_mode>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <widget_type>Grouping Container</widget_type>
+      <font>
+        <opifont.name fontName="Arial" height="11" style="0">Default</opifont.name>
+      </font>
+      <background_color>
+        <color name="Canvas" red="200" green="200" blue="200" />
+      </background_color>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
       <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
         <widget_type>Menu Button</widget_type>
         <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
@@ -944,10 +1032,10 @@
       </widget>
       <height>28</height>
     </widget>
-    <row_16_row_name>Pump mode</row_16_row_name>
-    <row_16_row_height>28</row_16_row_height>
-    <row_16_row_tooltip>Pump mode</row_16_row_tooltip>
-    <row_16_row_mode>0</row_16_row_mode>
+    <row_17_row_name>Pump mode</row_17_row_name>
+    <row_17_row_height>28</row_17_row_height>
+    <row_17_row_tooltip>Pump mode</row_17_row_tooltip>
+    <row_17_row_mode>0</row_17_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1032,10 +1120,10 @@
       </widget>
       <height>28</height>
     </widget>
-    <row_17_row_name>Pump speed</row_17_row_name>
-    <row_17_row_height>28</row_17_row_height>
-    <row_17_row_tooltip>Pump speed</row_17_row_tooltip>
-    <row_17_row_mode>0</row_17_row_mode>
+    <row_18_row_name>Pump speed</row_18_row_name>
+    <row_18_row_height>28</row_18_row_height>
+    <row_18_row_tooltip>Pump speed</row_18_row_tooltip>
+    <row_18_row_mode>0</row_18_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1081,10 +1169,10 @@
       </widget>
       <height>28</height>
     </widget>
-    <row_18_row_name>Device status</row_18_row_name>
-    <row_18_row_height>28</row_18_row_height>
-    <row_18_row_tooltip>Device status</row_18_row_tooltip>
-    <row_18_row_mode>3</row_18_row_mode>
+    <row_19_row_name>Device status</row_19_row_name>
+    <row_19_row_height>28</row_19_row_height>
+    <row_19_row_tooltip>Device status</row_19_row_tooltip>
+    <row_19_row_mode>3</row_19_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1137,10 +1225,10 @@
       </widget>
       <height>113</height>
     </widget>
-    <row_19_row_name>Device status</row_19_row_name>
-    <row_19_row_height>113</row_19_row_height>
-    <row_19_row_tooltip>Error, At setpoint, Heater, Pump, Pump auto</row_19_row_tooltip>
-    <row_19_row_mode>0</row_19_row_mode>
+    <row_20_row_name>Device status</row_20_row_name>
+    <row_20_row_height>113</row_20_row_height>
+    <row_20_row_tooltip>Error, At setpoint, Heater, Pump, Pump auto</row_20_row_tooltip>
+    <row_20_row_mode>0</row_20_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1190,10 +1278,10 @@
       </widget>
       <height>28</height>
     </widget>
-    <row_20_row_name>Error message</row_20_row_name>
-    <row_20_row_height>28</row_20_row_height>
-    <row_20_row_tooltip>Error message</row_20_row_tooltip>
-    <row_20_row_mode>3</row_20_row_mode>
+    <row_21_row_name>Error message</row_21_row_name>
+    <row_21_row_height>28</row_21_row_height>
+    <row_21_row_tooltip>Error message</row_21_row_tooltip>
+    <row_21_row_mode>3</row_21_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1239,10 +1327,10 @@
       </widget>
       <height>28</height>
     </widget>
-    <row_21_row_name>Config</row_21_row_name>
-    <row_21_row_height>28</row_21_row_height>
-    <row_21_row_tooltip>Config</row_21_row_tooltip>
-    <row_21_row_mode>3</row_21_row_mode>
+    <row_22_row_name>Config</row_22_row_name>
+    <row_22_row_height>28</row_22_row_height>
+    <row_22_row_tooltip>Config</row_22_row_tooltip>
+    <row_22_row_mode>3</row_22_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1292,10 +1380,10 @@
       </widget>
       <height>53</height>
     </widget>
-    <row_22_row_name>Config</row_22_row_name>
-    <row_22_row_height>53</row_22_row_height>
-    <row_22_row_tooltip>DSC, LNP</row_22_row_tooltip>
-    <row_22_row_mode>0</row_22_row_mode>
+    <row_23_row_name>Config</row_23_row_name>
+    <row_23_row_height>53</row_23_row_height>
+    <row_23_row_tooltip>DSC, LNP</row_23_row_tooltip>
+    <row_23_row_mode>0</row_23_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1341,10 +1429,10 @@
       </widget>
       <height>28</height>
     </widget>
-    <row_23_row_name>Stage config</row_23_row_name>
-    <row_23_row_height>28</row_23_row_height>
-    <row_23_row_tooltip>Stage config</row_23_row_tooltip>
-    <row_23_row_mode>3</row_23_row_mode>
+    <row_24_row_name>Stage config</row_24_row_name>
+    <row_24_row_height>28</row_24_row_height>
+    <row_24_row_tooltip>Stage config</row_24_row_tooltip>
+    <row_24_row_mode>3</row_24_row_mode>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <widget_type>Grouping Container</widget_type>
       <font>
@@ -1396,10 +1484,10 @@
       </widget>
       <height>93</height>
     </widget>
-    <row_24_row_name>Stage config</row_24_row_name>
-    <row_24_row_height>93</row_24_row_height>
-    <row_24_row_tooltip>Standard, DSC, Manual, Auto</row_24_row_tooltip>
-    <row_24_row_mode>0</row_24_row_mode>
-    <height>981</height>
+    <row_25_row_name>Stage config</row_25_row_name>
+    <row_25_row_height>93</row_25_row_height>
+    <row_25_row_tooltip>Standard, DSC, Manual, Auto</row_25_row_tooltip>
+    <row_25_row_mode>0</row_25_row_mode>
+    <height>1010</height>
   </widget>
 </display>

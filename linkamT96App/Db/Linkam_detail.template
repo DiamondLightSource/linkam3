@@ -31,6 +31,8 @@
 # % gui, $(name), demand,       Ramp rate,          $(P):RAMPRATE:SET
 # % gui, $(name), readback,     Ramp rate,          $(P):RAMPRATE
 # % gui, $(name), readback,     Estimated ramp time,$(P):RAMPTIME
+# % gui, $(name), demand,       Hold time,          $(P):HOLDTIME:SET
+# % gui, $(name), readback,     Hold time,          $(P):HOLDTIME
 # % gui, $(name), enum,         Pump mode,          $(P):LNP_MODE:SET
 # % gui, $(name), demand,       Pump speed,         $(P):LNP_SPEED:SET
 # % gui, $(name), readback,     Pump speed,         $(P):LNP_SPEED
