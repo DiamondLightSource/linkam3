@@ -296,6 +296,7 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 	int function = pasynUser->reason;
 	const char *functionName = "readInt32";
 	asynStatus status = asynSuccess;
+	int errorcode;
 
 	if (function == P_CtrlConfig) {
 		if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerConfig, handle, &result)) {
@@ -353,8 +354,9 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 				 result.vControllerStatus.flags.cssLidOn                      << 10 |
 				 result.vControllerStatus.flags.cssRefLimit                   << 11 |
 				 result.vControllerStatus.flags.cssZeroLimit                  << 12;*/
-      if (result.vControllerStatus.flags.controllerError){
-        printf("Controller Error: %i\n", linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result));
+      if (result.vControllerStatus.flags.controllerError) {
+        errorcode = linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result);
+        printf("Controller Error %i: %s\n", errorcode, LinkamSDK::ControllerErrorStrings[errorcode]);
       }
 		} else {
 			status = asynError;
