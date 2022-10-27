@@ -36,6 +36,8 @@
 # % gui, $(name), enum,         Pump mode,          $(P):LNP_MODE:SET
 # % gui, $(name), demand,       Pump speed,         $(P):LNP_SPEED:SET
 # % gui, $(name), readback,     Pump speed,         $(P):LNP_SPEED
+# % gui, $(name), readback,     Vacuum Chamber,     $(P):VAC_CHAMBER
+# % gui, $(name), readback,     Vacuum sensor,      $(P):VAC_DATA1
 # % gui, $(name), groupExit,    ControlExit
 
 ## Device status

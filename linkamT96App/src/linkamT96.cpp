@@ -49,6 +49,8 @@ linkamPortDriver::linkamPortDriver(const char *portName)
 	createParam(P_CtrlConfigString,  asynParamInt32,   &P_CtrlConfig);
 	createParam(P_CtrlStatusString,  asynParamInt32,   &P_CtrlStatus);
 	createParam(P_StageConfigString, asynParamInt32,   &P_StageConfig);
+	createParam(P_VacuumChamberString, asynParamFloat64, &P_VacuumChamber);
+	createParam(P_VacuumData1String, asynParamFloat64, &P_VacuumData1);
 }
 
 asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *value)
@@ -78,7 +80,11 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 		param1.vStageValueType = LinkamSDK::eStageValueTypeDsc;
 	} else if (function == P_HoldTimeLeft) {
     param1.vStageValueType = LinkamSDK::eStageValueTypeRampHoldRemaining;
-	} 
+	} else if (function == P_VacuumChamber) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuum;
+	} else if (function == P_VacuumData1) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuumOptionBoardSensor1Data;
+	}
 
 	if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2))
 		*value = result.vFloat32;

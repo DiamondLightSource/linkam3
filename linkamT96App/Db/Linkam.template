@@ -290,3 +290,22 @@ record(ao, "$(P):LNP_SPEED:SET")
 	field(SDIS, "$(P):DISABLE")
 }
 
+record(ai, "$(P):VAC_CHAMBER")
+{
+	field(DESC, "Vacuum gauge chamber")
+	field(SCAN, "1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VAC_CHAMBER")
+	field(EGU,  "mbar")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):VAC_DATA1")
+{
+	field(DESC, "Vacuum gauge Data1")
+	field(SCAN, "1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VAC_DATA1")
+	field(EGU,  "mbar")
+	field(SDIS, "$(P):DISABLE")
+}

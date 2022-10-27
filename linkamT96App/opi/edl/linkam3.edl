@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 2412
-y 415
+x 495
+y 169
 w 620
-h 510
+h 558
 font "arial-bold-r-14.0"
 ctlFont "arial-bold-r-14.0"
 btnFont "arial-bold-r-14.0"
@@ -46,7 +46,7 @@ minor 8
 release 0
 # Geometry
 x 6
-y 275
+y 327
 w 457
 h 227
 # Appearance
@@ -258,7 +258,7 @@ major 4
 minor 1
 release 0
 x 517
-y 470
+y 520
 w 90
 h 30
 fgColor index 46
@@ -1276,5 +1276,132 @@ endObjectProperties
 
 endGroup
 
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 8
+y 278
+w 453
+h 40
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 273
+w 60
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 5
+value {
+  "Vacuum"
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 145
+y 293
+w 70
+h 20
+controlPv "$(P):VAC_CHAMBER"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+limitsFromDb
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 10
+y 296
+w 130
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Chamber Vacuum"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 260
+y 295
+w 116
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Sensor Vacuum"
+}
+autoSize
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 380
+y 292
+w 70
+h 20
+controlPv "$(P):VAC_DATA1"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+limitsFromDb
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
 endObjectProperties
 
