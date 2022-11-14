@@ -4,7 +4,7 @@ major 4
 minor 0
 release 1
 x 495
-y 169
+y 243
 w 620
 h 558
 font "arial-bold-r-14.0"
@@ -783,7 +783,6 @@ precision 2
 fgColor index 25
 fgAlarm
 bgColor index 3
-fill
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -850,9 +849,9 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 198
+x 200
 y 126
-w 70
+w 100
 h 20
 controlPv "$(P):RAMPRATE"
 font "arial-bold-r-14.0"
@@ -868,88 +867,6 @@ showUnits
 newPos
 objType "monitors"
 noExecuteClipMask
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 14
-y 240
-w 254
-h 23
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 198
-y 242
-w 70
-h 20
-controlPv "$(P):LNP_SPEED"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 99
-y 240
-w 95
-h 23
-controlPv "$(P):LNP_SPEED:SET"
-precision 2
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 14
-y 243
-w 70
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Set Speed"
-}
-autoSize
-endObjectProperties
-
-endGroup
-
 endObjectProperties
 
 # (Group)
@@ -1009,88 +926,6 @@ endGroup
 
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 14
-y 185
-w 254
-h 23
-
-beginGroup
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 198
-y 187
-w 70
-h 20
-controlPv "$(P):SETPOINT"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 99
-y 185
-w 95
-h 23
-controlPv "$(P):SETPOINT:SET"
-precision 2
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 14
-y 188
-w 58
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Setpoint"
-}
-autoSize
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -1117,9 +952,9 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 198
+x 200
 y 148
-w 70
+w 100
 h 20
 controlPv "$(P):RAMPTIME"
 font "arial-bold-r-14.0"
@@ -1319,9 +1154,9 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 145
+x 120
 y 293
-w 70
+w 100
 h 20
 controlPv "$(P):VAC_CHAMBER"
 font "arial-bold-r-14.0"
@@ -1347,14 +1182,14 @@ minor 1
 release 1
 x 10
 y 296
-w 130
+w 98
 h 16
 font "arial-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Chamber Vacuum"
+  "Chamber Vac"
 }
 autoSize
 endObjectProperties
@@ -1367,14 +1202,14 @@ minor 1
 release 1
 x 260
 y 295
-w 116
+w 84
 h 16
 font "arial-bold-r-14.0"
 fgColor index 14
 bgColor index 3
 useDisplayBg
 value {
-  "Sensor Vacuum"
+  "Sensor Vac"
 }
 autoSize
 endObjectProperties
@@ -1385,9 +1220,9 @@ beginObjectProperties
 major 4
 minor 6
 release 0
-x 380
+x 350
 y 292
-w 70
+w 100
 h 20
 controlPv "$(P):VAC_DATA1"
 font "arial-bold-r-14.0"
@@ -1403,5 +1238,135 @@ showUnits
 newPos
 objType "monitors"
 noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 200
+y 187
+w 100
+h 20
+controlPv "$(P):SETPOINT"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+limitsFromDb
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 99
+y 185
+w 95
+h 23
+controlPv "$(P):SETPOINT:SET"
+precision 2
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 14
+y 188
+w 58
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Setpoint"
+}
+autoSize
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 200
+y 242
+w 100
+h 20
+controlPv "$(P):LNP_SPEED"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+limitsFromDb
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 99
+y 240
+w 95
+h 23
+controlPv "$(P):LNP_SPEED:SET"
+precision 2
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 14
+y 243
+w 70
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Set Speed"
+}
+autoSize
 endObjectProperties
 
