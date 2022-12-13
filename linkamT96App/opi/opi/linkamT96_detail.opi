@@ -15,7 +15,7 @@
     <color red="192" green="192" blue="192" />
   </foreground_color>
   <grid_space>5</grid_space>
-  <height>600</height>
+  <height>1200</height>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
@@ -28,7 +28,7 @@
   <show_ruler>true</show_ruler>
   <snap_to_geometry>true</snap_to_geometry>
   <widget_type>Display</widget_type>
-  <width>360</width>
+  <width>800</width>
   <wuid>2672cc5d:1847883d447:-7f9f</wuid>
   <x>-1</x>
   <y>-1</y>
@@ -62,14 +62,14 @@
     <font>
       <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
     </font>
-    <height>1010</height>
+    <height>2100</height>
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <name>Detail Panel</name>
     <pv_name></pv_name>
     <pv_value />
-    <row_0_row_height>404</row_0_row_height>
+    <row_0_row_height>429</row_0_row_height>
     <row_0_row_level>0</row_0_row_level>
     <row_0_row_mode>1</row_0_row_mode>
     <row_0_row_name></row_0_row_name>
@@ -1212,8 +1212,8 @@
     <row_count>28</row_count>
     <rules />
     <scale_options>
-      <width_scalable>false</width_scalable>
-      <height_scalable>false</height_scalable>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <scripts />
@@ -1243,7 +1243,7 @@
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>404</height>
+      <height>429</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -1261,7 +1261,7 @@
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>344</width>
+      <width>360</width>
       <wuid>2672cc5d:1847883d447:-7f9d</wuid>
       <x>0</x>
       <y>0</y>
@@ -1283,7 +1283,7 @@
           <color name="Text: FG" red="0" green="0" blue="0" />
         </foreground_color>
         <group_name></group_name>
-        <height>404</height>
+        <height>429</height>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <DESC>Linkam T96</DESC>
@@ -1343,10 +1343,10 @@
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f9b</wuid>
       <x>160</x>
-      <y>404</y>
+      <y>429</y>
       <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -1442,10 +1442,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f99</wuid>
       <x>160</x>
-      <y>432</y>
+      <y>457</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -1542,10 +1542,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f97</wuid>
       <x>160</x>
-      <y>460</y>
+      <y>485</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -1642,10 +1642,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f95</wuid>
       <x>160</x>
-      <y>488</y>
+      <y>513</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -1742,10 +1742,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f93</wuid>
       <x>160</x>
-      <y>516</y>
+      <y>541</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -1842,10 +1842,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f91</wuid>
       <x>160</x>
-      <y>544</y>
+      <y>569</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -1942,10 +1942,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f8f</wuid>
       <x>160</x>
-      <y>572</y>
+      <y>597</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2042,10 +2042,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f8d</wuid>
       <x>160</x>
-      <y>600</y>
+      <y>625</y>
       <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2123,7 +2123,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2141,10 +2141,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f8b</wuid>
       <x>160</x>
-      <y>628</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
         <actions_from_pv>true</actions_from_pv>
         <alarm_pulsing>false</alarm_pulsing>
@@ -2193,7 +2193,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="200" green="200" blue="200" />
+        <color red="205" green="205" blue="205" />
       </background_color>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -2208,7 +2208,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2226,10 +2226,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f89</wuid>
       <x>160</x>
-      <y>656</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
         <actions_from_pv>true</actions_from_pv>
         <alarm_pulsing>false</alarm_pulsing>
@@ -2293,7 +2293,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2311,10 +2311,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f87</wuid>
       <x>160</x>
-      <y>684</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2342,8 +2342,8 @@ $(pv_value)</tooltip>
         <height>25</height>
         <horizontal_alignment>1</horizontal_alignment>
         <limits_from_pv>false</limits_from_pv>
-        <maximum>Infinity</maximum>
-        <minimum>-Infinity</minimum>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
         <multiline_input>false</multiline_input>
         <name>auto(demand|Setpoint)</name>
         <precision>0</precision>
@@ -2442,7 +2442,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="200" green="200" blue="200" />
+        <color red="205" green="205" blue="205" />
       </background_color>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -2457,7 +2457,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2475,10 +2475,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f84</wuid>
       <x>160</x>
-      <y>712</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2557,7 +2557,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2575,10 +2575,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f82</wuid>
       <x>160</x>
-      <y>740</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2642,7 +2642,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="200" green="200" blue="200" />
+        <color red="205" green="205" blue="205" />
       </background_color>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -2657,7 +2657,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2675,10 +2675,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f80</wuid>
       <x>160</x>
-      <y>768</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2706,8 +2706,8 @@ $(pv_value)</tooltip>
         <height>25</height>
         <horizontal_alignment>1</horizontal_alignment>
         <limits_from_pv>false</limits_from_pv>
-        <maximum>Infinity</maximum>
-        <minimum>-Infinity</minimum>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
         <multiline_input>false</multiline_input>
         <name>auto(demand|Ramp rate)</name>
         <precision>0</precision>
@@ -2821,7 +2821,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2839,10 +2839,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f7d</wuid>
       <x>160</x>
-      <y>796</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2906,7 +2906,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="200" green="200" blue="200" />
+        <color red="205" green="205" blue="205" />
       </background_color>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -2921,7 +2921,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -2939,10 +2939,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f7b</wuid>
       <x>160</x>
-      <y>824</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -2970,8 +2970,8 @@ $(pv_value)</tooltip>
         <height>25</height>
         <horizontal_alignment>1</horizontal_alignment>
         <limits_from_pv>false</limits_from_pv>
-        <maximum>Infinity</maximum>
-        <minimum>-Infinity</minimum>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
         <multiline_input>false</multiline_input>
         <name>auto(demand|Hold time)</name>
         <precision>0</precision>
@@ -3085,7 +3085,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -3103,10 +3103,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f78</wuid>
       <x>160</x>
-      <y>852</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
         <actions_from_pv>true</actions_from_pv>
         <alarm_pulsing>false</alarm_pulsing>
@@ -3155,7 +3155,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="200" green="200" blue="200" />
+        <color red="205" green="205" blue="205" />
       </background_color>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -3170,7 +3170,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>28</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -3188,10 +3188,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f76</wuid>
       <x>160</x>
-      <y>880</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -3219,8 +3219,8 @@ $(pv_value)</tooltip>
         <height>25</height>
         <horizontal_alignment>1</horizontal_alignment>
         <limits_from_pv>false</limits_from_pv>
-        <maximum>Infinity</maximum>
-        <minimum>-Infinity</minimum>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
         <multiline_input>false</multiline_input>
         <name>auto(demand|Pump speed)</name>
         <precision>0</precision>
@@ -3352,10 +3352,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f73</wuid>
       <x>160</x>
-      <y>908</y>
+      <y>653</y>
       <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -3452,10 +3452,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f71</wuid>
       <x>160</x>
-      <y>936</y>
+      <y>681</y>
       <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -3558,10 +3558,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f6f</wuid>
       <x>160</x>
-      <y>936</y>
+      <y>681</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -3658,10 +3658,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f6d</wuid>
       <x>160</x>
-      <y>964</y>
+      <y>709</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -3758,10 +3758,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f6a</wuid>
       <x>160</x>
-      <y>992</y>
+      <y>737</y>
       <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -3858,10 +3858,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f67</wuid>
       <x>160</x>
-      <y>1020</y>
+      <y>765</y>
       <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -3940,7 +3940,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>53</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -3958,10 +3958,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f65</wuid>
       <x>160</x>
-      <y>1048</y>
+      <y>793</y>
       <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -4028,7 +4028,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="205" green="205" blue="205" />
+        <color red="200" green="200" blue="200" />
       </background_color>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -4061,10 +4061,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f63</wuid>
       <x>160</x>
-      <y>1101</y>
+      <y>793</y>
       <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
@@ -4128,7 +4128,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <actions hook="false" hook_all="false" />
       <background_color>
-        <color red="200" green="200" blue="200" />
+        <color red="205" green="205" blue="205" />
       </background_color>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -4143,7 +4143,7 @@ $(pv_value)</tooltip>
       <foreground_color>
         <color name="Text: FG" red="0" green="0" blue="0" />
       </foreground_color>
-      <height>93</height>
+      <height>1</height>
       <lock_children>false</lock_children>
       <macros>
         <include_parent_macros>true</include_parent_macros>
@@ -4161,10 +4161,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
-      <width>184</width>
+      <width>200</width>
       <wuid>2672cc5d:1847883d447:-7f61</wuid>
       <x>160</x>
-      <y>1129</y>
+      <y>821</y>
       <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>

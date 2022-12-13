@@ -15,7 +15,7 @@
     <color red="192" green="192" blue="192" />
   </foreground_color>
   <grid_space>5</grid_space>
-  <height>365</height>
+  <height>500</height>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
@@ -28,7 +28,7 @@
   <show_ruler>true</show_ruler>
   <snap_to_geometry>false</snap_to_geometry>
   <widget_type>Display</widget_type>
-  <width>325</width>
+  <width>326</width>
   <wuid>766db807:145d5b2af77:-7e28</wuid>
   <x>-1</x>
   <y>-1</y>
@@ -907,7 +907,7 @@ $(trace_0_y_pv_value)</tooltip>
     </foreground_color>
     <height>20</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>DSCLabel_1</name>
+    <name>ChamberVacLabel</name>
     <rules />
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -916,7 +916,7 @@ $(trace_0_y_pv_value)</tooltip>
     </scale_options>
     <scripts />
     <text>Chamber v.</text>
-    <tooltip></tooltip>
+    <tooltip>Chamber vacuum (if any)</tooltip>
     <transparent>false</transparent>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
@@ -955,7 +955,7 @@ $(trace_0_y_pv_value)</tooltip>
     <name>DSCReadback_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P):DSC</pv_name>
+    <pv_name>$(P):VAC_CHAMBER</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1000,7 +1000,7 @@ $(pv_value)</tooltip>
     </foreground_color>
     <height>20</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>PumpSpeedLabel_1</name>
+    <name>SensorVacuumLabel</name>
     <rules />
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -1009,7 +1009,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <text>Sensor v.</text>
-    <tooltip></tooltip>
+    <tooltip>Sensor vacuum (if any)</tooltip>
     <transparent>true</transparent>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
@@ -1048,7 +1048,7 @@ $(pv_value)</tooltip>
     <name>LNPSpeedReadback_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(P):LNP_SPEED</pv_name>
+    <pv_name>$(P):VAC_DATA1</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />

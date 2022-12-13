@@ -15,11 +15,11 @@
     <color red="192" green="192" blue="192" />
   </foreground_color>
   <grid_space>5</grid_space>
-  <height>105</height>
+  <height>500</height>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <name />
+  <name></name>
   <rules />
   <scripts />
   <show_close_button>true</show_close_button>
@@ -28,7 +28,7 @@
   <show_ruler>true</show_ruler>
   <snap_to_geometry>false</snap_to_geometry>
   <widget_type>Display</widget_type>
-  <width>361</width>
+  <width>500</width>
   <wuid>766db807:145d5b2af77:-7e28</wuid>
   <x>-1</x>
   <y>-1</y>
@@ -44,13 +44,13 @@
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Liberation Sans" height="15" pixels="true" style="0">Default</opifont.name>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
     </font>
     <foreground_color>
       <color name="Text: FG" red="0" green="0" blue="0" />
     </foreground_color>
-    <group_name />
-    <height>107</height>
+    <group_name></group_name>
+    <height>428</height>
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
@@ -67,7 +67,7 @@
     <tooltip></tooltip>
     <visible>true</visible>
     <widget_type>Linking Container</widget_type>
-    <width>363</width>
+    <width>362</width>
     <wuid>-304029b7:147582c1239:-7941</wuid>
     <x>0</x>
     <y>0</y>
