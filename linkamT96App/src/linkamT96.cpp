@@ -134,6 +134,9 @@ asynStatus linkamPortDriver::readOctet(asynUser *pasynUser, char *value, size_t 
 	  if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result)) {
 
       strcpy(value, LinkamSDK::ControllerErrorStrings[result.vControllerError]);
+		  setStringParam(function, value);
+		  
+		  *nActual = strlen(value) + 1;
 		  *eomReason = 0;
 
 	  } else {
