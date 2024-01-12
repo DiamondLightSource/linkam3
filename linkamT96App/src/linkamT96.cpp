@@ -51,6 +51,59 @@ linkamPortDriver::linkamPortDriver(const char *portName)
 	createParam(P_StageConfigString, asynParamInt32,   &P_StageConfig);
 	createParam(P_VacuumChamberString, asynParamFloat64, &P_VacuumChamber);
 	createParam(P_VacuumData1String, asynParamFloat64, &P_VacuumData1);
+
+	// Tensile stage parameters
+    createParam(P_TstMotorPosString, asynParamFloat64, &P_TstMotorPos);
+    createParam(P_ForceString, asynParamFloat64, &P_Force);
+    createParam(P_MaxForceString, asynParamFloat64, &P_MaxForce);
+    createParam(P_TstMtrVelSetString, asynParamFloat64, &P_TstMtrVelSet);
+    createParam(P_TstMtrVelString, asynParamFloat64, &P_TstMtrVel);
+    createParam(P_TstMtrDistSPSetString, asynParamFloat64, &P_TstMtrDistSPSet);
+    createParam(P_TstMtrDistSPString, asynParamFloat64, &P_TstMtrDistSP);
+    createParam(P_ForceSetpointSetString, asynParamFloat64, &P_ForceSetpointSet);
+    createParam(P_ForceSetpointString, asynParamFloat64, &P_ForceSetpoint);
+    createParam(P_ForceGaugeString, asynParamFloat64, &P_ForceGauge);
+    createParam(P_JawToJawSizeSetString, asynParamFloat64, &P_JawToJawSizeSet);
+    createParam(P_JawToJawSizeString, asynParamFloat64, &P_JawToJawSize);
+    createParam(P_TstTableDirSetString, asynParamInt32, &P_TstTableDirSet);
+    createParam(P_TstTableDirString, asynParamInt32, &P_TstTableDir);
+    createParam(P_SampleWidthSetString, asynParamFloat64, &P_SampleWidthSet);
+    createParam(P_SampleWidthString, asynParamFloat64, &P_SampleWidth);
+    createParam(P_SampleThicknessSetString, asynParamFloat64, &P_SampleThicknessSet);
+    createParam(P_SampleThicknessString, asynParamFloat64, &P_SampleThickness);
+    createParam(P_SampleSizeSetString, asynParamInt32, &P_SampleSizeSet);
+    createParam(P_SampleSizeString, asynParamInt32, &P_SampleSize);
+    createParam(P_StrainEguSetString, asynParamInt32, &P_StrainEguSet);
+    createParam(P_StrainEguString, asynParamInt32, &P_StrainEgu);
+    createParam(P_StrainPercentageSetString, asynParamInt32, &P_StrainPercentageSet);
+    createParam(P_StrainPercentageString, asynParamInt32, &P_StrainPercentage);
+    createParam(P_ShowForceAsDistSetString, asynParamInt32, &P_ShowForceAsDistSet);
+    createParam(P_ShowForceAsDistString, asynParamInt32, &P_ShowForceAsDist);
+    createParam(P_CalForceValSetString, asynParamFloat64, &P_CalForceValSet);
+    createParam(P_JawPositionString, asynParamFloat64, &P_JawPosition);
+    createParam(P_StrainString, asynParamFloat64, &P_Strain);
+    createParam(P_StressString, asynParamFloat64, &P_Stress);
+    createParam(P_TstTableModeSetString, asynParamInt32, &P_TstTableModeSet);
+    createParam(P_TstTableModeString, asynParamInt32, &P_TstTableMode);
+    createParam(P_TstDefaultMtrSpeedSetString, asynParamFloat64, &P_TstDefaultMtrSpeedSet);
+    createParam(P_TstDefaultMtrSpeedString, asynParamFloat64, &P_TstDefaultMtrSpeed);
+    createParam(P_TstGaugeCompliancySetString, asynParamInt32, &P_TstGaugeCompliancySet);
+    createParam(P_TstMaxJawPosSetString, asynParamFloat64, &P_TstMaxJawPosSet);
+    createParam(P_TstMaxJawPosString, asynParamFloat64, &P_TstMaxJawPos);
+    createParam(P_TstMinJawPosSetString, asynParamFloat64, &P_TstMinJawPosSet);
+    createParam(P_TstMinJawPosString, asynParamFloat64, &P_TstMinJawPos);
+    createParam(P_TstRawMotorPosString, asynParamFloat64, &P_TstRawMotorPos);
+    createParam(P_TstJawMonitorSetString, asynParamInt32, &P_TstJawMonitorSet);
+    createParam(P_TstJawMonitorString, asynParamInt32, &P_TstJawMonitor);
+    createParam(P_TstCycleCountLimSetString, asynParamInt32, &P_TstCycleCountLimSet);
+    createParam(P_TstCycleCountLimString, asynParamInt32, &P_TstCycleCountLim);
+    createParam(P_TstCyclesRemainingString, asynParamInt32, &P_TstCyclesRemaining);
+    createParam(P_TstStatusString, asynParamInt32, &P_TstStatus);
+    createParam(P_TstCalibDistanceString, asynParamInt32, &P_TstCalibDistance);
+    createParam(P_TstZeroDistanceString, asynParamInt32, &P_TstZeroDistance);
+    createParam(P_TstZeroForceString, asynParamInt32, &P_TstZeroForce);
+    createParam(P_TstStartMotorString, asynParamInt32, &P_TstStartMotor);
+
 }
 
 asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *value)
@@ -79,12 +132,40 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 	} else if (function == P_DSC) {
 		param1.vStageValueType = LinkamSDK::eStageValueTypeDsc;
 	} else if (function == P_HoldTimeLeft) {
-    param1.vStageValueType = LinkamSDK::eStageValueTypeRampHoldRemaining;
+    	param1.vStageValueType = LinkamSDK::eStageValueTypeRampHoldRemaining;
 	} else if (function == P_VacuumChamber) {
 		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuum;
 	} else if (function == P_VacuumData1) {
 		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuumOptionBoardSensor1Data;
-	}
+	} else if (function == P_TstMtrVel) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstMotorVel;
+    } else if (function == P_TstMotorPos) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstMotorPos;
+    } else if (function == P_Force) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstForce;
+    } else if (function == P_ForceSetpoint) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstForceSetpoint;
+    } else if (function == P_TstMaxJawPos){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstMaxExtentPosition;
+    } else if (function == P_TstMinJawPos){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstMinExtentPosition;
+    } else if (function == P_ForceGauge){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstForceGauge;
+    } else if (function == P_JawToJawSize){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstJawToJawSize;
+    } else if (function == P_JawPosition){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstJawPosition;
+    } else if (function == P_Strain){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstStrain;
+    } else if (function == P_Stress){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstStress;
+    } else if (function == P_TstDefaultMtrSpeed) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeMotorTstDefaultSpeed;
+    } else if (function == P_TstRawMotorPos) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstRawMotorPos;
+    } else if (function == P_TstMtrDistSP) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstMotorDistanceSetpoint;
+    }
 
 	if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2))
 		*value = result.vFloat32;
@@ -195,7 +276,22 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
         	param1.vStageValueType = LinkamSDK::eStageValueTypeHeaterSetpoint;
 	} else if (function == P_HoldTimeSet) {
         	param1.vStageValueType = LinkamSDK::eStageValueTypeRampHoldTime;
-	}
+	} else if (function == P_TstMtrVelSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstMotorVel;
+    } else if (function == P_JawToJawSizeSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstJawToJawSize;
+    } else if (function == P_TstMaxJawPosSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstMaxExtentPosition;
+    } else if (function == P_TstMinJawPosSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstMinExtentPosition;
+    } else if (function == P_TstDefaultMtrSpeedSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeMotorTstDefaultSpeed;
+    } else if (function == P_ForceSetpointSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstForceSetpoint;
+    } else if (function == P_TstMtrDistSPSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstMotorDistanceSetpoint;
+    }
+
 
 	param2.vFloat32 = value;
 	linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue, handle, &result, param1, param2);
@@ -280,7 +376,84 @@ asynStatus linkamPortDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
 				status = asynError;
 			}
 		}
-	}
+	} else if (function == P_TstTableModeSet) {
+        switch(value){
+            case 0:
+                param1.vTSTMode = LinkamSDK::eTSTMode_Velocity;
+                break;
+            case 1:
+                param1.vTSTMode = LinkamSDK::eTSTMode_Step;
+                break;
+            case 2:
+                param1.vTSTMode = LinkamSDK::eTSTMode_Cycle;
+                break;
+            case 3:
+                param1.vTSTMode = LinkamSDK::eTSTMode_Force;
+                break;
+            case 4:
+                param1.vTSTMode = LinkamSDK::eTSTMode_MotorRelax;
+                break;
+            case 5:
+                param1.vTSTMode = LinkamSDK::eTSTMode_Stop;
+                break;
+            default:
+                return asynError;
+        }
+        if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_TstSetMode, handle, &result, param1, param2)) status = asynError;
+    } else if (function == P_TstStartMotor) {
+        param1.vBoolean = true;
+        if(value == 0)
+            param1.vBoolean = false;
+        // StartMotors function takes 5 as TST motor
+        param2.vInt32 = 5;
+        if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartMotors, handle, &result, param1, param2)) status = asynError;
+    } else if (function == P_TstCalibDistance) {
+        if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_TstCalibrateDistance, handle, &result, param1, param2)) status = asynError;
+    } else if (function == P_TstZeroDistance) {
+        printf("Here\n");
+        if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_TstZeroPosition, handle, &result, param1, param2)) status = asynError;
+        else printf("Success!\n");
+        printf("%d\n", result.vInt32);
+    } else if (function == P_TstZeroForce) {
+        if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_TstZeroForce, handle, &result, param1, param2)) status = asynError;
+    } else if (function == P_SampleSizeSet){
+        printf("Here.\n");
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstSampleSize;
+        double sampleWidth, sampleThickness;
+        getDoubleParam(P_SampleWidthSet, &sampleWidth);
+        getDoubleParam(P_SampleThicknessSet, &sampleThickness);
+        LinkamSDK::TSTSampleSize sampleSize;
+        sampleSize.thickness = sampleThickness;
+        sampleSize.width = sampleWidth;
+        param1.vTSTSampleSize = sampleSize;
+        linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue, handle, &result, param1, param2);
+        //printf("Set Sample size is %lf, %lf\n", result.vTSTSampleSize.width, result.vTSTSampleSize.thickness);
+        callParamCallbacks();
+    }else {
+
+        bool toProcess = true;
+        if (function == P_ShowForceAsDistSet){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstShowAsForceDistance;
+        } else if (function == P_TstTableDirSet) {
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstTableDirection;
+        } else if (function == P_StrainPercentageSet) {
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstStrainPercentage;
+        } else if (function == P_TstJawMonitorSet) {
+            if (value == 1) param1.vStageValueType = LinkamSDK::eStageValueTypeTstEnableJawMonitor;
+            else param1.vStageValueType = LinkamSDK::eStageValueTypeTstDisableJawMonitor;
+        } else if (function == P_StrainEguSet) {
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstStrainEngineeringUnits;
+        }
+
+        else toProcess = false;
+
+        if (toProcess){
+            param2.vInt32 = value;
+            if (!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue, handle, &result, param1, param2)) {
+                status = asynError;
+            }
+        }
+    }
 
 	if (status)
 		epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,
@@ -399,6 +572,41 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 			status = asynError;
 		} 
 	} 
+    else if (function == P_SampleSize){
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstSampleSize;
+        linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2);
+        printf("Set Sample size is %lf, %lf\n", result.vTSTSampleSize.width, result.vTSTSampleSize.thickness);
+        setDoubleParam(P_SampleWidth, result.vTSTSampleSize.width);
+        setDoubleParam(P_SampleThickness, result.vTSTSampleSize.thickness);
+        callParamCallbacks();
+    }
+    else {
+        bool toProcess = true;
+        if (function == P_TstTableDir){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstTableDirection;
+        } else if (function == P_StrainEgu){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstStrainEngineeringUnits;
+        } else if (function == P_TstTableMode){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstTableMode;
+        } else if (function == P_StrainPercentage){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstStrainPercentage;
+        } else if (function == P_ShowForceAsDist){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstShowAsForceDistance;
+        } else if (function == P_TstJawMonitor){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstIsJawMonitorEnabled;
+        } else if (function == P_TstCycleCountLim){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstCycleCountLimit;
+        } else if (function == P_TstCyclesRemaining){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstCyclesRemaining;
+        } else if (function == P_TstStatus){
+            param1.vStageValueType = LinkamSDK::eStageValueTypeTstStatus;
+        } else toProcess = false;
+
+        if (toProcess) {
+            linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2);
+            *value = result.vInt32;
+        }
+    }
 
 	if (status)
 		epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,

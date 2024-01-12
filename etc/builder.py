@@ -6,6 +6,8 @@ from iocbuilder.modules.asyn import Asyn, AsynPort, AsynIP
 class _LinkamT96Pars(AutoSubstitution):
     TemplateFile = "Linkam.template"
 
+class _LinkamT96Tst(AutoSubstitution):
+    TemplateFile = "LinkamTensileStage.template"
 
 class LinkamT96(Device):
 
@@ -21,7 +23,8 @@ class LinkamT96(Device):
             virtual_port=False,
             ip_address=None,
             ip_port=None,
-            log_path="/dev/null"
+            log_path="/dev/null",
+            tensile=False
         ):
         # Call super class
         self.__super.__init__()
@@ -42,11 +45,21 @@ class LinkamT96(Device):
         self.virtual_port = virtual_port
         self.ip_address = ip_address
         self.ip_port = ip_port
+        self.tensile = tensile
 
         # If we are instantiating a virtual port, then include the dbd support
         # for invoking system commands so we can use socat
         if self.virtual_port and 'systemCommandSupport' not in LinkamT96.DbdFileList:
             LinkamT96.DbdFileList += ['systemCommandSupport']
+        
+        if self.tensile:
+            self.template = _LinkamT96Tst(
+                PORT='{}_AP'.format(P),
+                P=P,
+                ADDR=0,
+                TIMEOUT=1
+            )
+
 
     ArgInfo = makeArgInfo(
         __init__,
@@ -63,6 +76,7 @@ class LinkamT96(Device):
         ),
         ip_port=Simple("IP port for virtual port to connect to using socat", int),
         log_path=Simple("Log file path for the Linkam SDK", str),
+        tensile=Simple("Tensile stage present?", bool),
     )
 
     def Initialise(self):

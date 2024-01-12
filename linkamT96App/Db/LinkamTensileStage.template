@@ -1,0 +1,496 @@
+# MACROS
+# % macro, name,    Reference name for GUI objects
+# % macro, P,       PV Prefix for Linkam temp. controller
+# % macro, PORT,    Asyn PORT
+# % macro, ADDR,    Asyn ADDR
+# % macro, TIMEOUT, Asyn TIMEOUT
+
+record(ai, "$(P):TST_MOTOR_POS")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MOTOR_POS")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_FORCE")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_FORCE")
+	field(EGU,  "N")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_MAX_FORCE")
+{
+	field(PINI, "YES")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_MAX_FORCE")
+	field(EGU,  "N")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ao, "$(P):TST_MTR_VEL:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_VEL_SET")
+    field(VAL, 0)
+	field(EGU,  "um/s")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_MTR_VEL")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_VEL")
+	field(EGU,  "um/s")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ao, "$(P):TST_MTR_DIST_SP:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_DIST_SP_SET")
+    field(VAL, 0)
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_MTR_DIST_SP")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_DIST_SP")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+
+record(ao, "$(P):TST_FORCE_SETPOINT:SET")
+{
+	field(DTYP, "asynFloat64")
+    field(VAL, 0)
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_FORCE_SETPOINT_SET")
+	field(EGU,  "N")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_FORCE_SETPOINT")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_FORCE_SETPOINT")
+	field(EGU,  "N")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_FORCE_GAUGE")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_FORCE_GAUGE")
+	field(EGU,  "N")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ao, "$(P):TST_JAW_TO_JAW_SIZE:SET")
+{
+	field(DTYP, "asynFloat64")
+    field(VAL, 15000)
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_JAW_TO_JAW_SIZE_SET")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_JAW_TO_JAW_SIZE")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_JAW_TO_JAW_SIZE")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(bo, "$(P):TST_TABLE_DIR:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_TABLE_DIR_SET")
+    field(VAL, 0)
+	field(ZNAM, "Opening")
+	field(ONAM, "Closing")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bi, "$(P):TST_TABLE_DIR")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_TABLE_DIR")
+	field(ZNAM, "Opening")
+	field(ONAM, "Closing")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ao, "$(P):TST_SAMPLE_WIDTH:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SAMPLE_WIDTH_SET")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_SAMPLE_WIDTH")
+{
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SAMPLE_WIDTH")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ao, "$(P):TST_SAMPLE_THICKNESS:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SAMPLE_THICKNESS_SET")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_SAMPLE_THICKNESS")
+{
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SAMPLE_THICKNESS")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(bo, "$(P):TST_SAMPLE_SIZE:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SAMPLE_SIZE_SET")
+	field(ZNAM, "Idle")
+	field(ONAM, "Set")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bi, "$(P):TST_SAMPLE_SIZE")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SAMPLE_SIZE")
+	field(ZNAM, "Idle")
+	field(ONAM, "Set")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bo, "$(P):TST_STRAIN_EGU:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STRAIN_EGU_SET")
+    field(VAL, 1)
+	field(ZNAM, "True")
+	field(ONAM, "Engineering")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bi, "$(P):TST_STRAIN_EGU")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STRAIN_EGU")
+	field(ZNAM, "True")
+	field(ONAM, "Engineering")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bo, "$(P):TST_STRAIN_PERCENTAGE:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STRAIN_PERCENTAGE_SET")
+    field(VAL, 0)
+	field(ZNAM, "Not Set")
+	field(ONAM, "Set")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bi, "$(P):TST_STRAIN_PERCENTAGE")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STRAIN_PERCENTAGE")
+	field(ZNAM, "Not Set")
+	field(ONAM, "Set")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(bo, "$(P):TST_SHOW_FORCE_AS_DIST:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SHOW_FORCE_AS_DIST_SET")
+    field(VAL, 1)
+	field(ZNAM, "Force")
+	field(ONAM, "Distance")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bi, "$(P):TST_SHOW_FORCE_AS_DIST")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SHOW_FORCE_AS_DIST")
+	field(ZNAM, "Force")
+	field(ONAM, "Distance")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ao, "$(P):TST_CAL_FORCE_VAL:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_CAL_FORCE_VAL_SET")
+	field(EGU,  "N")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_JAW_POSITION")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_JAW_POSITION")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_STRAIN")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STRAIN")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ai, "$(P):TST_STRESS")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STRESS")
+	field(EGU,  "Nm-2")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(mbbo, "$(P):TST_TABLE_MODE:SET") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_TABLE_MODE_SET")
+    field(VAL, 4)
+    field(ZRST, "Velocity")
+    field(ZRVL, "0")
+    field(ONST, "Step")
+    field(ONVL, "1")
+    field(TWST, "Cycle")
+    field(TWVL, "2")
+    field(THST, "Force")
+    field(THVL, "3")
+    field(FRST, "Relax")
+    field(FRVL, "4")
+    field(FVST, "Stop")
+    field(FVVL, "5")
+    field(SDIS, "$(P):DISABLE")
+}
+
+
+record(mbbi, "$(P):TST_TABLE_MODE") {
+    field(SCAN, ".1 second")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_TABLE_MODE")
+    field(ZRST, "Velocity")
+    field(ZRVL, "0")
+    field(ONST, "Step")
+    field(ONVL, "1")
+    field(TWST, "Cycle")
+    field(TWVL, "2")
+    field(THST, "Force")
+    field(THVL, "3")
+    field(FRST, "Relax")
+    field(FRVL, "4")
+    field(FVST, "Stop")
+    field(FVVL, "5")
+    field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ao, "$(P):TST_DEFAULT_MTR_SPEED:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_DEFAULT_MTR_SPEED_SET")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_DEFAULT_MTR_SPEED")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_DEFAULT_MTR_SPEED")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(bo, "$(P):TST_GAUGE_COMPLIANCY:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_GAUGE_COMPLIANCY_SET")
+	field(ZNAM, "Disabled")
+	field(ONAM, "Enabled")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ao, "$(P):TST_MAX_JAW_POS:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MAX_JAW_POS_SET")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_MAX_JAW_POS")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MAX_JAW_POS")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ao, "$(P):TST_MIN_JAW_POS:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MIN_JAW_POS_SET")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_MIN_JAW_POS")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MIN_JAW_POS")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ai, "$(P):TST_RAW_MOTOR_POS")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_RAW_MOTOR_POS")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(bo, "$(P):TST_JAW_MONITOR:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_JAW_MONITOR_SET")
+    field(VAL, 0)
+    field(PINI, YES)
+	field(ZNAM, "Disabled")
+	field(ONAM, "Enabled")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bi, "$(P):TST_JAW_MONITOR")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_JAW_MONITOR")
+	field(ZNAM, "Disabled")
+	field(ONAM, "Enabled")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ao, "$(P):TST_CYCLE_COUNT_LIM:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_CYCLE_COUNT_LIM_SET")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):TST_CYCLE_COUNT_LIM")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_CYCLE_COUNT_LIM")
+	field(EGU,  "um")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ai, "$(P):TST_CYCLES_REMAINING")
+{
+    field(SCAN, ".1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_CYCLES_REMAINING")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(ai, "$(P):TST_STATUS") {
+	field(SCAN, "1 second")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STATUS")
+	field(PINI, "YES")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(bo, "$(P):TST_CALIB_DISTANCE")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_CALIB_DIST")
+	field(ZNAM, "Idle")
+	field(ONAM, "Calibrating")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bo, "$(P):TST_ZERO_FORCE")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_ZERO_FORCE")
+	field(ZNAM, "Idle")
+	field(ONAM, "Zeroing")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(bo, "$(P):TST_ZERO_POSITION")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_ZERO_DISTANCE")
+	field(ZNAM, "Idle")
+	field(ONAM, "Zeroing")
+	field(SDIS, "$(P):DISABLE")
+}
+
+
+record(bo, "$(P):TST_START_MOTOR")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_START_MOTOR")
+	field(ZNAM, "Idle")
+	field(ONAM, "Moving")
+	field(SDIS, "$(P):DISABLE")
+}

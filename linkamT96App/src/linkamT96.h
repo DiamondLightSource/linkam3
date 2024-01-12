@@ -27,6 +27,58 @@
 #define P_NameString          "LINKAM_NAME"
 #define P_SerialString        "LINKAM_SERIAL"
 
+// Tensile stage parameters
+#define P_TstMotorPosString     "LINKAM_TST_MOTOR_POS"
+#define P_ForceString           "LINKAM_FORCE"
+#define P_MaxForceString        "LINKAM_MAX_FORCE"
+#define P_TstMtrVelSetString    "LINKAM_TST_MTR_VEL_SET"
+#define P_TstMtrVelString       "LINKAM_TST_MTR_VEL"
+#define P_TstMtrDistSPSetString    "LINKAM_TST_MTR_DIST_SP_SET"
+#define P_TstMtrDistSPString       "LINKAM_TST_MTR_DIST_SP"
+#define P_ForceSetpointSetString "LINKAM_FORCE_SETPOINT_SET"
+#define P_ForceSetpointString   "LINKAM_FORCE_SETPOINT"
+#define P_ForceGaugeString      "LINKAM_FORCE_GAUGE"
+#define P_JawToJawSizeSetString "LINKAM_JAW_TO_JAW_SIZE_SET"
+#define P_JawToJawSizeString    "LINKAM_JAW_TO_JAW_SIZE"
+#define P_TstTableDirSetString  "LINKAM_TST_TABLE_DIR_SET"
+#define P_TstTableDirString     "LINKAM_TST_TABLE_DIR"
+#define P_SampleWidthSetString  "LINKAM_SAMPLE_WIDTH_SET"
+#define P_SampleWidthString     "LINKAM_SAMPLE_WIDTH"
+#define P_SampleThicknessSetString "LINKAM_SAMPLE_THICKNESS_SET"
+#define P_SampleThicknessString "LINKAM_SAMPLE_THICKNESS"
+#define P_SampleSizeSetString   "LINKAM_SAMPLE_SIZE_SET"
+#define P_SampleSizeString      "LINKAM_SAMPLE_SIZE"
+#define P_StrainEguSetString    "LINKAM_STRAIN_EGU_SET"
+#define P_StrainEguString       "LINKAM_STRAIN_EGU"
+#define P_StrainPercentageSetString "LINKAM_STRAIN_PERCENTAGE_SET"
+#define P_StrainPercentageString "LINKAM_STRAIN_PERCENTAGE"
+#define P_ShowForceAsDistSetString "LINKAM_SHOW_FORCE_AS_DIST_SET"
+#define P_ShowForceAsDistString "LINKAM_SHOW_FORCE_AS_DIST"
+#define P_CalForceValSetString  "LINKAM_CAL_FORCE_VAL_SET"
+#define P_JawPositionString     "LINKAM_JAW_POSITION"
+#define P_StrainString          "LINKAM_STRAIN"
+#define P_StressString          "LINKAM_STRESS"
+#define P_TstTableModeSetString "LINKAM_TST_TABLE_MODE_SET"
+#define P_TstTableModeString    "LINKAM_TST_TABLE_MODE"
+#define P_TstDefaultMtrSpeedSetString "LINKAM_TST_DEFAULT_MTR_SPEED_SET"
+#define P_TstDefaultMtrSpeedString "LINKAM_TST_DEFAULT_MTR_SPEED"
+#define P_TstGaugeCompliancySetString "LINKAM_TST_GAUGE_COMPLIANCY_SET"
+#define P_TstMaxJawPosSetString "LINKAM_TST_MAX_JAW_POS_SET"
+#define P_TstMaxJawPosString    "LINKAM_TST_MAX_JAW_POS"
+#define P_TstMinJawPosSetString "LINKAM_TST_MIN_JAW_POS_SET"
+#define P_TstMinJawPosString    "LINKAM_TST_MIN_JAW_POS"
+#define P_TstRawMotorPosString  "LINKAM_TST_RAW_MOTOR_POS"
+#define P_TstJawMonitorSetString "LINKAM_TST_JAW_MONITOR_SET"
+#define P_TstJawMonitorString   "LINKAM_TST_JAW_MONITOR"
+#define P_TstCycleCountLimSetString "LINKAM_TST_CYCLE_COUNT_LIM_SET"
+#define P_TstCycleCountLimString "LINKAM_TST_CYCLE_COUNT_LIM"
+#define P_TstCyclesRemainingString "LINKAM_TST_CYCLES_REMAINING"
+#define P_TstStatusString           "LINKAM_TST_STATUS"
+#define P_TstCalibDistanceString "LINKAM_TST_CALIB_DIST"
+#define P_TstZeroDistanceString "LINKAM_TST_ZERO_DISTANCE"
+#define P_TstZeroForceString "LINKAM_TST_ZERO_FORCE"
+#define P_TstStartMotorString "LINKAM_TST_START_MOTOR"
+
 class linkamPortDriver : public asynPortDriver {
 public:
 	linkamPortDriver(const char *);
@@ -63,7 +115,73 @@ protected:
 	int P_VacuumData1;
 	int P_Name;
 	int P_Serial;
-	#define LAST_LINKAM_COMMAND P_Serial
+    // Tensile stage parameters
+    int P_TstMotorPos;
+    int P_Force;
+    int P_MaxForce;
+    int P_TstMtrVelSet;
+    int P_TstMtrVel;
+    int P_TstMtrDistSPSet;
+    int P_TstMtrDistSP;
+    int P_ForceSetpointSet;
+    int P_ForceSetpoint;
+    int P_ForceGauge;
+    int P_JawToJawSizeSet;
+    int P_JawToJawSize;
+    int P_TstTableDirSet;
+    int P_TstTableDir;
+    int P_SampleWidthSet;
+    int P_SampleWidth;
+    int P_SampleThicknessSet;
+    int P_SampleThickness;
+    int P_SampleSizeSet;
+    int P_SampleSize;
+    int P_StrainEguSet;
+    int P_StrainEgu;
+    int P_StrainPercentageSet;
+    int P_StrainPercentage;
+    int P_ShowForceAsDistSet;
+    int P_ShowForceAsDist;
+    int P_CalForceValSet;
+    int P_JawPosition;
+    int P_Strain;
+    int P_Stress;
+    int P_TstTableModeSet;
+    int P_TstTableMode;
+    int P_TstDefaultMtrSpeedSet;
+    int P_TstDefaultMtrSpeed;
+    int P_TstGaugeCompliancySet;
+    int P_TstMaxJawPosSet;
+    int P_TstMaxJawPos;
+    int P_TstMinJawPosSet;
+    int P_TstMinJawPos;
+    int P_TstRawMotorPos;
+    int P_TstJawMonitorSet;
+    int P_TstJawMonitor;
+    int P_TstCycleCountLimSet;
+    int P_TstCycleCountLim;
+    int P_TstCyclesRemaining;
+    int P_TstStatus;
+    int P_TstCalibDistance;
+    int P_TstZeroDistance;
+    int P_TstZeroForce;
+    int P_TstStartMotor;
+    #define LAST_LINKAM_COMMAND P_TstStartMotor
+
+    // Connection functions
+    bool initUSBConnection(unsigned int vendorID, unsigned int productID);
+    bool initSerialConnection(const char* serialPort, 
+                                unsigned int baudrate, 
+                                unsigned int bytesize, 
+                                unsigned int flowcontrol, 
+                                unsigned int parity, 
+                                unsigned int stopbits);
+
+    // Status printing functions
+    void printErrorConnectionStatus(LinkamSDK::Variant connectionResult);
+    void printLinkam3Status();
+
+
 private:
 	void rtrim(char *);
 	bool LNP_AutoMode;
