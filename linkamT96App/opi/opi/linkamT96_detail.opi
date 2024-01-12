@@ -1,0 +1,4234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
+  <actions hook="false" hook_all="false" />
+  <auto_scale_widgets>
+    <auto_scale_widgets>false</auto_scale_widgets>
+    <min_width>-1</min_width>
+    <min_height>-1</min_height>
+  </auto_scale_widgets>
+  <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
+  <background_color>
+    <color name="Canvas" red="200" green="200" blue="200" />
+  </background_color>
+  <boy_version>5.1.0</boy_version>
+  <foreground_color>
+    <color red="192" green="192" blue="192" />
+  </foreground_color>
+  <grid_space>5</grid_space>
+  <height>1200</height>
+  <macros>
+    <include_parent_macros>true</include_parent_macros>
+  </macros>
+  <name>Linkamt96 Detail</name>
+  <rules />
+  <scripts />
+  <show_close_button>true</show_close_button>
+  <show_edit_range>true</show_edit_range>
+  <show_grid>true</show_grid>
+  <show_ruler>true</show_ruler>
+  <snap_to_geometry>true</snap_to_geometry>
+  <widget_type>Display</widget_type>
+  <width>800</width>
+  <wuid>2672cc5d:1847883d447:-7f9f</wuid>
+  <x>-1</x>
+  <y>-1</y>
+  <widget typeId="org.csstudio.opibuilder.widgets.detailpanel" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <color_even_row_back>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </color_even_row_back>
+    <color_even_row_fore>
+      <color red="0" green="0" blue="0" />
+    </color_even_row_fore>
+    <color_odd_row_back>
+      <color name="Controller: BG" red="205" green="205" blue="205" />
+    </color_odd_row_back>
+    <color_odd_row_fore>
+      <color red="0" green="0" blue="0" />
+    </color_odd_row_fore>
+    <color_select_back>
+      <color red="217" green="217" blue="255" />
+    </color_select_back>
+    <color_select_fore>
+      <color red="0" green="0" blue="0" />
+    </color_select_fore>
+    <display_level>0</display_level>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <height>2100</height>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+    </macros>
+    <name>Detail Panel</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <row_0_row_height>429</row_0_row_height>
+    <row_0_row_level>0</row_0_row_level>
+    <row_0_row_mode>1</row_0_row_mode>
+    <row_0_row_name></row_0_row_name>
+    <row_0_row_name_value />
+    <row_0_row_tooltip></row_0_row_tooltip>
+    <row_100_row_name_value />
+    <row_101_row_name_value />
+    <row_102_row_name_value />
+    <row_103_row_name_value />
+    <row_104_row_name_value />
+    <row_105_row_name_value />
+    <row_106_row_name_value />
+    <row_107_row_name_value />
+    <row_108_row_name_value />
+    <row_109_row_name_value />
+    <row_10_row_height>28</row_10_row_height>
+    <row_10_row_level>0</row_10_row_level>
+    <row_10_row_mode>0</row_10_row_mode>
+    <row_10_row_name>Start</row_10_row_name>
+    <row_10_row_name_value />
+    <row_10_row_tooltip>Start</row_10_row_tooltip>
+    <row_110_row_name_value />
+    <row_111_row_name_value />
+    <row_112_row_name_value />
+    <row_113_row_name_value />
+    <row_114_row_name_value />
+    <row_115_row_name_value />
+    <row_116_row_name_value />
+    <row_117_row_name_value />
+    <row_118_row_name_value />
+    <row_119_row_name_value />
+    <row_11_row_height>28</row_11_row_height>
+    <row_11_row_level>0</row_11_row_level>
+    <row_11_row_mode>0</row_11_row_mode>
+    <row_11_row_name>Setpoint</row_11_row_name>
+    <row_11_row_name_value />
+    <row_11_row_tooltip>Setpoint</row_11_row_tooltip>
+    <row_120_row_name_value />
+    <row_121_row_name_value />
+    <row_122_row_name_value />
+    <row_123_row_name_value />
+    <row_124_row_name_value />
+    <row_125_row_name_value />
+    <row_126_row_name_value />
+    <row_127_row_name_value />
+    <row_128_row_name_value />
+    <row_129_row_name_value />
+    <row_12_row_height>28</row_12_row_height>
+    <row_12_row_level>0</row_12_row_level>
+    <row_12_row_mode>0</row_12_row_mode>
+    <row_12_row_name>Temperature</row_12_row_name>
+    <row_12_row_name_value />
+    <row_12_row_tooltip>Temperature</row_12_row_tooltip>
+    <row_130_row_name_value />
+    <row_131_row_name_value />
+    <row_132_row_name_value />
+    <row_133_row_name_value />
+    <row_134_row_name_value />
+    <row_135_row_name_value />
+    <row_136_row_name_value />
+    <row_137_row_name_value />
+    <row_138_row_name_value />
+    <row_139_row_name_value />
+    <row_13_row_height>28</row_13_row_height>
+    <row_13_row_level>0</row_13_row_level>
+    <row_13_row_mode>0</row_13_row_mode>
+    <row_13_row_name>Heater power</row_13_row_name>
+    <row_13_row_name_value />
+    <row_13_row_tooltip>Heater power</row_13_row_tooltip>
+    <row_140_row_name_value />
+    <row_141_row_name_value />
+    <row_142_row_name_value />
+    <row_143_row_name_value />
+    <row_144_row_name_value />
+    <row_145_row_name_value />
+    <row_146_row_name_value />
+    <row_147_row_name_value />
+    <row_148_row_name_value />
+    <row_149_row_name_value />
+    <row_14_row_height>28</row_14_row_height>
+    <row_14_row_level>0</row_14_row_level>
+    <row_14_row_mode>0</row_14_row_mode>
+    <row_14_row_name>Ramp rate</row_14_row_name>
+    <row_14_row_name_value />
+    <row_14_row_tooltip>Ramp rate</row_14_row_tooltip>
+    <row_150_row_name_value />
+    <row_151_row_name_value />
+    <row_152_row_name_value />
+    <row_153_row_name_value />
+    <row_154_row_name_value />
+    <row_155_row_name_value />
+    <row_156_row_name_value />
+    <row_157_row_name_value />
+    <row_158_row_name_value />
+    <row_159_row_name_value />
+    <row_15_row_height>28</row_15_row_height>
+    <row_15_row_level>0</row_15_row_level>
+    <row_15_row_mode>0</row_15_row_mode>
+    <row_15_row_name>Estimated ramp time</row_15_row_name>
+    <row_15_row_name_value />
+    <row_15_row_tooltip>Estimated ramp time</row_15_row_tooltip>
+    <row_160_row_name_value />
+    <row_161_row_name_value />
+    <row_162_row_name_value />
+    <row_163_row_name_value />
+    <row_164_row_name_value />
+    <row_165_row_name_value />
+    <row_166_row_name_value />
+    <row_167_row_name_value />
+    <row_168_row_name_value />
+    <row_169_row_name_value />
+    <row_16_row_height>28</row_16_row_height>
+    <row_16_row_level>0</row_16_row_level>
+    <row_16_row_mode>0</row_16_row_mode>
+    <row_16_row_name>Hold time</row_16_row_name>
+    <row_16_row_name_value />
+    <row_16_row_tooltip>Hold time</row_16_row_tooltip>
+    <row_170_row_name_value />
+    <row_171_row_name_value />
+    <row_172_row_name_value />
+    <row_173_row_name_value />
+    <row_174_row_name_value />
+    <row_175_row_name_value />
+    <row_176_row_name_value />
+    <row_177_row_name_value />
+    <row_178_row_name_value />
+    <row_179_row_name_value />
+    <row_17_row_height>28</row_17_row_height>
+    <row_17_row_level>0</row_17_row_level>
+    <row_17_row_mode>0</row_17_row_mode>
+    <row_17_row_name>Pump mode</row_17_row_name>
+    <row_17_row_name_value />
+    <row_17_row_tooltip>Pump mode</row_17_row_tooltip>
+    <row_180_row_name_value />
+    <row_181_row_name_value />
+    <row_182_row_name_value />
+    <row_183_row_name_value />
+    <row_184_row_name_value />
+    <row_185_row_name_value />
+    <row_186_row_name_value />
+    <row_187_row_name_value />
+    <row_188_row_name_value />
+    <row_189_row_name_value />
+    <row_18_row_height>28</row_18_row_height>
+    <row_18_row_level>0</row_18_row_level>
+    <row_18_row_mode>0</row_18_row_mode>
+    <row_18_row_name>Pump speed</row_18_row_name>
+    <row_18_row_name_value />
+    <row_18_row_tooltip>Pump speed</row_18_row_tooltip>
+    <row_190_row_name_value />
+    <row_191_row_name_value />
+    <row_192_row_name_value />
+    <row_193_row_name_value />
+    <row_194_row_name_value />
+    <row_195_row_name_value />
+    <row_196_row_name_value />
+    <row_197_row_name_value />
+    <row_198_row_name_value />
+    <row_199_row_name_value />
+    <row_19_row_height>28</row_19_row_height>
+    <row_19_row_level>0</row_19_row_level>
+    <row_19_row_mode>3</row_19_row_mode>
+    <row_19_row_name>Device status</row_19_row_name>
+    <row_19_row_name_value />
+    <row_19_row_tooltip>Device status</row_19_row_tooltip>
+    <row_1_row_height>28</row_1_row_height>
+    <row_1_row_level>0</row_1_row_level>
+    <row_1_row_mode>2</row_1_row_mode>
+    <row_1_row_name>Device info</row_1_row_name>
+    <row_1_row_name_value />
+    <row_1_row_tooltip>Device info</row_1_row_tooltip>
+    <row_200_row_name_value />
+    <row_201_row_name_value />
+    <row_202_row_name_value />
+    <row_203_row_name_value />
+    <row_204_row_name_value />
+    <row_205_row_name_value />
+    <row_206_row_name_value />
+    <row_207_row_name_value />
+    <row_208_row_name_value />
+    <row_209_row_name_value />
+    <row_20_row_height>113</row_20_row_height>
+    <row_20_row_level>0</row_20_row_level>
+    <row_20_row_mode>0</row_20_row_mode>
+    <row_20_row_name>Device status</row_20_row_name>
+    <row_20_row_name_value />
+    <row_20_row_tooltip>Error, At setpoint, Heater, Pump, Pump auto</row_20_row_tooltip>
+    <row_210_row_name_value />
+    <row_211_row_name_value />
+    <row_212_row_name_value />
+    <row_213_row_name_value />
+    <row_214_row_name_value />
+    <row_215_row_name_value />
+    <row_216_row_name_value />
+    <row_217_row_name_value />
+    <row_218_row_name_value />
+    <row_219_row_name_value />
+    <row_21_row_height>28</row_21_row_height>
+    <row_21_row_level>0</row_21_row_level>
+    <row_21_row_mode>3</row_21_row_mode>
+    <row_21_row_name>Error message</row_21_row_name>
+    <row_21_row_name_value />
+    <row_21_row_tooltip>Error message</row_21_row_tooltip>
+    <row_220_row_name_value />
+    <row_221_row_name_value />
+    <row_222_row_name_value />
+    <row_223_row_name_value />
+    <row_224_row_name_value />
+    <row_225_row_name_value />
+    <row_226_row_name_value />
+    <row_227_row_name_value />
+    <row_228_row_name_value />
+    <row_229_row_name_value />
+    <row_22_row_height>28</row_22_row_height>
+    <row_22_row_level>0</row_22_row_level>
+    <row_22_row_mode>2</row_22_row_mode>
+    <row_22_row_name>Chamber vacuum</row_22_row_name>
+    <row_22_row_name_value />
+    <row_22_row_tooltip>Chamber vacuum</row_22_row_tooltip>
+    <row_230_row_name_value />
+    <row_231_row_name_value />
+    <row_232_row_name_value />
+    <row_233_row_name_value />
+    <row_234_row_name_value />
+    <row_235_row_name_value />
+    <row_236_row_name_value />
+    <row_237_row_name_value />
+    <row_238_row_name_value />
+    <row_239_row_name_value />
+    <row_23_row_height>28</row_23_row_height>
+    <row_23_row_level>0</row_23_row_level>
+    <row_23_row_mode>2</row_23_row_mode>
+    <row_23_row_name>Sensor vacuum</row_23_row_name>
+    <row_23_row_name_value />
+    <row_23_row_tooltip>Sensor vacuum</row_23_row_tooltip>
+    <row_240_row_name_value />
+    <row_241_row_name_value />
+    <row_242_row_name_value />
+    <row_243_row_name_value />
+    <row_244_row_name_value />
+    <row_245_row_name_value />
+    <row_246_row_name_value />
+    <row_247_row_name_value />
+    <row_248_row_name_value />
+    <row_249_row_name_value />
+    <row_24_row_height>28</row_24_row_height>
+    <row_24_row_level>0</row_24_row_level>
+    <row_24_row_mode>3</row_24_row_mode>
+    <row_24_row_name>Config</row_24_row_name>
+    <row_24_row_name_value />
+    <row_24_row_tooltip>Config</row_24_row_tooltip>
+    <row_250_row_name_value />
+    <row_251_row_name_value />
+    <row_252_row_name_value />
+    <row_253_row_name_value />
+    <row_254_row_name_value />
+    <row_255_row_name_value />
+    <row_256_row_name_value />
+    <row_257_row_name_value />
+    <row_258_row_name_value />
+    <row_259_row_name_value />
+    <row_25_row_height>53</row_25_row_height>
+    <row_25_row_level>0</row_25_row_level>
+    <row_25_row_mode>0</row_25_row_mode>
+    <row_25_row_name>Config</row_25_row_name>
+    <row_25_row_name_value />
+    <row_25_row_tooltip>DSC, LNP</row_25_row_tooltip>
+    <row_260_row_name_value />
+    <row_261_row_name_value />
+    <row_262_row_name_value />
+    <row_263_row_name_value />
+    <row_264_row_name_value />
+    <row_265_row_name_value />
+    <row_266_row_name_value />
+    <row_267_row_name_value />
+    <row_268_row_name_value />
+    <row_269_row_name_value />
+    <row_26_row_height>28</row_26_row_height>
+    <row_26_row_level>0</row_26_row_level>
+    <row_26_row_mode>3</row_26_row_mode>
+    <row_26_row_name>Stage config</row_26_row_name>
+    <row_26_row_name_value />
+    <row_26_row_tooltip>Stage config</row_26_row_tooltip>
+    <row_270_row_name_value />
+    <row_271_row_name_value />
+    <row_272_row_name_value />
+    <row_273_row_name_value />
+    <row_274_row_name_value />
+    <row_275_row_name_value />
+    <row_276_row_name_value />
+    <row_277_row_name_value />
+    <row_278_row_name_value />
+    <row_279_row_name_value />
+    <row_27_row_height>93</row_27_row_height>
+    <row_27_row_level>0</row_27_row_level>
+    <row_27_row_mode>0</row_27_row_mode>
+    <row_27_row_name>Stage config</row_27_row_name>
+    <row_27_row_name_value />
+    <row_27_row_tooltip>Standard, DSC, Manual, Auto</row_27_row_tooltip>
+    <row_280_row_name_value />
+    <row_281_row_name_value />
+    <row_282_row_name_value />
+    <row_283_row_name_value />
+    <row_284_row_name_value />
+    <row_285_row_name_value />
+    <row_286_row_name_value />
+    <row_287_row_name_value />
+    <row_288_row_name_value />
+    <row_289_row_name_value />
+    <row_28_row_name_value />
+    <row_290_row_name_value />
+    <row_291_row_name_value />
+    <row_292_row_name_value />
+    <row_293_row_name_value />
+    <row_294_row_name_value />
+    <row_295_row_name_value />
+    <row_296_row_name_value />
+    <row_297_row_name_value />
+    <row_298_row_name_value />
+    <row_299_row_name_value />
+    <row_29_row_name_value />
+    <row_2_row_height>28</row_2_row_height>
+    <row_2_row_level>0</row_2_row_level>
+    <row_2_row_mode>0</row_2_row_mode>
+    <row_2_row_name>Model</row_2_row_name>
+    <row_2_row_name_value />
+    <row_2_row_tooltip>Model</row_2_row_tooltip>
+    <row_300_row_name_value />
+    <row_301_row_name_value />
+    <row_302_row_name_value />
+    <row_303_row_name_value />
+    <row_304_row_name_value />
+    <row_305_row_name_value />
+    <row_306_row_name_value />
+    <row_307_row_name_value />
+    <row_308_row_name_value />
+    <row_309_row_name_value />
+    <row_30_row_name_value />
+    <row_310_row_name_value />
+    <row_311_row_name_value />
+    <row_312_row_name_value />
+    <row_313_row_name_value />
+    <row_314_row_name_value />
+    <row_315_row_name_value />
+    <row_316_row_name_value />
+    <row_317_row_name_value />
+    <row_318_row_name_value />
+    <row_319_row_name_value />
+    <row_31_row_name_value />
+    <row_320_row_name_value />
+    <row_321_row_name_value />
+    <row_322_row_name_value />
+    <row_323_row_name_value />
+    <row_324_row_name_value />
+    <row_325_row_name_value />
+    <row_326_row_name_value />
+    <row_327_row_name_value />
+    <row_328_row_name_value />
+    <row_329_row_name_value />
+    <row_32_row_name_value />
+    <row_330_row_name_value />
+    <row_331_row_name_value />
+    <row_332_row_name_value />
+    <row_333_row_name_value />
+    <row_334_row_name_value />
+    <row_335_row_name_value />
+    <row_336_row_name_value />
+    <row_337_row_name_value />
+    <row_338_row_name_value />
+    <row_339_row_name_value />
+    <row_33_row_name_value />
+    <row_340_row_name_value />
+    <row_341_row_name_value />
+    <row_342_row_name_value />
+    <row_343_row_name_value />
+    <row_344_row_name_value />
+    <row_345_row_name_value />
+    <row_346_row_name_value />
+    <row_347_row_name_value />
+    <row_348_row_name_value />
+    <row_349_row_name_value />
+    <row_34_row_name_value />
+    <row_350_row_name_value />
+    <row_351_row_name_value />
+    <row_352_row_name_value />
+    <row_353_row_name_value />
+    <row_354_row_name_value />
+    <row_355_row_name_value />
+    <row_356_row_name_value />
+    <row_357_row_name_value />
+    <row_358_row_name_value />
+    <row_359_row_name_value />
+    <row_35_row_name_value />
+    <row_360_row_name_value />
+    <row_361_row_name_value />
+    <row_362_row_name_value />
+    <row_363_row_name_value />
+    <row_364_row_name_value />
+    <row_365_row_name_value />
+    <row_366_row_name_value />
+    <row_367_row_name_value />
+    <row_368_row_name_value />
+    <row_369_row_name_value />
+    <row_36_row_name_value />
+    <row_370_row_name_value />
+    <row_371_row_name_value />
+    <row_372_row_name_value />
+    <row_373_row_name_value />
+    <row_374_row_name_value />
+    <row_375_row_name_value />
+    <row_376_row_name_value />
+    <row_377_row_name_value />
+    <row_378_row_name_value />
+    <row_379_row_name_value />
+    <row_37_row_name_value />
+    <row_380_row_name_value />
+    <row_381_row_name_value />
+    <row_382_row_name_value />
+    <row_383_row_name_value />
+    <row_384_row_name_value />
+    <row_385_row_name_value />
+    <row_386_row_name_value />
+    <row_387_row_name_value />
+    <row_388_row_name_value />
+    <row_389_row_name_value />
+    <row_38_row_name_value />
+    <row_390_row_name_value />
+    <row_391_row_name_value />
+    <row_392_row_name_value />
+    <row_393_row_name_value />
+    <row_394_row_name_value />
+    <row_395_row_name_value />
+    <row_396_row_name_value />
+    <row_397_row_name_value />
+    <row_398_row_name_value />
+    <row_399_row_name_value />
+    <row_39_row_name_value />
+    <row_3_row_height>28</row_3_row_height>
+    <row_3_row_level>0</row_3_row_level>
+    <row_3_row_mode>0</row_3_row_mode>
+    <row_3_row_name>Serial</row_3_row_name>
+    <row_3_row_name_value />
+    <row_3_row_tooltip>Serial</row_3_row_tooltip>
+    <row_400_row_name_value />
+    <row_401_row_name_value />
+    <row_402_row_name_value />
+    <row_403_row_name_value />
+    <row_404_row_name_value />
+    <row_405_row_name_value />
+    <row_406_row_name_value />
+    <row_407_row_name_value />
+    <row_408_row_name_value />
+    <row_409_row_name_value />
+    <row_40_row_name_value />
+    <row_410_row_name_value />
+    <row_411_row_name_value />
+    <row_412_row_name_value />
+    <row_413_row_name_value />
+    <row_414_row_name_value />
+    <row_415_row_name_value />
+    <row_416_row_name_value />
+    <row_417_row_name_value />
+    <row_418_row_name_value />
+    <row_419_row_name_value />
+    <row_41_row_name_value />
+    <row_420_row_name_value />
+    <row_421_row_name_value />
+    <row_422_row_name_value />
+    <row_423_row_name_value />
+    <row_424_row_name_value />
+    <row_425_row_name_value />
+    <row_426_row_name_value />
+    <row_427_row_name_value />
+    <row_428_row_name_value />
+    <row_429_row_name_value />
+    <row_42_row_name_value />
+    <row_430_row_name_value />
+    <row_431_row_name_value />
+    <row_432_row_name_value />
+    <row_433_row_name_value />
+    <row_434_row_name_value />
+    <row_435_row_name_value />
+    <row_436_row_name_value />
+    <row_437_row_name_value />
+    <row_438_row_name_value />
+    <row_439_row_name_value />
+    <row_43_row_name_value />
+    <row_440_row_name_value />
+    <row_441_row_name_value />
+    <row_442_row_name_value />
+    <row_443_row_name_value />
+    <row_444_row_name_value />
+    <row_445_row_name_value />
+    <row_446_row_name_value />
+    <row_447_row_name_value />
+    <row_448_row_name_value />
+    <row_449_row_name_value />
+    <row_44_row_name_value />
+    <row_450_row_name_value />
+    <row_451_row_name_value />
+    <row_452_row_name_value />
+    <row_453_row_name_value />
+    <row_454_row_name_value />
+    <row_455_row_name_value />
+    <row_456_row_name_value />
+    <row_457_row_name_value />
+    <row_458_row_name_value />
+    <row_459_row_name_value />
+    <row_45_row_name_value />
+    <row_460_row_name_value />
+    <row_461_row_name_value />
+    <row_462_row_name_value />
+    <row_463_row_name_value />
+    <row_464_row_name_value />
+    <row_465_row_name_value />
+    <row_466_row_name_value />
+    <row_467_row_name_value />
+    <row_468_row_name_value />
+    <row_469_row_name_value />
+    <row_46_row_name_value />
+    <row_470_row_name_value />
+    <row_471_row_name_value />
+    <row_472_row_name_value />
+    <row_473_row_name_value />
+    <row_474_row_name_value />
+    <row_475_row_name_value />
+    <row_476_row_name_value />
+    <row_477_row_name_value />
+    <row_478_row_name_value />
+    <row_479_row_name_value />
+    <row_47_row_name_value />
+    <row_480_row_name_value />
+    <row_481_row_name_value />
+    <row_482_row_name_value />
+    <row_483_row_name_value />
+    <row_484_row_name_value />
+    <row_485_row_name_value />
+    <row_486_row_name_value />
+    <row_487_row_name_value />
+    <row_488_row_name_value />
+    <row_489_row_name_value />
+    <row_48_row_name_value />
+    <row_490_row_name_value />
+    <row_491_row_name_value />
+    <row_492_row_name_value />
+    <row_493_row_name_value />
+    <row_494_row_name_value />
+    <row_495_row_name_value />
+    <row_496_row_name_value />
+    <row_497_row_name_value />
+    <row_498_row_name_value />
+    <row_499_row_name_value />
+    <row_49_row_name_value />
+    <row_4_row_height>28</row_4_row_height>
+    <row_4_row_level>0</row_4_row_level>
+    <row_4_row_mode>0</row_4_row_mode>
+    <row_4_row_name>Stage model</row_4_row_name>
+    <row_4_row_name_value />
+    <row_4_row_tooltip>Stage model</row_4_row_tooltip>
+    <row_500_row_name_value />
+    <row_501_row_name_value />
+    <row_502_row_name_value />
+    <row_503_row_name_value />
+    <row_504_row_name_value />
+    <row_505_row_name_value />
+    <row_506_row_name_value />
+    <row_507_row_name_value />
+    <row_508_row_name_value />
+    <row_509_row_name_value />
+    <row_50_row_name_value />
+    <row_510_row_name_value />
+    <row_511_row_name_value />
+    <row_512_row_name_value />
+    <row_513_row_name_value />
+    <row_514_row_name_value />
+    <row_515_row_name_value />
+    <row_516_row_name_value />
+    <row_517_row_name_value />
+    <row_518_row_name_value />
+    <row_519_row_name_value />
+    <row_51_row_name_value />
+    <row_520_row_name_value />
+    <row_521_row_name_value />
+    <row_522_row_name_value />
+    <row_523_row_name_value />
+    <row_524_row_name_value />
+    <row_525_row_name_value />
+    <row_526_row_name_value />
+    <row_527_row_name_value />
+    <row_528_row_name_value />
+    <row_529_row_name_value />
+    <row_52_row_name_value />
+    <row_530_row_name_value />
+    <row_531_row_name_value />
+    <row_532_row_name_value />
+    <row_533_row_name_value />
+    <row_534_row_name_value />
+    <row_535_row_name_value />
+    <row_536_row_name_value />
+    <row_537_row_name_value />
+    <row_538_row_name_value />
+    <row_539_row_name_value />
+    <row_53_row_name_value />
+    <row_540_row_name_value />
+    <row_541_row_name_value />
+    <row_542_row_name_value />
+    <row_543_row_name_value />
+    <row_544_row_name_value />
+    <row_545_row_name_value />
+    <row_546_row_name_value />
+    <row_547_row_name_value />
+    <row_548_row_name_value />
+    <row_549_row_name_value />
+    <row_54_row_name_value />
+    <row_550_row_name_value />
+    <row_551_row_name_value />
+    <row_552_row_name_value />
+    <row_553_row_name_value />
+    <row_554_row_name_value />
+    <row_555_row_name_value />
+    <row_556_row_name_value />
+    <row_557_row_name_value />
+    <row_558_row_name_value />
+    <row_559_row_name_value />
+    <row_55_row_name_value />
+    <row_560_row_name_value />
+    <row_561_row_name_value />
+    <row_562_row_name_value />
+    <row_563_row_name_value />
+    <row_564_row_name_value />
+    <row_565_row_name_value />
+    <row_566_row_name_value />
+    <row_567_row_name_value />
+    <row_568_row_name_value />
+    <row_569_row_name_value />
+    <row_56_row_name_value />
+    <row_570_row_name_value />
+    <row_571_row_name_value />
+    <row_572_row_name_value />
+    <row_573_row_name_value />
+    <row_574_row_name_value />
+    <row_575_row_name_value />
+    <row_576_row_name_value />
+    <row_577_row_name_value />
+    <row_578_row_name_value />
+    <row_579_row_name_value />
+    <row_57_row_name_value />
+    <row_580_row_name_value />
+    <row_581_row_name_value />
+    <row_582_row_name_value />
+    <row_583_row_name_value />
+    <row_584_row_name_value />
+    <row_585_row_name_value />
+    <row_586_row_name_value />
+    <row_587_row_name_value />
+    <row_588_row_name_value />
+    <row_589_row_name_value />
+    <row_58_row_name_value />
+    <row_590_row_name_value />
+    <row_591_row_name_value />
+    <row_592_row_name_value />
+    <row_593_row_name_value />
+    <row_594_row_name_value />
+    <row_595_row_name_value />
+    <row_596_row_name_value />
+    <row_597_row_name_value />
+    <row_598_row_name_value />
+    <row_599_row_name_value />
+    <row_59_row_name_value />
+    <row_5_row_height>28</row_5_row_height>
+    <row_5_row_level>0</row_5_row_level>
+    <row_5_row_mode>0</row_5_row_mode>
+    <row_5_row_name>Stage serial</row_5_row_name>
+    <row_5_row_name_value />
+    <row_5_row_tooltip>Stage serial</row_5_row_tooltip>
+    <row_600_row_name_value />
+    <row_601_row_name_value />
+    <row_602_row_name_value />
+    <row_603_row_name_value />
+    <row_604_row_name_value />
+    <row_605_row_name_value />
+    <row_606_row_name_value />
+    <row_607_row_name_value />
+    <row_608_row_name_value />
+    <row_609_row_name_value />
+    <row_60_row_name_value />
+    <row_610_row_name_value />
+    <row_611_row_name_value />
+    <row_612_row_name_value />
+    <row_613_row_name_value />
+    <row_614_row_name_value />
+    <row_615_row_name_value />
+    <row_616_row_name_value />
+    <row_617_row_name_value />
+    <row_618_row_name_value />
+    <row_619_row_name_value />
+    <row_61_row_name_value />
+    <row_620_row_name_value />
+    <row_621_row_name_value />
+    <row_622_row_name_value />
+    <row_623_row_name_value />
+    <row_624_row_name_value />
+    <row_625_row_name_value />
+    <row_626_row_name_value />
+    <row_627_row_name_value />
+    <row_628_row_name_value />
+    <row_629_row_name_value />
+    <row_62_row_name_value />
+    <row_630_row_name_value />
+    <row_631_row_name_value />
+    <row_632_row_name_value />
+    <row_633_row_name_value />
+    <row_634_row_name_value />
+    <row_635_row_name_value />
+    <row_636_row_name_value />
+    <row_637_row_name_value />
+    <row_638_row_name_value />
+    <row_639_row_name_value />
+    <row_63_row_name_value />
+    <row_640_row_name_value />
+    <row_641_row_name_value />
+    <row_642_row_name_value />
+    <row_643_row_name_value />
+    <row_644_row_name_value />
+    <row_645_row_name_value />
+    <row_646_row_name_value />
+    <row_647_row_name_value />
+    <row_648_row_name_value />
+    <row_649_row_name_value />
+    <row_64_row_name_value />
+    <row_650_row_name_value />
+    <row_651_row_name_value />
+    <row_652_row_name_value />
+    <row_653_row_name_value />
+    <row_654_row_name_value />
+    <row_655_row_name_value />
+    <row_656_row_name_value />
+    <row_657_row_name_value />
+    <row_658_row_name_value />
+    <row_659_row_name_value />
+    <row_65_row_name_value />
+    <row_660_row_name_value />
+    <row_661_row_name_value />
+    <row_662_row_name_value />
+    <row_663_row_name_value />
+    <row_664_row_name_value />
+    <row_665_row_name_value />
+    <row_666_row_name_value />
+    <row_667_row_name_value />
+    <row_668_row_name_value />
+    <row_669_row_name_value />
+    <row_66_row_name_value />
+    <row_670_row_name_value />
+    <row_671_row_name_value />
+    <row_672_row_name_value />
+    <row_673_row_name_value />
+    <row_674_row_name_value />
+    <row_675_row_name_value />
+    <row_676_row_name_value />
+    <row_677_row_name_value />
+    <row_678_row_name_value />
+    <row_679_row_name_value />
+    <row_67_row_name_value />
+    <row_680_row_name_value />
+    <row_681_row_name_value />
+    <row_682_row_name_value />
+    <row_683_row_name_value />
+    <row_684_row_name_value />
+    <row_685_row_name_value />
+    <row_686_row_name_value />
+    <row_687_row_name_value />
+    <row_688_row_name_value />
+    <row_689_row_name_value />
+    <row_68_row_name_value />
+    <row_690_row_name_value />
+    <row_691_row_name_value />
+    <row_692_row_name_value />
+    <row_693_row_name_value />
+    <row_694_row_name_value />
+    <row_695_row_name_value />
+    <row_696_row_name_value />
+    <row_697_row_name_value />
+    <row_698_row_name_value />
+    <row_699_row_name_value />
+    <row_69_row_name_value />
+    <row_6_row_height>28</row_6_row_height>
+    <row_6_row_level>0</row_6_row_level>
+    <row_6_row_mode>0</row_6_row_mode>
+    <row_6_row_name>Firmware version</row_6_row_name>
+    <row_6_row_name_value />
+    <row_6_row_tooltip>Firmware version</row_6_row_tooltip>
+    <row_700_row_name_value />
+    <row_701_row_name_value />
+    <row_702_row_name_value />
+    <row_703_row_name_value />
+    <row_704_row_name_value />
+    <row_705_row_name_value />
+    <row_706_row_name_value />
+    <row_707_row_name_value />
+    <row_708_row_name_value />
+    <row_709_row_name_value />
+    <row_70_row_name_value />
+    <row_710_row_name_value />
+    <row_711_row_name_value />
+    <row_712_row_name_value />
+    <row_713_row_name_value />
+    <row_714_row_name_value />
+    <row_715_row_name_value />
+    <row_716_row_name_value />
+    <row_717_row_name_value />
+    <row_718_row_name_value />
+    <row_719_row_name_value />
+    <row_71_row_name_value />
+    <row_720_row_name_value />
+    <row_721_row_name_value />
+    <row_722_row_name_value />
+    <row_723_row_name_value />
+    <row_724_row_name_value />
+    <row_725_row_name_value />
+    <row_726_row_name_value />
+    <row_727_row_name_value />
+    <row_728_row_name_value />
+    <row_729_row_name_value />
+    <row_72_row_name_value />
+    <row_730_row_name_value />
+    <row_731_row_name_value />
+    <row_732_row_name_value />
+    <row_733_row_name_value />
+    <row_734_row_name_value />
+    <row_735_row_name_value />
+    <row_736_row_name_value />
+    <row_737_row_name_value />
+    <row_738_row_name_value />
+    <row_739_row_name_value />
+    <row_73_row_name_value />
+    <row_740_row_name_value />
+    <row_741_row_name_value />
+    <row_742_row_name_value />
+    <row_743_row_name_value />
+    <row_744_row_name_value />
+    <row_745_row_name_value />
+    <row_746_row_name_value />
+    <row_747_row_name_value />
+    <row_748_row_name_value />
+    <row_749_row_name_value />
+    <row_74_row_name_value />
+    <row_750_row_name_value />
+    <row_751_row_name_value />
+    <row_752_row_name_value />
+    <row_753_row_name_value />
+    <row_754_row_name_value />
+    <row_755_row_name_value />
+    <row_756_row_name_value />
+    <row_757_row_name_value />
+    <row_758_row_name_value />
+    <row_759_row_name_value />
+    <row_75_row_name_value />
+    <row_760_row_name_value />
+    <row_761_row_name_value />
+    <row_762_row_name_value />
+    <row_763_row_name_value />
+    <row_764_row_name_value />
+    <row_765_row_name_value />
+    <row_766_row_name_value />
+    <row_767_row_name_value />
+    <row_768_row_name_value />
+    <row_769_row_name_value />
+    <row_76_row_name_value />
+    <row_770_row_name_value />
+    <row_771_row_name_value />
+    <row_772_row_name_value />
+    <row_773_row_name_value />
+    <row_774_row_name_value />
+    <row_775_row_name_value />
+    <row_776_row_name_value />
+    <row_777_row_name_value />
+    <row_778_row_name_value />
+    <row_779_row_name_value />
+    <row_77_row_name_value />
+    <row_780_row_name_value />
+    <row_781_row_name_value />
+    <row_782_row_name_value />
+    <row_783_row_name_value />
+    <row_784_row_name_value />
+    <row_785_row_name_value />
+    <row_786_row_name_value />
+    <row_787_row_name_value />
+    <row_788_row_name_value />
+    <row_789_row_name_value />
+    <row_78_row_name_value />
+    <row_790_row_name_value />
+    <row_791_row_name_value />
+    <row_792_row_name_value />
+    <row_793_row_name_value />
+    <row_794_row_name_value />
+    <row_795_row_name_value />
+    <row_796_row_name_value />
+    <row_797_row_name_value />
+    <row_798_row_name_value />
+    <row_799_row_name_value />
+    <row_79_row_name_value />
+    <row_7_row_height>28</row_7_row_height>
+    <row_7_row_level>0</row_7_row_level>
+    <row_7_row_mode>0</row_7_row_mode>
+    <row_7_row_name>Hardware version</row_7_row_name>
+    <row_7_row_name_value />
+    <row_7_row_tooltip>Hardware version</row_7_row_tooltip>
+    <row_800_row_name_value />
+    <row_801_row_name_value />
+    <row_802_row_name_value />
+    <row_803_row_name_value />
+    <row_804_row_name_value />
+    <row_805_row_name_value />
+    <row_806_row_name_value />
+    <row_807_row_name_value />
+    <row_808_row_name_value />
+    <row_809_row_name_value />
+    <row_80_row_name_value />
+    <row_810_row_name_value />
+    <row_811_row_name_value />
+    <row_812_row_name_value />
+    <row_813_row_name_value />
+    <row_814_row_name_value />
+    <row_815_row_name_value />
+    <row_816_row_name_value />
+    <row_817_row_name_value />
+    <row_818_row_name_value />
+    <row_819_row_name_value />
+    <row_81_row_name_value />
+    <row_820_row_name_value />
+    <row_821_row_name_value />
+    <row_822_row_name_value />
+    <row_823_row_name_value />
+    <row_824_row_name_value />
+    <row_825_row_name_value />
+    <row_826_row_name_value />
+    <row_827_row_name_value />
+    <row_828_row_name_value />
+    <row_829_row_name_value />
+    <row_82_row_name_value />
+    <row_830_row_name_value />
+    <row_831_row_name_value />
+    <row_832_row_name_value />
+    <row_833_row_name_value />
+    <row_834_row_name_value />
+    <row_835_row_name_value />
+    <row_836_row_name_value />
+    <row_837_row_name_value />
+    <row_838_row_name_value />
+    <row_839_row_name_value />
+    <row_83_row_name_value />
+    <row_840_row_name_value />
+    <row_841_row_name_value />
+    <row_842_row_name_value />
+    <row_843_row_name_value />
+    <row_844_row_name_value />
+    <row_845_row_name_value />
+    <row_846_row_name_value />
+    <row_847_row_name_value />
+    <row_848_row_name_value />
+    <row_849_row_name_value />
+    <row_84_row_name_value />
+    <row_850_row_name_value />
+    <row_851_row_name_value />
+    <row_852_row_name_value />
+    <row_853_row_name_value />
+    <row_854_row_name_value />
+    <row_855_row_name_value />
+    <row_856_row_name_value />
+    <row_857_row_name_value />
+    <row_858_row_name_value />
+    <row_859_row_name_value />
+    <row_85_row_name_value />
+    <row_860_row_name_value />
+    <row_861_row_name_value />
+    <row_862_row_name_value />
+    <row_863_row_name_value />
+    <row_864_row_name_value />
+    <row_865_row_name_value />
+    <row_866_row_name_value />
+    <row_867_row_name_value />
+    <row_868_row_name_value />
+    <row_869_row_name_value />
+    <row_86_row_name_value />
+    <row_870_row_name_value />
+    <row_871_row_name_value />
+    <row_872_row_name_value />
+    <row_873_row_name_value />
+    <row_874_row_name_value />
+    <row_875_row_name_value />
+    <row_876_row_name_value />
+    <row_877_row_name_value />
+    <row_878_row_name_value />
+    <row_879_row_name_value />
+    <row_87_row_name_value />
+    <row_880_row_name_value />
+    <row_881_row_name_value />
+    <row_882_row_name_value />
+    <row_883_row_name_value />
+    <row_884_row_name_value />
+    <row_885_row_name_value />
+    <row_886_row_name_value />
+    <row_887_row_name_value />
+    <row_888_row_name_value />
+    <row_889_row_name_value />
+    <row_88_row_name_value />
+    <row_890_row_name_value />
+    <row_891_row_name_value />
+    <row_892_row_name_value />
+    <row_893_row_name_value />
+    <row_894_row_name_value />
+    <row_895_row_name_value />
+    <row_896_row_name_value />
+    <row_897_row_name_value />
+    <row_898_row_name_value />
+    <row_899_row_name_value />
+    <row_89_row_name_value />
+    <row_8_row_height>28</row_8_row_height>
+    <row_8_row_level>0</row_8_row_level>
+    <row_8_row_mode>3</row_8_row_mode>
+    <row_8_row_name>Control</row_8_row_name>
+    <row_8_row_name_value />
+    <row_8_row_tooltip>Control</row_8_row_tooltip>
+    <row_900_row_name_value />
+    <row_901_row_name_value />
+    <row_902_row_name_value />
+    <row_903_row_name_value />
+    <row_904_row_name_value />
+    <row_905_row_name_value />
+    <row_906_row_name_value />
+    <row_907_row_name_value />
+    <row_908_row_name_value />
+    <row_909_row_name_value />
+    <row_90_row_name_value />
+    <row_910_row_name_value />
+    <row_911_row_name_value />
+    <row_912_row_name_value />
+    <row_913_row_name_value />
+    <row_914_row_name_value />
+    <row_915_row_name_value />
+    <row_916_row_name_value />
+    <row_917_row_name_value />
+    <row_918_row_name_value />
+    <row_919_row_name_value />
+    <row_91_row_name_value />
+    <row_920_row_name_value />
+    <row_921_row_name_value />
+    <row_922_row_name_value />
+    <row_923_row_name_value />
+    <row_924_row_name_value />
+    <row_925_row_name_value />
+    <row_926_row_name_value />
+    <row_927_row_name_value />
+    <row_928_row_name_value />
+    <row_929_row_name_value />
+    <row_92_row_name_value />
+    <row_930_row_name_value />
+    <row_931_row_name_value />
+    <row_932_row_name_value />
+    <row_933_row_name_value />
+    <row_934_row_name_value />
+    <row_935_row_name_value />
+    <row_936_row_name_value />
+    <row_937_row_name_value />
+    <row_938_row_name_value />
+    <row_939_row_name_value />
+    <row_93_row_name_value />
+    <row_940_row_name_value />
+    <row_941_row_name_value />
+    <row_942_row_name_value />
+    <row_943_row_name_value />
+    <row_944_row_name_value />
+    <row_945_row_name_value />
+    <row_946_row_name_value />
+    <row_947_row_name_value />
+    <row_948_row_name_value />
+    <row_949_row_name_value />
+    <row_94_row_name_value />
+    <row_950_row_name_value />
+    <row_951_row_name_value />
+    <row_952_row_name_value />
+    <row_953_row_name_value />
+    <row_954_row_name_value />
+    <row_955_row_name_value />
+    <row_956_row_name_value />
+    <row_957_row_name_value />
+    <row_958_row_name_value />
+    <row_959_row_name_value />
+    <row_95_row_name_value />
+    <row_960_row_name_value />
+    <row_961_row_name_value />
+    <row_962_row_name_value />
+    <row_963_row_name_value />
+    <row_964_row_name_value />
+    <row_965_row_name_value />
+    <row_966_row_name_value />
+    <row_967_row_name_value />
+    <row_968_row_name_value />
+    <row_969_row_name_value />
+    <row_96_row_name_value />
+    <row_970_row_name_value />
+    <row_971_row_name_value />
+    <row_972_row_name_value />
+    <row_973_row_name_value />
+    <row_974_row_name_value />
+    <row_975_row_name_value />
+    <row_976_row_name_value />
+    <row_977_row_name_value />
+    <row_978_row_name_value />
+    <row_979_row_name_value />
+    <row_97_row_name_value />
+    <row_980_row_name_value />
+    <row_981_row_name_value />
+    <row_982_row_name_value />
+    <row_983_row_name_value />
+    <row_984_row_name_value />
+    <row_985_row_name_value />
+    <row_986_row_name_value />
+    <row_987_row_name_value />
+    <row_988_row_name_value />
+    <row_989_row_name_value />
+    <row_98_row_name_value />
+    <row_990_row_name_value />
+    <row_991_row_name_value />
+    <row_992_row_name_value />
+    <row_993_row_name_value />
+    <row_994_row_name_value />
+    <row_995_row_name_value />
+    <row_996_row_name_value />
+    <row_997_row_name_value />
+    <row_998_row_name_value />
+    <row_999_row_name_value />
+    <row_99_row_name_value />
+    <row_9_row_height>28</row_9_row_height>
+    <row_9_row_level>0</row_9_row_level>
+    <row_9_row_mode>0</row_9_row_mode>
+    <row_9_row_name>Communication</row_9_row_name>
+    <row_9_row_name_value />
+    <row_9_row_tooltip>Communication</row_9_row_tooltip>
+    <row_count>28</row_count>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip></tooltip>
+    <vert_divider_pos>160</vert_divider_pos>
+    <visible>true</visible>
+    <widget_type>Detail Panel</widget_type>
+    <width>360</width>
+    <wuid>2672cc5d:1847883d447:-7f9e</wuid>
+    <x>0</x>
+    <y>0</y>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>429</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>360</width>
+      <wuid>2672cc5d:1847883d447:-7f9d</wuid>
+      <x>0</x>
+      <y>0</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <background_color>
+          <color name="Canvas" red="200" green="200" blue="200" />
+        </background_color>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <foreground_color>
+          <color name="Text: FG" red="0" green="0" blue="0" />
+        </foreground_color>
+        <group_name></group_name>
+        <height>429</height>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <DESC>Linkam T96</DESC>
+        </macros>
+        <name>auto(boyembed)</name>
+        <opi_file>linkamT96_embed_box.opi</opi_file>
+        <resize_behaviour>1</resize_behaviour>
+        <rules />
+        <scale_options>
+          <width_scalable>true</width_scalable>
+          <height_scalable>true</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <tooltip></tooltip>
+        <visible>true</visible>
+        <widget_type>Linking Container</widget_type>
+        <width>364</width>
+        <wuid>2672cc5d:1847883d447:-7f9c</wuid>
+        <x>0</x>
+        <y>0</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f9b</wuid>
+      <x>160</x>
+      <y>429</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <alpha>255</alpha>
+        <anti_alias>true</anti_alias>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="White" red="255" green="255" blue="255" />
+        </background_color>
+        <bg_gradient_color>
+          <color red="255" green="255" blue="255" />
+        </bg_gradient_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>0</border_width>
+        <enabled>true</enabled>
+        <fg_gradient_color>
+          <color red="255" green="255" blue="255" />
+        </fg_gradient_color>
+        <fill_level>0.0</fill_level>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="White" red="255" green="255" blue="255" />
+        </foreground_color>
+        <gradient>false</gradient>
+        <height>25</height>
+        <horizontal_fill>true</horizontal_fill>
+        <line_color>
+          <color red="128" green="0" blue="255" />
+        </line_color>
+        <line_style>0</line_style>
+        <line_width>0</line_width>
+        <name>auto(groupHeading|Device info)</name>
+        <pv_name></pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>true</transparent>
+        <visible>false</visible>
+        <widget_type>Rectangle</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f9a</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f99</wuid>
+      <x>160</x>
+      <y>457</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Model)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):MODEL</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):MODEL.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f98</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f97</wuid>
+      <x>160</x>
+      <y>485</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Serial)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):SERIAL</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):SERIAL.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f96</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f95</wuid>
+      <x>160</x>
+      <y>513</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Stage model)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):STAGE:MODEL</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):STAGE:MODEL.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f94</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f93</wuid>
+      <x>160</x>
+      <y>541</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Stage serial)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):STAGE:SERIAL</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):STAGE:SERIAL.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f92</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f91</wuid>
+      <x>160</x>
+      <y>569</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Firmware version)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):FIRM:VER</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):FIRM:VER.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f90</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f8f</wuid>
+      <x>160</x>
+      <y>597</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Hardware version)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):HARD:VER</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):HARD:VER.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f8e</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f8d</wuid>
+      <x>160</x>
+      <y>625</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <alpha>255</alpha>
+        <anti_alias>true</anti_alias>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="White" red="255" green="255" blue="255" />
+        </background_color>
+        <bg_gradient_color>
+          <color red="255" green="255" blue="255" />
+        </bg_gradient_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>0</border_width>
+        <enabled>true</enabled>
+        <fg_gradient_color>
+          <color red="255" green="255" blue="255" />
+        </fg_gradient_color>
+        <fill_level>0.0</fill_level>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="White" red="255" green="255" blue="255" />
+        </foreground_color>
+        <gradient>false</gradient>
+        <height>25</height>
+        <horizontal_fill>true</horizontal_fill>
+        <line_color>
+          <color red="128" green="0" blue="255" />
+        </line_color>
+        <line_style>0</line_style>
+        <line_width>0</line_width>
+        <name>auto(groupHeading|Control)</name>
+        <pv_name></pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>true</transparent>
+        <visible>false</visible>
+        <widget_type>Rectangle</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f8c</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f8b</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+        <actions_from_pv>true</actions_from_pv>
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>6</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="196" />
+        </foreground_color>
+        <height>25</height>
+        <label></label>
+        <name>auto(enum|Communication)</name>
+        <pv_name>$(P):DISABLE</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_down_arrow>false</show_down_arrow>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <widget_type>Menu Button</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f8a</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f89</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+        <actions_from_pv>true</actions_from_pv>
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>6</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="196" />
+        </foreground_color>
+        <height>25</height>
+        <label></label>
+        <name>auto(enum|Start)</name>
+        <pv_name>$(P):STARTHEAT</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_down_arrow>false</show_down_arrow>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <widget_type>Menu Button</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f88</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f87</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>3</border_style>
+        <border_width>1</border_width>
+        <confirm_message></confirm_message>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="196" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <limits_from_pv>false</limits_from_pv>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
+        <multiline_input>false</multiline_input>
+        <name>auto(demand|Setpoint)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):SETPOINT:SET</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):SETPOINT:SET.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <selector_type>0</selector_type>
+        <show_units>false</show_units>
+        <style>0</style>
+        <text></text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <widget_type>Text Input</widget_type>
+        <width>100</width>
+        <wuid>2672cc5d:1847883d447:-7f86</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Setpoint)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):SETPOINT</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):SETPOINT.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>100</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f85</wuid>
+        <x>100</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f84</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Temperature)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):TEMP</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):TEMP.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f83</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f82</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Heater power)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):POWER</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):POWER.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f81</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f80</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>3</border_style>
+        <border_width>1</border_width>
+        <confirm_message></confirm_message>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="196" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <limits_from_pv>false</limits_from_pv>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
+        <multiline_input>false</multiline_input>
+        <name>auto(demand|Ramp rate)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):RAMPRATE:SET</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):RAMPRATE:SET.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <selector_type>0</selector_type>
+        <show_units>false</show_units>
+        <style>0</style>
+        <text></text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <widget_type>Text Input</widget_type>
+        <width>100</width>
+        <wuid>2672cc5d:1847883d447:-7f7f</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Ramp rate)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):RAMPRATE</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):RAMPRATE.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>100</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f7e</wuid>
+        <x>100</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f7d</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Estimated ramp time)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):RAMPTIME</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):RAMPTIME.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f7c</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f7b</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>3</border_style>
+        <border_width>1</border_width>
+        <confirm_message></confirm_message>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="196" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <limits_from_pv>false</limits_from_pv>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
+        <multiline_input>false</multiline_input>
+        <name>auto(demand|Hold time)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):HOLDTIME:SET</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):HOLDTIME:SET.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <selector_type>0</selector_type>
+        <show_units>false</show_units>
+        <style>0</style>
+        <text></text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <widget_type>Text Input</widget_type>
+        <width>100</width>
+        <wuid>2672cc5d:1847883d447:-7f7a</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Hold time)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):HOLDTIME</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):HOLDTIME.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>100</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f79</wuid>
+        <x>100</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f78</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+        <actions_from_pv>true</actions_from_pv>
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>6</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="196" />
+        </foreground_color>
+        <height>25</height>
+        <label></label>
+        <name>auto(enum|Pump mode)</name>
+        <pv_name>$(P):LNP_MODE:SET</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_down_arrow>false</show_down_arrow>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <widget_type>Menu Button</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f77</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f76</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Controller: BG" red="205" green="205" blue="205" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>3</border_style>
+        <border_width>1</border_width>
+        <confirm_message></confirm_message>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Controller: FG" red="0" green="0" blue="196" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <limits_from_pv>false</limits_from_pv>
+        <maximum>1.7976931348623157E308</maximum>
+        <minimum>-1.7976931348623157E308</minimum>
+        <multiline_input>false</multiline_input>
+        <name>auto(demand|Pump speed)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):LNP_SPEED:SET</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):LNP_SPEED:SET.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <selector_type>0</selector_type>
+        <show_units>false</show_units>
+        <style>0</style>
+        <text></text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <widget_type>Text Input</widget_type>
+        <width>100</width>
+        <wuid>2672cc5d:1847883d447:-7f75</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Pump speed)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):LNP_SPEED</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):LNP_SPEED.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>100</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f74</wuid>
+        <x>100</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f73</wuid>
+      <x>160</x>
+      <y>653</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Canvas" red="200" green="200" blue="200" />
+        </background_color>
+        <bitReverse>false</bitReverse>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <effect_3d>false</effect_3d>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Black" red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>25</height>
+        <horizontal>true</horizontal>
+        <label />
+        <led_border>3</led_border>
+        <led_border_color>
+          <color red="150" green="150" blue="150" />
+        </led_border_color>
+        <led_packed>false</led_packed>
+        <name>auto(statusbits|Device status)</name>
+        <numBits>5</numBits>
+        <off_color>
+          <color name="Green LED: Off" red="0" green="96" blue="0" />
+        </off_color>
+        <on_color>
+          <color name="Green LED: On" red="0" green="255" blue="0" />
+        </on_color>
+        <pv_name>$(P):STATUS</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <square_led>true</square_led>
+        <startBit>0</startBit>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Byte Monitor</widget_type>
+        <width>66</width>
+        <wuid>2672cc5d:1847883d447:-7f72</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f71</wuid>
+      <x>160</x>
+      <y>681</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Canvas" red="200" green="200" blue="200" />
+        </background_color>
+        <bitReverse>false</bitReverse>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <effect_3d>true</effect_3d>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Black" red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>110</height>
+        <horizontal>false</horizontal>
+        <label>
+          <s> Error</s>
+          <s> At setpoint</s>
+          <s> Heater</s>
+          <s> Pump</s>
+          <s> Pump auto</s>
+        </label>
+        <led_border>3</led_border>
+        <led_border_color>
+          <color red="150" green="150" blue="150" />
+        </led_border_color>
+        <led_packed>false</led_packed>
+        <name>auto(statusbits|Device status)</name>
+        <numBits>5</numBits>
+        <off_color>
+          <color name="Green LED: Off" red="0" green="96" blue="0" />
+        </off_color>
+        <on_color>
+          <color name="Green LED: On" red="0" green="255" blue="0" />
+        </on_color>
+        <pv_name>$(P):STATUS</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <square_led>false</square_led>
+        <startBit>0</startBit>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Byte Monitor</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f70</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f6f</wuid>
+      <x>160</x>
+      <y>681</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Error message)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):CTRLLR:ERR</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):CTRLLR:ERR.RTYP</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f6e</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f6d</wuid>
+      <x>160</x>
+      <y>709</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Chamber vacuum)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):VAC_CHAMBER</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):VAC_CHAMBER</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f6b</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f6a</wuid>
+      <x>160</x>
+      <y>737</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <auto_size>false</auto_size>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Monitor: BG" red="64" green="64" blue="64" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Monitor: FG" red="96" green="255" blue="96" />
+        </foreground_color>
+        <format_type>0</format_type>
+        <height>25</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <name>auto(readback|Sensor vacuum)</name>
+        <precision>0</precision>
+        <precision_from_pv>true</precision_from_pv>
+        <pv_name>$(P):VAC_DATA1</pv_name>
+        <pv_value />
+        <rotation_angle>0.0</rotation_angle>
+        <rules>
+          <rule name="WaveformString" prop_id="format_type" out_exp="false">
+            <exp bool_exp="pvStr0 == 'waveform'">
+              <value>4</value>
+            </exp>
+            <pv trig="true">$(P):VAC_DATA1</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <show_units>true</show_units>
+        <text>######</text>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparent>false</transparent>
+        <vertical_alignment>1</vertical_alignment>
+        <visible>true</visible>
+        <widget_type>Text Update</widget_type>
+        <width>200</width>
+        <wrap_words>true</wrap_words>
+        <wuid>2672cc5d:1847883d447:-7f68</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f67</wuid>
+      <x>160</x>
+      <y>765</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Canvas" red="200" green="200" blue="200" />
+        </background_color>
+        <bitReverse>false</bitReverse>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <effect_3d>false</effect_3d>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Black" red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>25</height>
+        <horizontal>true</horizontal>
+        <label />
+        <led_border>3</led_border>
+        <led_border_color>
+          <color red="150" green="150" blue="150" />
+        </led_border_color>
+        <led_packed>false</led_packed>
+        <name>auto(statusbits|Config)</name>
+        <numBits>2</numBits>
+        <off_color>
+          <color name="Green LED: Off" red="0" green="96" blue="0" />
+        </off_color>
+        <on_color>
+          <color name="Green LED: On" red="0" green="255" blue="0" />
+        </on_color>
+        <pv_name>$(P):CONFIG</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <square_led>true</square_led>
+        <startBit>0</startBit>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Byte Monitor</widget_type>
+        <width>30</width>
+        <wuid>2672cc5d:1847883d447:-7f66</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f65</wuid>
+      <x>160</x>
+      <y>793</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Canvas" red="200" green="200" blue="200" />
+        </background_color>
+        <bitReverse>false</bitReverse>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <effect_3d>true</effect_3d>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Black" red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>50</height>
+        <horizontal>false</horizontal>
+        <label>
+          <s> DSC</s>
+          <s> LNP</s>
+        </label>
+        <led_border>3</led_border>
+        <led_border_color>
+          <color red="150" green="150" blue="150" />
+        </led_border_color>
+        <led_packed>false</led_packed>
+        <name>auto(statusbits|Config)</name>
+        <numBits>2</numBits>
+        <off_color>
+          <color name="Green LED: Off" red="0" green="96" blue="0" />
+        </off_color>
+        <on_color>
+          <color name="Green LED: On" red="0" green="255" blue="0" />
+        </on_color>
+        <pv_name>$(P):CONFIG</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <square_led>false</square_led>
+        <startBit>0</startBit>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Byte Monitor</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f64</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="200" green="200" blue="200" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>28</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f63</wuid>
+      <x>160</x>
+      <y>793</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Canvas" red="200" green="200" blue="200" />
+        </background_color>
+        <bitReverse>false</bitReverse>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <effect_3d>false</effect_3d>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Black" red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>25</height>
+        <horizontal>true</horizontal>
+        <label />
+        <led_border>3</led_border>
+        <led_border_color>
+          <color red="150" green="150" blue="150" />
+        </led_border_color>
+        <led_packed>false</led_packed>
+        <name>auto(statusbits|Stage config)</name>
+        <numBits>4</numBits>
+        <off_color>
+          <color name="Green LED: Off" red="0" green="96" blue="0" />
+        </off_color>
+        <on_color>
+          <color name="Green LED: On" red="0" green="255" blue="0" />
+        </on_color>
+        <pv_name>$(P):STAGE:CONFIG</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <square_led>true</square_led>
+        <startBit>0</startBit>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Byte Monitor</widget_type>
+        <width>54</width>
+        <wuid>2672cc5d:1847883d447:-7f62</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+      <actions hook="false" hook_all="false" />
+      <background_color>
+        <color red="205" green="205" blue="205" />
+      </background_color>
+      <border_color>
+        <color red="0" green="128" blue="255" />
+      </border_color>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <enabled>true</enabled>
+      <fc>false</fc>
+      <font>
+        <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+      </font>
+      <foreground_color>
+        <color name="Text: FG" red="0" green="0" blue="0" />
+      </foreground_color>
+      <height>1</height>
+      <lock_children>false</lock_children>
+      <macros>
+        <include_parent_macros>true</include_parent_macros>
+      </macros>
+      <name>Row</name>
+      <rules />
+      <scale_options>
+        <width_scalable>false</width_scalable>
+        <height_scalable>false</height_scalable>
+        <keep_wh_ratio>true</keep_wh_ratio>
+      </scale_options>
+      <scripts />
+      <show_scrollbar>false</show_scrollbar>
+      <tooltip></tooltip>
+      <transparent>false</transparent>
+      <visible>true</visible>
+      <widget_type>Grouping Container</widget_type>
+      <width>200</width>
+      <wuid>2672cc5d:1847883d447:-7f61</wuid>
+      <x>160</x>
+      <y>821</y>
+      <widget typeId="org.csstudio.opibuilder.widgets.bytemonitor" version="1.0.0">
+        <actions hook="false" hook_all="false" />
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color name="Canvas" red="200" green="200" blue="200" />
+        </background_color>
+        <bitReverse>false</bitReverse>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <effect_3d>true</effect_3d>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color name="Black" red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>90</height>
+        <horizontal>false</horizontal>
+        <label>
+          <s> Standard</s>
+          <s> DSC</s>
+          <s> Manual</s>
+          <s> Auto</s>
+        </label>
+        <led_border>3</led_border>
+        <led_border_color>
+          <color red="150" green="150" blue="150" />
+        </led_border_color>
+        <led_packed>false</led_packed>
+        <name>auto(statusbits|Stage config)</name>
+        <numBits>4</numBits>
+        <off_color>
+          <color name="Green LED: Off" red="0" green="96" blue="0" />
+        </off_color>
+        <on_color>
+          <color name="Green LED: On" red="0" green="255" blue="0" />
+        </on_color>
+        <pv_name>$(P):STAGE:CONFIG</pv_name>
+        <pv_value />
+        <rules />
+        <scale_options>
+          <width_scalable>false</width_scalable>
+          <height_scalable>false</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <square_led>false</square_led>
+        <startBit>0</startBit>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Byte Monitor</widget_type>
+        <width>200</width>
+        <wuid>2672cc5d:1847883d447:-7f60</wuid>
+        <x>0</x>
+        <y>1</y>
+      </widget>
+    </widget>
+  </widget>
+</display>

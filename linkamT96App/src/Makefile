@@ -5,6 +5,7 @@ include $(TOP)/configure/CONFIG
 LIBRARY_IOC += linkamT96
 
 DBD += linkamT96Support.dbd
+DBD += systemCommandSupport.dbd
 
 LIB_INSTALLS += ../libLinkamSDK.so
 LinkamSDK_DIR = $(TOP)/linkamT96App/src

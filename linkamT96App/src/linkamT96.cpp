@@ -17,7 +17,6 @@ static const char *driverName = "linkamT96Driver";
 linkamPortDriver::linkamPortDriver(const char *portName)
 	: asynPortDriver(portName,
 			 1, /* maxAddr */
-			 NUM_LINKAM_PARAMS,
 			 asynFloat64Mask | asynInt32Mask | asynOctetMask | asynDrvUserMask, /* Interface mask */
 			 asynFloat64Mask | asynInt32Mask | asynOctetMask, /* Interrupt mask */
 			 0, /* asynFlags */
@@ -50,6 +49,8 @@ linkamPortDriver::linkamPortDriver(const char *portName)
 	createParam(P_CtrlConfigString,  asynParamInt32,   &P_CtrlConfig);
 	createParam(P_CtrlStatusString,  asynParamInt32,   &P_CtrlStatus);
 	createParam(P_StageConfigString, asynParamInt32,   &P_StageConfig);
+	createParam(P_VacuumChamberString, asynParamFloat64, &P_VacuumChamber);
+	createParam(P_VacuumData1String, asynParamFloat64, &P_VacuumData1);
 }
 
 asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *value)
@@ -79,7 +80,11 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 		param1.vStageValueType = LinkamSDK::eStageValueTypeDsc;
 	} else if (function == P_HoldTimeLeft) {
     param1.vStageValueType = LinkamSDK::eStageValueTypeRampHoldRemaining;
-	} 
+	} else if (function == P_VacuumChamber) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuum;
+	} else if (function == P_VacuumData1) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuumOptionBoardSensor1Data;
+	}
 
 	if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2))
 		*value = result.vFloat32;
@@ -132,8 +137,9 @@ asynStatus linkamPortDriver::readOctet(asynUser *pasynUser, char *value, size_t 
 
   if(function == P_CtrllrError){
 	  if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result)) {
-
       strcpy(value, LinkamSDK::ControllerErrorStrings[result.vControllerError]);
+
+		  *nActual = strlen(value) + 1;
 		  *eomReason = 0;
 
 	  } else {
@@ -296,6 +302,7 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 	int function = pasynUser->reason;
 	const char *functionName = "readInt32";
 	asynStatus status = asynSuccess;
+	int errorcode;
 
 	if (function == P_CtrlConfig) {
 		if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerConfig, handle, &result)) {
@@ -353,8 +360,9 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 				 result.vControllerStatus.flags.cssLidOn                      << 10 |
 				 result.vControllerStatus.flags.cssRefLimit                   << 11 |
 				 result.vControllerStatus.flags.cssZeroLimit                  << 12;*/
-      if (result.vControllerStatus.flags.controllerError){
-        printf("Controller Error: %i\n", linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result));
+      if (result.vControllerStatus.flags.controllerError) {
+        errorcode = linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result);
+        printf("Controller Error %i: %s\n", errorcode, LinkamSDK::ControllerErrorStrings[errorcode]);
       }
 		} else {
 			status = asynError;
@@ -454,8 +462,9 @@ static void linkamStatus_CallFunc(const iocshArgBuf *args)
  */
 static const iocshArg linkamConnect_Arg0 = { "asynPort", iocshArgString };
 static const iocshArg linkamConnect_Arg1 = { "serialPort", iocshArgString };
-static const iocshArg * const linkamConnect_Args[] = { &linkamConnect_Arg0, &linkamConnect_Arg1 };
-static const iocshFuncDef linkamConnect_FuncDef = { "linkamConnect", 2, linkamConnect_Args };
+static const iocshArg linkamConnect_Arg2 = { "logpath", iocshArgString };
+static const iocshArg * const linkamConnect_Args[] = { &linkamConnect_Arg0, &linkamConnect_Arg1, &linkamConnect_Arg2 };
+static const iocshFuncDef linkamConnect_FuncDef = { "linkamConnect", 3, linkamConnect_Args };
 
 static void linkamConnect_CallFunc(const iocshArgBuf *args)
 {
@@ -464,11 +473,13 @@ static void linkamConnect_CallFunc(const iocshArgBuf *args)
 	LinkamSDK::Variant param2;
 	LinkamSDK::Variant result;
 
-  //printf("Disable logging\n");
-  //linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_DisableLogging, 0, &result, param1, param2);
+	const char *logpath = args[2].sval;
 
-  printf("Initialising SDK\n");
-	if (linkamInitialiseSDK("/tmp/linkam.log", "/dls_sw/work/R3.14.12.7/support/linkam3/linkamT96App/src/Linkam.lsk", false))
+	if (!strcmp(logpath, "/dev/null")) {
+		linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_DisableLogging, 0, &result, param1, param2);
+	}
+	printf("Initialising SDK\n");
+	if (linkamInitialiseSDK(logpath, "/dls_sw/work/R3.14.12.7/support/linkam3/linkamT96App/src/Linkam.lsk", false))
 		printf("LinkamT96: linkamInitialiseSDK successful\n");
 	else
 		printf("LinkamT96: ERROR @ linkamInitialiseSDK\n");
@@ -476,27 +487,41 @@ static void linkamConnect_CallFunc(const iocshArgBuf *args)
 	char version[256];
 	linkamGetVersion(version, 256);
 	printf("Linkam SDK version: %s\n", version);
+	if (strlen(args[1].sval) == 0) {
+		linkamInitialiseUSBCommsInfo(&info, NULL);
+	} else {
+		linkamInitialiseSerialCommsInfo(&info, args[1].sval);
 
-	linkamInitialiseSerialCommsInfo(&info, args[1].sval);
+		LinkamSDK::SerialCommsInfo* serial = reinterpret_cast<LinkamSDK::SerialCommsInfo*>(info.info);
+		serial->baudrate = 115200;
+		serial->bytesize = (LinkamSDK::ByteSize) 8;
+		serial->flowcontrol = (LinkamSDK::FlowControl) 0;
+		serial->parity = (LinkamSDK::Parity) 0;
+		serial->stopbits = (LinkamSDK::Stopbits) 1;
+	}
 
-	LinkamSDK::SerialCommsInfo* serial = reinterpret_cast<LinkamSDK::SerialCommsInfo*>(info.info);
-	serial->baudrate = 115200;
-	serial->bytesize = (LinkamSDK::ByteSize) 8;
-	serial->flowcontrol = (LinkamSDK::FlowControl) 0;
-	serial->parity = (LinkamSDK::Parity) 0;
-	serial->stopbits = (LinkamSDK::Stopbits) 1;
+	param1.vPtr = &info;
+	param2.vPtr = &handle;
 
-  param1.vPtr = &info;
-  param2.vPtr = &handle;
+	linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_OpenComms, 0, &result, param1, param2);
 
-  linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_OpenComms, 0, &result, param1, param2);
-
-  if (result.vConnectionStatus.flags.connected) {
-  	printf("LinkamT96: We got a connection to the Serial device!\n");
-  } else {
-    printf( "Error openning connection:\n\nstatus.connected = %d\nstatus.flags.errorAllocationFailed = %d\nstatus.flags.errorAlreadyOpen = %d\nstatus.flags.errorCommsStreams = %d\nstatus.flags.errorHandleRegistrationFailed = %d\nstatus.flags.errorMultipleDevicesFound = %d\nstatus.flags.errorNoDeviceFound = %d\nstatus.flags.errorPortConfig = %d\nstatus.flags.errorPropertiesIncorrect = %d\nstatus.flags.errorSerialNumberRequired = %d\nstatus.flags.errorTimeout = %d\nstatus.flags.errorUnhandled = %d\n\n", result.vConnectionStatus.flags.connected, result.vConnectionStatus.flags.errorAllocationFailed, result.vConnectionStatus.flags.errorAlreadyOpen, result.vConnectionStatus.flags.errorCommsStreams, result.vConnectionStatus.flags.errorHandleRegistrationFailed, result.vConnectionStatus.flags.errorMultipleDevicesFound, result.vConnectionStatus.flags.errorNoDeviceFound, result.vConnectionStatus.flags.errorPortConfig, result.vConnectionStatus.flags.errorPropertiesIncorrect, result.vConnectionStatus.flags.errorSerialNumberRequired, result.vConnectionStatus.flags.errorTimeout, result.vConnectionStatus.flags.errorUnhandled);
-  }
-
+	if (result.vConnectionStatus.flags.connected) {
+		printf("LinkamT96: We got a connection to the device!\n");
+	} else {
+		printf( "Error openning connection:\n\nstatus.connected = %d\nstatus.flags.errorAllocationFailed = %d\n"
+		        "status.flags.errorAlreadyOpen = %d\nstatus.flags.errorCommsStreams = %d\n"
+				"status.flags.errorHandleRegistrationFailed = %d\nstatus.flags.errorMultipleDevicesFound = %d\n"
+				"status.flags.errorNoDeviceFound = %d\nstatus.flags.errorPortConfig = %d\n"
+				"status.flags.errorPropertiesIncorrect = %d\nstatus.flags.errorSerialNumberRequired = %d\n"
+				"status.flags.errorTimeout = %d\nstatus.flags.errorUnhandled = %d\n\n",
+				result.vConnectionStatus.flags.connected, result.vConnectionStatus.flags.errorAllocationFailed,
+				result.vConnectionStatus.flags.errorAlreadyOpen, result.vConnectionStatus.flags.errorCommsStreams,
+				result.vConnectionStatus.flags.errorHandleRegistrationFailed,
+				result.vConnectionStatus.flags.errorMultipleDevicesFound,
+				result.vConnectionStatus.flags.errorNoDeviceFound, result.vConnectionStatus.flags.errorPortConfig,
+				result.vConnectionStatus.flags.errorPropertiesIncorrect, result.vConnectionStatus.flags.errorSerialNumberRequired,
+				result.vConnectionStatus.flags.errorTimeout, result.vConnectionStatus.flags.errorUnhandled);
+	}
 	new linkamPortDriver(args[0].sval);
 }
 

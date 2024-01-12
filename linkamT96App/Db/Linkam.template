@@ -1,45 +1,57 @@
-# % macro, P, PV Prefix for Linkam temp. controller
-# % macro, PORT, Asyn PORT 
-# % macro, ADDR, Asyn ADDR
+#==============================================================================
+# Linkam template
+#
+# MACROS
+# % macro, name,    Reference name for GUI objects
+# % macro, P,       PV Prefix for Linkam temp. controller
+# % macro, PORT,    Asyn PORT
+# % macro, ADDR,    Asyn ADDR
 # % macro, TIMEOUT, Asyn TIMEOUT
+#
+# GUI
 # % gui, $(name=), edm, linkam3.edl, P=$(P)
+include "Linkam_detail.template"
+#
+#==============================================================================
 
 record(seq, "$(P):INIT")
 {
+	##Read current controller values into the setpoint value
 	field(DOL1,  "0")
-	field(LNK1,  "$(P):STARTHEAT")
-	field(DOL2,  "1")
+	field(LNK1,  "$(P):RAMPRATE:SET.DISV")
+	field(DLY1,  "0.5")
+	field(DOL2,  "$(P):RAMPRATE")
 	field(LNK2,  "$(P):RAMPRATE:SET")
-	field(DOL2,  "10")
-	field(LNK3,  "$(P):SETPOINT:SET")
-	field(DOL3,  "25")
-	field(LNK4,  "$(P):LNP_MODE:SET")
+	field(DLY2,  "0.5")
+	field(DOL3,  "1")
+	field(LNK3,  "$(P):RAMPRATE:SET.DISV")
+	field(DLY3,  "0.5")
 	field(DOL4,  "0")
-	field(LNK4,  "$(P):LNP_SPEED:SET")
-
-	field(DOL5,  "1")
-	field(DOL6,  "1")
-	field(DOL7,  "1")
-	field(DOL8,  "1")
-	field(DOL9,  "1")
-	field(LNK5,  "$(P):STARTHEAT.PROC")
-	field(LNK6,  "$(P):RAMPRATE:SET.PROC")
-	field(LNK7,  "$(P):SETPOINT:SET.PROC")
-	field(LNK8,  "$(P):LNP_MODE:SET.PROC")
-	field(LNK9,  "$(P):LNP_SPEED:SET.PROC")
-
+	field(LNK4,  "$(P):SETPOINT:SET.DISV")
+	field(DLY4,  "0.5")
+	field(DOL5,  "$(P):SETPOINT")
+	field(LNK5,  "$(P):SETPOINT:SET")
 	field(DLY5,  "0.5")
+	field(DOL6,  "1")
+	field(LNK6,  "$(P):SETPOINT:SET.DISV")
 	field(DLY6,  "0.5")
+	field(DOL7,  "0")
+	field(LNK7,  "$(P):LNP_SPEED:SET.DISV")
 	field(DLY7,  "0.5")
+	field(DOL8,  "$(P):LNP_SPEED")
+	field(LNK8,  "$(P):LNP_SPEED:SET")
 	field(DLY8,  "0.5")
-	field(DLY8,  "0.5")
-
+	field(DOL9,  "1")
+	field(LNK9,  "$(P):LNP_SPEED:SET.DISV")
+	field(DLY9,  "0.5")
+	
 	field(SELM,  "All")
 	field(PINI,  "YES")
 }
 
 record(waveform, "$(P):MODEL")
 {
+	field(DESC, "Controller model")
 	field(SCAN, "I/O Intr")
 	field(DTYP, "asynOctetRead")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_NAME")
@@ -50,6 +62,7 @@ record(waveform, "$(P):MODEL")
 
 record(waveform, "$(P):SERIAL")
 {
+	field(DESC, "Controller S/N")
 	field(SCAN, "I/O Intr")
 	field(DTYP, "asynOctetRead")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SERIAL")
@@ -60,6 +73,7 @@ record(waveform, "$(P):SERIAL")
 
 record(waveform, "$(P):STAGE:MODEL")
 {
+	field(DESC, "Furnace model")
 	field(SCAN, "I/O Intr")
 	field(DTYP, "asynOctetRead")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STAGE_NAME")
@@ -70,6 +84,7 @@ record(waveform, "$(P):STAGE:MODEL")
 
 record(waveform, "$(P):STAGE:SERIAL")
 {
+	field(DESC, "Serial number")
 	field(SCAN, "I/O Intr")
 	field(DTYP, "asynOctetRead")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_STAGE_SERIAL")
@@ -80,6 +95,7 @@ record(waveform, "$(P):STAGE:SERIAL")
 
 record(waveform, "$(P):FIRM:VER")
 {
+	field(DESC, "Firmware version")
 	field(SCAN, "I/O Intr")
 	field(DTYP, "asynOctetRead")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_FIRM_VERSION")
@@ -91,6 +107,7 @@ record(waveform, "$(P):FIRM:VER")
 
 record(waveform, "$(P):HARD:VER")
 {
+	field(DESC, "Hardware version")
 	field(SCAN, "I/O Intr")
 	field(DTYP, "asynOctetRead")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_HARD_VERSION")
@@ -102,6 +119,7 @@ record(waveform, "$(P):HARD:VER")
 
 record(waveform, "$(P):CTRLLR:ERR")
 {
+	field(DESC, "Error message")
 	field(SCAN, "1 second")
 	field(DTYP, "asynOctetRead")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_CTRLLR_ERROR")
@@ -136,14 +154,17 @@ record(ai, "$(P):STAGE:CONFIG") {
 
 record(ai, "$(P):TEMP")
 {
+	field(DESC, "Temperature")
 	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TEMP")
 	field(EGU,  "C")
+	field(PREC, "2")
 	field(SDIS, "$(P):DISABLE")
 }
 
 record(bo, "$(P):DISABLE") {
+	field(DESC, "Enable/dis comms")
 	field(OMSL, "supervisory")
 	field(ZNAM, "Enabled")
 	field(ONAM, "Disabled")
@@ -162,6 +183,7 @@ record(ai, "$(P):DSC")
 
 record(bo, "$(P):STARTHEAT")
 {
+	field(DESC, "Furnace on/off")
 	field(DTYP, "asynInt32")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_START_HEATING")
 	field(ZNAM, "Off")
@@ -179,6 +201,7 @@ record(ao, "$(P):RAMPRATE:SET")
 
 record(ai, "$(P):RAMPRATE")
 {
+	field(DESC, "Ramp rate")
 	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_RAMPRATE")
@@ -218,20 +241,24 @@ record(ao, "$(P):SETPOINT:SET")
 	field(DTYP, "asynFloat64")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SETPOINT_SET")
 	field(EGU,  "C")
+	field(PREC, "2")
 	field(SDIS, "$(P):DISABLE")
 }
 
 record(ai, "$(P):SETPOINT")
 {
+	field(DESC, "Temperature set point")
 	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_SETPOINT")
 	field(EGU,  "C")
+	field(PREC, "2")
 	field(SDIS, "$(P):DISABLE")
 }
 
 record(ai, "$(P):POWER")
 {
+	field(DESC, "Heater power")
 	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_POWER")
@@ -241,13 +268,16 @@ record(ai, "$(P):POWER")
 
 record(ai, "$(P):LNP_SPEED")
 {
+	field(DESC, "Cooling speed")
 	field(SCAN, ".1 second")
 	field(DTYP, "asynFloat64")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_LNP_SPEED")
 	field(EGU,  "%")
 	field(SDIS, "$(P):DISABLE")
 }
+
 record(bo, "$(P):LNP_MODE:SET") {
+	field(DESC, "Pump control")
 	field(DTYP, "asynInt32")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_LNP_MODE_SET")
 	field(ZNAM, "Manual")
@@ -266,3 +296,22 @@ record(ao, "$(P):LNP_SPEED:SET")
 	field(SDIS, "$(P):DISABLE")
 }
 
+record(ai, "$(P):VAC_CHAMBER")
+{
+	field(DESC, "Vacuum gauge chamber")
+	field(SCAN, "1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VAC_CHAMBER")
+	field(EGU,  "mbar")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):VAC_DATA1")
+{
+	field(DESC, "Vacuum gauge Data1")
+	field(SCAN, "1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VAC_DATA1")
+	field(EGU,  "mbar")
+	field(SDIS, "$(P):DISABLE")
+}

@@ -14,8 +14,6 @@
 #define P_LNPSetSpeedString   "LINKAM_LNP_SPEED_SET"
 #define P_HoldTimeSetString   "LINKAM_HOLD_TIME_SET"
 #define P_HoldTimeLeftString  "LINKAM_HOLD_TIME_LEFT"
-#define P_NameString          "LINKAM_NAME"
-#define P_SerialString        "LINKAM_SERIAL"
 #define P_StageNameString     "LINKAM_STAGE_NAME"
 #define P_StageSerialString   "LINKAM_STAGE_SERIAL"
 #define P_FirmVerString       "LINKAM_FIRM_VERSION"
@@ -24,6 +22,10 @@
 #define P_CtrlConfigString    "LINKAM_CONFIG"
 #define P_CtrlStatusString    "LINKAM_STATUS"
 #define P_StageConfigString   "LINKAM_STAGE_CONFIG"
+#define P_VacuumChamberString "LINKAM_VAC_CHAMBER"
+#define P_VacuumData1String   "LINKAM_VAC_DATA1"
+#define P_NameString          "LINKAM_NAME"
+#define P_SerialString        "LINKAM_SERIAL"
 
 class linkamPortDriver : public asynPortDriver {
 public:
@@ -57,6 +59,8 @@ protected:
 	int P_CtrlConfig;
 	int P_CtrlStatus;
 	int P_StageConfig;
+	int P_VacuumChamber;
+	int P_VacuumData1;
 	int P_Name;
 	int P_Serial;
 	#define LAST_LINKAM_COMMAND P_Serial
