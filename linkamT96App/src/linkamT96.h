@@ -79,6 +79,19 @@
 #define P_TstZeroForceString "LINKAM_TST_ZERO_FORCE"
 #define P_TstStartMotorString "LINKAM_TST_START_MOTOR"
 
+#define P_TstStepMovePosString "LINKAM_TST_STEP_MOVE_POS"
+#define P_TstStepMoveNegString "LINKAM_TST_STEP_MOVE_NEG"
+
+struct MotionParams
+{
+	float demandPosition;
+	float demandVelocity;
+    float stepSize;
+    bool stepDirection;
+	float jawToJawZero;
+};
+
+
 class linkamPortDriver : public asynPortDriver {
 public:
 	linkamPortDriver(const char *);
@@ -166,6 +179,8 @@ protected:
     int P_TstZeroDistance;
     int P_TstZeroForce;
     int P_TstStartMotor;
+    int P_TstStepMovePos;
+    int P_TstStepMoveNeg;
     #define LAST_LINKAM_COMMAND P_TstStartMotor
 
     // Connection functions
@@ -186,6 +201,7 @@ private:
 	void rtrim(char *);
 	bool LNP_AutoMode;
 	int LNP_ManualSpeed;
+    MotionParams mParams;
 };
 
 #define NUM_LINKAM_PARAMS (&LAST_LINKAM_COMMAND - &FIRST_LINKAM_COMMAND + 1)

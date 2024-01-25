@@ -494,3 +494,10 @@ record(bo, "$(P):TST_START_MOTOR")
 	field(ONAM, "Moving")
 	field(SDIS, "$(P):DISABLE")
 }
+
+record(bo, "$(P):TST_STEP_POS")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STEP_MOVE_POS")
+	field(SDIS, "$(P):DISABLE")
+}
