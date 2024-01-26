@@ -538,5 +538,5 @@ record(ao, "$(P):TST_MTR_DEST_V")
     field(VAL, 0)
 	field(EGU,  "um/s")
 	field(SDIS, "$(P):DISABLE")
-	field(PINI, "YES")
+	field(PINI, "NO")
 }

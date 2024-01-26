@@ -120,6 +120,8 @@ linkamPortDriver::linkamPortDriver(const char *portName)
     createParam(P_TstMtrDistVString, asynParamFloat64, &P_TstMtrDistV);
     createParam(P_TstMtrDestVString, asynParamFloat64, &P_TstMtrDestV);
 
+	
+
 }
 
 asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *value)
@@ -169,6 +171,7 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstForceGauge;
     } else if (function == P_JawToJawSize){
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstJawToJawSize;
+		setDoubleParam(P_JawToJawSize,*value);
     } else if (function == P_JawPosition){
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstJawPosition;
     } else if (function == P_Strain){
@@ -304,6 +307,7 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
 		return status;
 	} else if(function == P_TstMtrDestV) {
 		mParams.demandPosition = value;
+		SetTstGotoMode(mParams.demandPosition,mParams.demandVelocity);
 		return status;
 	}
 
@@ -674,6 +678,50 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 
 	return status;
 }
+
+//
+// \brief     Used to instruct the TST to move to a specific distance from the closed position. 
+//            You can provide an offset jaw 2 jaw zero distance to shift the closed position.
+// \param[in] device        Handle to the controller.
+// \param[in] position      The raw absolute position to move to (um) (use eStageValueTypeTstRawMotorPos to get raw position).
+// \param[in] JawToJawZero  The raw distance position of the jaws at their zero reference position (default 15000um) (use eStageValueTypeTstRawMotorPos to get raw position).
+// \param[in] vel           Speed in um/s
+//
+asynStatus linkamPortDriver::SetTstGotoMode(float position, float vel)
+{
+    float   step            = 0;
+    float   cur             = 0;
+    float   j2j             = 0;
+	//float JawToJawZero = 0;
+	double JawToJawZero;
+    bool    dirClosing      = true;
+    LinkamSDK::Variant result;
+	LinkamSDK::Variant axis;
+
+	asynStatus status = asynSuccess;
+	axis.vInt32 = 5;
+	getDoubleParam(P_JawToJawSize,&JawToJawZero);
+	//JawToJawZero = (float)JawToJawZeroD;
+
+    // Compute the direction and step to travel for a goto. 'position' will be an absolute
+    // distance to obtain, not a relative distance to travel in this case.
+    linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstJawToJawSize), 0, 0);
+    j2j = result.vFloat32;
+    linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstRawMotorPos), 0, 0);
+    cur = result.vFloat32;
+    // JawToJawZero is the calibrated zero position/distance. By default, this is 15000um, but you may wish to allow users to calibrate this
+    // to acommodate larger jigs to be installed (bolt-on bits to the jaws). This will adjust how close the jaws can get. This will need to be
+    // accounted for in the positional calculation.
+    step        = position - ((cur - JawToJawZero) + j2j);
+    dirClosing  = (step > 0) ? false : true;
+    step        = (step < 0) ? -step : step;
+    linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableDirection),        LinkamSDK::Variant(dirClosing),0);
+    linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableMode),             LinkamSDK::Variant(LinkamSDK::eTSTMode_Step),0);
+    linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstMotorVel),              LinkamSDK::Variant(vel),0);
+    linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstMotorDistanceSetpoint), LinkamSDK::Variant(step),0);
+    linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartMotors, handle, &result, LinkamSDK::Variant(true),axis,0);
+}
+
 
 /*
  * linkamStatus

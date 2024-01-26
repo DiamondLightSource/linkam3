@@ -99,6 +99,7 @@ struct MotionParams
 class linkamPortDriver : public asynPortDriver {
 public:
 	linkamPortDriver(const char *);
+    asynStatus SetTstGotoMode(float position, float vel);
 	virtual asynStatus readFloat64(asynUser *, epicsFloat64 *);
 	virtual asynStatus readOctet(asynUser *, char *, size_t, size_t *, int *);
 	virtual asynStatus writeFloat64(asynUser *, epicsFloat64);

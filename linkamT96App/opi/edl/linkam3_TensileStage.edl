@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 43
-y 136
+x 320
+y 228
 w 1600
 h 800
 font "arial-bold-r-14.0"
@@ -2032,7 +2032,7 @@ release 0
 x 1117
 y 310
 w 450
-h 69
+h 91
 lineColor index 14
 fillColor index 3
 endObjectProperties
@@ -2045,13 +2045,13 @@ minor 1
 release 1
 x 1126
 y 301
-w 150
+w 118
 h 16
 font "arial-bold-r-14.0"
 fgColor index 14
 bgColor index 5
 value {
-  "Distance Parameters"
+  "Tweak (Position)"
 }
 autoSize
 endObjectProperties
@@ -2190,10 +2190,10 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1270
-y 414
-w 66
-h 36
+x 1395
+y 374
+w 150
+h 20
 fgColor index 14
 onColor index 3
 offColor index 3
@@ -2204,6 +2204,7 @@ pressValue "1"
 onLabel "+"
 offLabel "+"
 3d
+useEnumNumeric
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -2213,10 +2214,10 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 1365
-y 414
-w 66
-h 36
+x 1130
+y 374
+w 150
+h 20
 fgColor index 14
 onColor index 3
 offColor index 3
@@ -2227,6 +2228,7 @@ pressValue "1"
 onLabel "-"
 offLabel "-"
 3d
+useEnumNumeric
 font "arial-bold-r-14.0"
 endObjectProperties
 
