@@ -82,6 +82,10 @@
 #define P_TstStepMovePosString "LINKAM_TST_STEP_MOVE_POS"
 #define P_TstStepMoveNegString "LINKAM_TST_STEP_MOVE_NEG"
 
+#define P_TstMtrVelVString "LINKAM_TST_MTR_VEL_V"
+#define P_TstMtrDistVString "LINKAM_TST_MTR_DIST_V"
+#define P_TstMtrDestVString "LINKAM_TST_MTR_DEST_V"
+
 struct MotionParams
 {
 	float demandPosition;
@@ -181,6 +185,11 @@ protected:
     int P_TstStartMotor;
     int P_TstStepMovePos;
     int P_TstStepMoveNeg;
+
+    int P_TstMtrVelV;
+    int P_TstMtrDistV;
+    int P_TstMtrDestV;
+
     #define LAST_LINKAM_COMMAND P_TstStartMotor
 
     // Connection functions
@@ -202,6 +211,7 @@ private:
 	bool LNP_AutoMode;
 	int LNP_ManualSpeed;
     MotionParams mParams;
+    std::vector<int> noWrite;
 };
 
 #define NUM_LINKAM_PARAMS (&LAST_LINKAM_COMMAND - &FIRST_LINKAM_COMMAND + 1)

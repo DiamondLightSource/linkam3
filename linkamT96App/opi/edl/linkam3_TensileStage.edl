@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 886
-y 527
+x 43
+y 136
 w 1600
 h 800
 font "arial-bold-r-14.0"
@@ -29,62 +29,13 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 607
-y 106
+x 38
+y 134
 w 561
 h 605
 lineColor index 14
 fill
 fillColor index 5
-endObjectProperties
-
-# (X-Y Graph)
-object xyGraphClass
-beginObjectProperties
-major 4
-minor 8
-release 0
-# Geometry
-x 6
-y 327
-w 457
-h 227
-# Appearance
-plotAreaBorder
-autoScaleUpdateMs 5000
-autoScaleThreshPct 80
-fgColor index 13
-bgColor index 7
-gridColor index 33
-font "arial-bold-r-14.0"
-# Operating Modes
-plotMode "plotLastNPts"
-nPts 3000
-updateTimerMs 100
-# X axis properties
-showXAxis
-xAxisStyle "time"
-xAxisSrc "AutoScale"
-xMax 1
-xShowLabelGrid
-# Y axis properties
-showYAxis
-yAxisSrc "AutoScale"
-yMin -10
-yMax 80
-yShowLabelGrid
-yShowMajorGrid
-# Y2 axis properties
-y2AxisSrc "AutoScale"
-y2Max 1
-# Trace Properties
-numTraces 1
-yPv {
-  0 "$(P):TST_FORCE"
-}
-plotColor {
-  0 index 36
-}
 endObjectProperties
 
 # (Rectangle)
@@ -128,8 +79,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 458
-y 573
+x 1299
+y 176
 w 90
 h 30
 fgColor index 46
@@ -222,55 +173,6 @@ value {
   "DSC"
 }
 autoSize
-endObjectProperties
-
-# (X-Y Graph)
-object xyGraphClass
-beginObjectProperties
-major 4
-minor 8
-release 0
-# Geometry
-x 5
-y 570
-w 457
-h 227
-# Appearance
-plotAreaBorder
-autoScaleUpdateMs 5000
-autoScaleThreshPct 80
-fgColor index 13
-bgColor index 7
-gridColor index 33
-font "arial-bold-r-14.0"
-# Operating Modes
-plotMode "plotLastNPts"
-nPts 3000
-updateTimerMs 100
-# X axis properties
-showXAxis
-xAxisStyle "time"
-xAxisSrc "AutoScale"
-xMax 1
-xShowLabelGrid
-# Y axis properties
-showYAxis
-yAxisSrc "AutoScale"
-yMin -10
-yMax 80
-yShowLabelGrid
-yShowMajorGrid
-# Y2 axis properties
-y2AxisSrc "AutoScale"
-y2Max 1
-# Trace Properties
-numTraces 1
-yPv {
-  0 "$(P):TST_RAW_MOTOR_POS"
-}
-plotColor {
-  0 index 36
-}
 endObjectProperties
 
 # (Rectangle)
@@ -2119,5 +2021,212 @@ endObjectProperties
 
 endGroup
 
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1117
+y 310
+w 450
+h 69
+lineColor index 14
+fillColor index 3
+endObjectProperties
+
+# (Text w. Reg. Exp.)
+object activeXRegTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 1126
+y 301
+w 150
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 5
+value {
+  "Distance Parameters"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 1130
+y 324
+w 98
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Step Distance"
+}
+autoSize
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1299
+y 321
+w 128
+h 23
+controlPv "$(P):TST_MTR_DIST_V"
+precision 2
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 1445
+y 322
+w 100
+h 20
+controlPv "$(P):TST_MTR_DIST_V"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+precision 1
+nullColor index 14
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 1130
+y 349
+w 103
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Motor Velocity"
+}
+autoSize
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 1299
+y 346
+w 128
+h 23
+controlPv "$(P):TST_MTR_VEL_V"
+precision 2
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 1445
+y 347
+w 100
+h 20
+controlPv "$(P):TST_MTR_VEL_V"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+precision 1
+nullColor index 14
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1270
+y 414
+w 66
+h 36
+fgColor index 14
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):TST_STEP_POS"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1365
+y 414
+w 66
+h 36
+fgColor index 14
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):TST_STEP_NEG"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+font "arial-bold-r-14.0"
 endObjectProperties
 
