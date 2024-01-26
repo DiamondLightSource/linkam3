@@ -497,19 +497,33 @@ record(bo, "$(P):TST_START_MOTOR")
 
 
 
-record(bo, "$(P):TST_STEP_POS")
-{
-	field(DTYP, "asynInt32")
-	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STEP_MOVE_POS")
-	field(SDIS, "$(P):DISABLE")
+# record(bo, "$(P):TST_STEP_POS")
+# {
+# 	field(DTYP, "asynInt32")
+# 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STEP_MOVE_POS")
+# 	field(SDIS, "$(P):DISABLE")
+# }
+
+record(calcout, "$(P):TST_STEP_POS_CALC") {
+	field(CALC, "b+a")
+	field(INPA, "$(P):TST_MTR_DIST_V")
+	field(INPB, "$(P):TST_MTR_DEST_V")
+	field(OUT, "$(P):TST_MTR_DEST_V PP")
 }
 
-record(bo, "$(P):TST_STEP_NEG")
-{
-	field(DTYP, "asynInt32")
-	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STEP_MOVE_NEG")
-	field(SDIS, "$(P):DISABLE")
+record(calcout, "$(P):TST_STEP_NEG_CALC") {
+	field(CALC, "b-a")
+	field(INPA, "$(P):TST_MTR_DIST_V")
+	field(INPB, "$(P):TST_MTR_DEST_V")
+	field(OUT, "$(P):TST_MTR_DEST_V PP")
 }
+
+# record(bo, "$(P):TST_STEP_NEG")
+# {
+# 	field(DTYP, "asynInt32")
+# 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STEP_MOVE_NEG")
+# 	field(SDIS, "$(P):DISABLE")
+# }
 
 # Records that do no write to hardware
 record(ao, "$(P):TST_MTR_VEL_V")
@@ -518,14 +532,14 @@ record(ao, "$(P):TST_MTR_VEL_V")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_VEL_V")
 	field(EGU,  "um/s")
 	field(PINI, "YES")
-    field(VAL, "10000.0")
+    field(PREC, "1")
 }
 
 record(ao, "$(P):TST_MTR_DIST_V")
 {
 	field(DTYP, "asynFloat64")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_DIST_V")
-    field(VAL, 4000)
+    field(PREC, "1")
 	field(EGU,  "um/s")
 	field(SDIS, "$(P):DISABLE")
 	field(PINI, "YES")
@@ -535,7 +549,7 @@ record(ao, "$(P):TST_MTR_DEST_V")
 {
 	field(DTYP, "asynFloat64")
 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_DEST_V")
-    field(VAL, 0)
+    field(PREC, "1")
 	field(EGU,  "um/s")
 	field(SDIS, "$(P):DISABLE")
 	field(PINI, "NO")
