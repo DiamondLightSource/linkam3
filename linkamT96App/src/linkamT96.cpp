@@ -120,9 +120,6 @@ linkamPortDriver::linkamPortDriver(const char *portName)
     createParam(P_TstMtrDistVString, asynParamFloat64, &P_TstMtrDistV);
     createParam(P_TstMtrDestVString, asynParamFloat64, &P_TstMtrDestV);
 
-	noWrite.push_back(P_TstMtrVelV);
-	noWrite.push_back(P_TstMtrDistV);
-	noWrite.push_back(P_TstMtrDestV);
 }
 
 asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *value)
@@ -299,14 +296,14 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
 	asynStatus status = asynSuccess;
 
 	// Process functions that do not require hardware interaction
-	if (std::find(noWrite.begin(), noWrite.end(),function) != noWrite.end() ){
-		if (function == P_TstMtrVelV) {
-			mParams.demandVelocity = value;
-		} else if(function == P_TstMtrDistV) {
-			mParams.stepSize = value;
-		} else if(function == P_TstMtrDestV) {
-			mParams.demandPosition = value;
-		}
+	if (function == P_TstMtrVelV) {
+		mParams.demandVelocity = value;
+		return status;
+	} else if(function == P_TstMtrDistV) {
+		mParams.stepSize = value;
+		return status;
+	} else if(function == P_TstMtrDestV) {
+		mParams.demandPosition = value;
 		return status;
 	}
 

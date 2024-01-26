@@ -211,7 +211,6 @@ private:
 	bool LNP_AutoMode;
 	int LNP_ManualSpeed;
     MotionParams mParams;
-    std::vector<int> noWrite;
 };
 
 #define NUM_LINKAM_PARAMS (&LAST_LINKAM_COMMAND - &FIRST_LINKAM_COMMAND + 1)
