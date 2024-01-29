@@ -3,6 +3,8 @@ from iocbuilder.arginfo import *
 from iocbuilder.modules.asyn import Asyn, AsynPort, AsynIP
 
 
+class _LinkamT96Gui(AutoSubstitution):
+    TemplateFile = "LinkamGui.template"
 class _LinkamT96Pars(AutoSubstitution):
     TemplateFile = "Linkam.template"
 
@@ -29,6 +31,19 @@ class LinkamT96(Device):
         # Call super class
         self.__super.__init__()
 
+        # Include standard GUI if not tensile
+        if not self.tensile:
+            self.template = _LinkamT96Gui(name=name,P=P)
+
+        if self.tensile:
+            self.template = _LinkamT96Tst(
+                PORT='{}_AP'.format(P),
+                P=P,
+                ADDR=0,
+                TIMEOUT=1,
+                name=name
+            )
+
         # Invoke template
         self.template = _LinkamT96Pars(
             PORT='{}_AP'.format(P),
@@ -52,13 +67,7 @@ class LinkamT96(Device):
         if self.virtual_port and 'systemCommandSupport' not in LinkamT96.DbdFileList:
             LinkamT96.DbdFileList += ['systemCommandSupport']
         
-        if self.tensile:
-            self.template = _LinkamT96Tst(
-                PORT='{}_AP'.format(P),
-                P=P,
-                ADDR=0,
-                TIMEOUT=1
-            )
+
 
 
     ArgInfo = makeArgInfo(

@@ -8,8 +8,6 @@
 # % macro, ADDR,    Asyn ADDR
 # % macro, TIMEOUT, Asyn TIMEOUT
 #
-# GUI
-# % gui, $(name=), edm, linkam3.edl, P=$(P)
 include "Linkam_detail.template"
 #
 #==============================================================================

@@ -4,7 +4,8 @@
 # % macro, PORT,    Asyn PORT
 # % macro, ADDR,    Asyn ADDR
 # % macro, TIMEOUT, Asyn TIMEOUT
-
+# GUI
+# % gui, $(name=), edm, linkam3_TensileStage.edl, P=$(P)
 record(ai, "$(P):TST_MOTOR_POS")
 {
 	field(SCAN, ".1 second")

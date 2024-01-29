@@ -13,6 +13,7 @@ include $(TOP)/configure/CONFIG
 DB += Linkam.template
 DB += Linkam_detail.template
 DB += LinkamTensileStage.template
+DB += LinkamGui.template
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
