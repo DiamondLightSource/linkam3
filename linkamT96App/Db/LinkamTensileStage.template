@@ -450,7 +450,7 @@ record(ai, "$(P):TST_CYCLES_REMAINING")
 
 
 record(ai, "$(P):TST_STATUS") {
-	field(SCAN, "1 second")
+	field(SCAN, ".1 second")
 	field(DTYP, "asynInt32")
 	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STATUS")
 	field(PINI, "YES")
@@ -496,45 +496,26 @@ record(bo, "$(P):TST_START_MOTOR")
 }
 
 
+#################################################################################################
+# Position control records
 
-# record(bo, "$(P):TST_STEP_POS")
-# {
-# 	field(DTYP, "asynInt32")
-# 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STEP_MOVE_POS")
-# 	field(SDIS, "$(P):DISABLE")
-# }
-
-record(calcout, "$(P):TST_STEP_POS_CALC") {
+# Tweak Pos
+record(calcout, "$(P):TST_STEP_POS") {
 	field(CALC, "b+a")
 	field(INPA, "$(P):TST_MTR_DIST_V")
 	field(INPB, "$(P):TST_MTR_DEST_V")
 	field(OUT, "$(P):TST_MTR_DEST_V PP")
 }
 
-record(calcout, "$(P):TST_STEP_NEG_CALC") {
+# Tweak Neg
+record(calcout, "$(P):TST_STEP_NEG") {
 	field(CALC, "b-a")
 	field(INPA, "$(P):TST_MTR_DIST_V")
 	field(INPB, "$(P):TST_MTR_DEST_V")
 	field(OUT, "$(P):TST_MTR_DEST_V PP")
 }
 
-# record(bo, "$(P):TST_STEP_NEG")
-# {
-# 	field(DTYP, "asynInt32")
-# 	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_STEP_MOVE_NEG")
-# 	field(SDIS, "$(P):DISABLE")
-# }
-
-# Records that do no write to hardware
-record(ao, "$(P):TST_MTR_VEL_V")
-{
-	field(DTYP, "asynFloat64")
-	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_VEL_V")
-	field(EGU,  "um/s")
-	field(PINI, "YES")
-    field(PREC, "1")
-}
-
+# Tweak Size
 record(ao, "$(P):TST_MTR_DIST_V")
 {
 	field(DTYP, "asynFloat64")
@@ -545,6 +526,34 @@ record(ao, "$(P):TST_MTR_DIST_V")
 	field(PINI, "YES")
 }
 
+# Velocity
+record(ao, "$(P):TST_MTR_VEL_V")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_TST_MTR_VEL_V")
+	field(EGU,  "um/s")
+	field(PINI, "YES")
+    field(PREC, "1")
+}
+
+# Disable puts during motion
+record(calcout, "$(P):TST_MTR_MOVING") {
+	field(DESC, "Disable demand during move")
+	field(CALC, "(A AND 2^B) == 2^B ? 0:1")
+	field(INPA, "$(P):TST_STATUS CP")
+	field(INPB, "2")
+	field(OUT, "$(P):TST_MTR_DEST_V.DISP")
+}
+
+record(dfanout, "$(P):TST_MTR_MOVING_FAN") {
+	field(OUTA, "$(P):TST_MTR_DEST_V.DISP")
+	field(OUTB, "$(P):TST_STEP_POS_CALC.DISP")
+	field(OUTC, "$(P):TST_STEP_NEG_CALC.DISP")
+	field(DOL,  "$(P):TST_MTR_MOVING CP")
+	field(OMSL, "closed_loop")
+}
+
+# Motor demand position
 record(ao, "$(P):TST_MTR_DEST_V")
 {
 	field(DTYP, "asynFloat64")

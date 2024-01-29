@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 382
-y 88
+x 3508
+y 879
 w 700
 h 950
 font "arial-bold-r-14.0"
@@ -1642,8 +1642,8 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "BL03I-MO-BS-01:Z.STOP"
-pressValue "1"
+controlPv "$(P):TST_TABLE_MODE:SET"
+pressValue "5"
 onLabel "STOP"
 offLabel "STOP"
 3d
@@ -1735,7 +1735,7 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_STEP_NEG_CALC.PROC"
+controlPv "$(P):TST_STEP_NEG.PROC"
 pressValue "1"
 onLabel "-"
 offLabel "-"
@@ -1781,7 +1781,7 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_STEP_POS_CALC.PROC"
+controlPv "$(P):TST_STEP_POS.PROC"
 pressValue "1"
 onLabel "+"
 offLabel "+"
@@ -1833,19 +1833,6 @@ font "arial-bold-r-14.0"
 fontAlign "center"
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 594
-y 728
-w 18
-h 11
-
-beginGroup
-
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
@@ -1861,18 +1848,11 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "BL03I-MO-BS-01:Z:KILL.PROC"
-pressValue "1"
+controlPv "$(P):TST_TABLE_MODE:SET"
+pressValue "4"
 onLabel "Kill"
 offLabel "Kill"
 3d
 font "helvetica-medium-r-8.0"
-endObjectProperties
-
-endGroup
-
-visPv "BL03I-MO-BS-01:Z:KILL"
-visMin "0"
-visMax "1"
 endObjectProperties
 
