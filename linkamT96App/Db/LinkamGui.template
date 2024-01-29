@@ -1,0 +1,3 @@
+# % gui, $(name=), edm, linkam3.edl, P=$(P)
+
+include "Linkam_detail.template"
