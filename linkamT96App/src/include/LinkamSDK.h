@@ -6,7 +6,7 @@
 *                   Linkam devices. This may be used on Windows and Linux
 *                   platforms.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK_H
 #define LINKAM_SDK_H
@@ -85,7 +85,7 @@ LINKAM_API_CALL bool linkamProcessMessage(LinkamSDK::LinkamFunctionMsgCode msg, 
  *
  *  @ingroup    Library_Functions
  */
-LINKAM_API_CALL bool linkamProcessMessageCommon(uint32_t msg, CommsHandle hDevice, uint64_t* result, uint64_t param1, uint64_t param2, uint64_t param3);
+LINKAM_API_CALL bool linkamProcessMessageCommon(uint32_t msg, CommsHandle hDevice, void* result, uint64_t param1, uint64_t param2, uint64_t param3);
 
 /*!
  *  \brief      Helper function, call to initialise a \link LinkamSDK::CommsInfo CommsInfo \endlink structure with require information for a USB device.
@@ -98,6 +98,19 @@ LINKAM_API_CALL bool linkamProcessMessageCommon(uint32_t msg, CommsHandle hDevic
 LINKAM_API_CALL void linkamInitialiseUSBCommsInfo(LinkamSDK::CommsInfo* info, const char* serialNumber);
 
 /*!
+ *  \brief      Helper function, call to initialise a \link LinkamSDK::CommsInfo CommsInfo \endlink structure with require information for a USB device.
+ * This is an extended version (Ex) which allows the timeout setting to be modified by call to the initialise function instead of configuring the structure
+ * manually.
+ *  \param[in]  info                    A valid pointer to a \link LinkamSDK::CommsInfo CommsInfo \endlink structure instance defining the connection properties.
+ *  \param[in]  serialNumber            A valid pointer to a null terminated wchar_t buffer holding the serial number for the device,
+ *                                      may be NULL if only Linkam controller is connected to your machine.
+ *  \param[in]  msgTimeout              Sets the total time to wait for a complete message in (ms) before dropping the message.
+ *
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamInitialiseUSBCommsInfoEx(LinkamSDK::CommsInfo* info, const char* serialNumber, uint32_t msgTimeout);
+
+/*!
  *  \brief      Helper function, call to initialise a \link LinkamSDK::CommsInfo CommsInfo \endlink structure with require information for a Serial device.
  *  \param[in]  info                    A valid pointer to a \link LinkamSDK::CommsInfo CommsInfo \endlink structure instance defining the connection properties.
  *  \param[in]  port                    A valid pointer to a null terminated char buffer holding the serial port name.
@@ -107,15 +120,53 @@ LINKAM_API_CALL void linkamInitialiseUSBCommsInfo(LinkamSDK::CommsInfo* info, co
 LINKAM_API_CALL void linkamInitialiseSerialCommsInfo(LinkamSDK::CommsInfo* info, const char* port);
 
 /*!
+ *  \brief      Helper function, call to initialise a \link LinkamSDK::CommsInfo CommsInfo \endlink structure with require information for a Serial device.
+ * This is an extended version (Ex) which allows the timeout settings to be modified by call to the initialise function instead of configuring the structure
+ * manually.
+ *  \param[in]  info                    A valid pointer to a \link LinkamSDK::CommsInfo CommsInfo \endlink structure instance defining the connection properties.
+ *  \param[in]  port                    A valid pointer to a null terminated char buffer holding the serial port name.
+ *  \param[in]  msgTimeout              Sets the total time to wait for a complete message in (ms) before dropping the message.
+ *  \param[in]  portTimeout             Sets the total time to wait for packet data to arrive at the port in (ms) (Optional, default is set to 5 ms).
+ *
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamInitialiseSerialCommsInfoEx(LinkamSDK::CommsInfo* info, const char* port, uint32_t msgTimeout, uint32_t portTimeout=5);
+
+/*!
+ *  \brief      Helper function, call to initialise a \link LinkamSDK::CommsInfo CommsInfo \endlink structure with require information for an emulated device.
+ *  \param[in]  info                    A valid pointer to a \link LinkamSDK::CommsInfo CommsInfo \endlink structure instance defining the connection properties.
+ *	\param[in]	type                    The stage type to emulate.
+ *	\param[in]	supportLNP              Boolean flag for single LNP support on emulated stage.
+ *	\param[in]	supportRH               Boolean flag for humidiaty support on emulated stage.
+ *
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamInitialiseEmulatedCommsInfo(LinkamSDK::CommsInfo* info, LinkamSDK::StageType type, bool supportLNP, bool supportRH);
+
+/*!
  *  \brief      Call this function to add a callback function to receive new value event signals.
+ *
+ *  This function allows developers to register one or more callback functions which will handle
+ *  new value (data) events thrown by the driver. This allows 3rd party applications to handle new
+ *  value (data) events in an event dsriven application design.
+ *
  *  \param[in]  callback        A valid function pointer to a new value handler.
+ *  \warning    Ensure the callback function remains valid until the driver instance is exited or
+ *              the callback function is removed from the driver database.
  *  @ingroup    Library_Functions
  */
 LINKAM_API_CALL void linkamSetCallbackNewValue(EventNewValueCallback callback);
 
 /*!
  *  \brief      Call this function to add a callback function to receive connected event signals.
+ *
+ *  This function allows developers to register one or more callback functions which will handle
+ *  connection events thrown by the driver. This allows 3rd party applications to handle connection
+ *  events in an event driven application design.
+ *
  *  \param[in]  callback        A valid function pointer to a connected handler.
+ *  \warning    Ensure the callback function remains valid until the driver instance is exited or
+ *              the callback function is removed from the driver database.
  *  @ingroup    Library_Functions
  */
 LINKAM_API_CALL void linkamSetCallbackControllerConnected(EventCallback callback);
@@ -128,6 +179,8 @@ LINKAM_API_CALL void linkamSetCallbackControllerConnected(EventCallback callback
  *  handle disconnection events in an event driven application design.
  *
  *  \param[in]  callback        A valid function pointer to a disconnected handler.
+ *  \warning    Ensure the callback function remains valid until the driver instance is exited or
+ *              the callback function is removed from the driver database.
  *  @ingroup    Library_Functions
  */
 LINKAM_API_CALL void linkamSetCallbackControllerDisconnected(EventCallback callback);
@@ -141,10 +194,116 @@ LINKAM_API_CALL void linkamSetCallbackControllerDisconnected(EventCallback callb
  *  does not support pop-up dialog boxes directly.
  *
  *  \param[in]  callback        A valid function pointer to an error handler.
+ *  \warning    Ensure the callback function remains valid until the driver instance is exited or
+ *              the callback function is removed from the driver database.
  *  @ingroup    Library_Functions
  */
 LINKAM_API_CALL void linkamSetCallbackError(EventErrorCallback callback);
 
+/*!
+ *  \brief      Call this function to add a callback function to receive log message signals.
+ *
+ *  This function allows developers to register one or more callback functions which will handle log
+ *  message events thrown by the driver. These events only need to be handle if you wish to record 
+ *  driver log messages to your own application log. Log message events are only sent if you have 
+ *  set the driver to prevent logging.
+ *
+ *  \param[in]  callback        A valid function pointer to a log message handler.
+ *  \warning    Ensure the callback function remains valid until the driver instance is exited or
+ *              the callback function is removed from the driver database.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamSetCallbackLog(EventLogCallback callback);
+
+/*!
+ *  \brief      Call this function to add a callback function to receive stage event signals.
+ *
+ *  This function allows developers to register one or more callback functions which will handle stage
+ *  events thrown by the driver. These events only need to be handle if you wish to recieve stage events,
+ *  and the stage type supports them.
+ *
+ *  \param[in]  callback        A valid function pointer to a log message handler.
+ *  \warning    Ensure the callback function remains valid until the driver instance is exited or
+ *              the callback function is removed from the driver database.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamSetCallbackEvent(EventStageEventCallback callback);
+
+/*!
+ *  \brief      Call this function to remove a callback function from receiving new value event signals.
+ *
+ *  This function allows developers to unregister one or more callback functions from the driver.
+ *
+ *  \param[in]  callback        A valid function pointer to a new value handler.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamRemoveCallbackNewValue(EventNewValueCallback callback);
+
+/*!
+ *  \brief      Call this function to remove a callback function from receiving connected event signals.
+ *
+ *  This function allows developers to unregister one or more callback functions from the driver.
+ *
+ *  \param[in]  callback        A valid function pointer to a connected handler.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamRemoveCallbackControllerConnected(EventCallback callback);
+
+/*!
+ *  \brief      Call this function to remove a callback function from receiving disconnected event signals.
+ *
+ *  This function allows developers to unregister one or more callback functions from the driver.
+ *
+ *  \param[in]  callback        A valid function pointer to a disconnected handler.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamRemoveCallbackControllerDisconnected(EventCallback callback);
+
+/*!
+ *  \brief      Call this function to remove a callback function from receiving error event signals.
+ *
+ *  This function allows developers to unregister one or more callback functions from the driver.
+ *
+ *  \param[in]  callback        A valid function pointer to an error handler.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamRemoveCallbackError(EventErrorCallback callback);
+
+/*!
+ *  \brief      Call this function to remove a callback function from receiving log message signals.
+ *
+ *  This function allows developers to unregister one or more callback functions from the driver.
+ *
+ *  \param[in]  callback        A valid function pointer to a log message handler.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamRemoveCallbackLog(EventLogCallback callback);
+
+/*!
+ *  \brief      Call this function to remove a callback function from receiving stage event signals.
+ *
+ *  This function allows developers to unregister one or more callback functions from the driver.
+ *
+ *  \param[in]  callback        A valid function pointer to a log message handler.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL void linkamRemoveCallbackEvent(EventStageEventCallback callback);
+
+/*!
+ *  \breif      Helper function to get the USB communications structure from a CommsInfo structure.
+ *  \param[in]  info        A valid CommsInfo structure pointer.
+ *  \return     Returns a pointer to the info region as a SerialCommsInfo structure if successful, else NULL.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL LinkamSDK::USBCommsInfo* linkamGetUSBCommsInfo(LinkamSDK::CommsInfo* info);
+
+/*!
+ *  \breif      Helper function to get the serial communications structure from a CommsInfo structure.
+ *  \param[in]  info        A valid CommsInfo structure pointer.
+ *  \return     Returns a pointer to the info region as a SerialCommsInfo structure if successful, else NULL.
+ *  @ingroup    Library_Functions
+ */
+LINKAM_API_CALL LinkamSDK::SerialCommsInfo* linkamGetSerialCommsInfo(LinkamSDK::CommsInfo* info);
 
 #endif // LINKAM_SDK_H
 

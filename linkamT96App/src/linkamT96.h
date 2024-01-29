@@ -28,7 +28,7 @@
 #define P_SerialString        "LINKAM_SERIAL"
 
 // Tensile stage parameters
-#define P_TstMotorPosString     "LINKAM_TST_MOTOR_POS"
+#define P_TstMotorPosString     "LINKAM_TSTP_RBV"
 #define P_ForceString           "LINKAM_FORCE"
 #define P_MaxForceString        "LINKAM_MAX_FORCE"
 #define P_TstMtrVelSetString    "LINKAM_TST_MTR_VEL_SET"
@@ -78,28 +78,38 @@
 #define P_TstZeroDistanceString "LINKAM_TST_ZERO_DISTANCE"
 #define P_TstZeroForceString "LINKAM_TST_ZERO_FORCE"
 #define P_TstStartMotorString "LINKAM_TST_START_MOTOR"
+#define P_TstForceKpString "LINKAM_TST_FORCE_KP"
+#define P_TstForceKiString "LINKAM_TST_FORCE_KI"
+#define P_TstForceKdString "LINKAM_TST_FORCE_KD"
 
-#define P_TstStepMovePosString "LINKAM_TST_STEP_MOVE_POS"
-#define P_TstStepMoveNegString "LINKAM_TST_STEP_MOVE_NEG"
 
-#define P_TstMtrVelVString "LINKAM_TST_MTR_VEL_V"
-#define P_TstMtrDistVString "LINKAM_TST_MTR_DIST_V"
-#define P_TstMtrDestVString "LINKAM_TST_MTR_DEST_V"
+// Position motor variables
+#define P_TstpVeloString "LINKAM_TSTP_VELO"
+#define P_TstpValString "LINKAM_TSTP_VAL"
 
-struct MotionParams
+// Force motor variables 
+#define P_TstfValString "LINKAM_TSTF_VAL"
+
+
+struct PositionMotorParams
 {
 	float demandPosition;
 	float demandVelocity;
     float stepSize;
-    bool stepDirection;
 	float jawToJawZero;
 };
 
+struct ForceMotorParams
+{
+	float demandForce;
+    float stepSize;
+};
 
 class linkamPortDriver : public asynPortDriver {
 public:
 	linkamPortDriver(const char *);
     asynStatus SetTstGotoMode(float position, float vel);
+    asynStatus SetTstForceMode(float force);
 	virtual asynStatus readFloat64(asynUser *, epicsFloat64 *);
 	virtual asynStatus readOctet(asynUser *, char *, size_t, size_t *, int *);
 	virtual asynStatus writeFloat64(asynUser *, epicsFloat64);
@@ -184,12 +194,15 @@ protected:
     int P_TstZeroDistance;
     int P_TstZeroForce;
     int P_TstStartMotor;
-    int P_TstStepMovePos;
-    int P_TstStepMoveNeg;
 
-    int P_TstMtrVelV;
-    int P_TstMtrDistV;
-    int P_TstMtrDestV;
+    int P_TstForceKp;
+    int P_TstForceKi;
+    int P_TstForceKd;
+
+    int P_TstpVelo;
+    int P_TstpVal;
+
+    int P_TstfVal;
 
     #define LAST_LINKAM_COMMAND P_TstStartMotor
 
@@ -211,7 +224,8 @@ private:
 	void rtrim(char *);
 	bool LNP_AutoMode;
 	int LNP_ManualSpeed;
-    MotionParams mParams;
+    PositionMotorParams pMotorParams;
+    ForceMotorParams fMotorParams;
 };
 
 #define NUM_LINKAM_PARAMS (&LAST_LINKAM_COMMAND - &FIRST_LINKAM_COMMAND + 1)

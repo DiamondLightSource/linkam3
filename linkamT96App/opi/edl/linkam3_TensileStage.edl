@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 3508
-y 879
-w 700
-h 950
+x 1677
+y 555
+w 675
+h 1050
 font "arial-bold-r-14.0"
 ctlFont "arial-bold-r-14.0"
 btnFont "arial-bold-r-14.0"
@@ -29,88 +29,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 322
-y 89
-w 140
-h 176
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (X-Y Graph)
-object xyGraphClass
-beginObjectProperties
-major 4
-minor 8
-release 0
-# Geometry
-x 6
-y 327
-w 457
-h 227
-# Appearance
-plotAreaBorder
-autoScaleUpdateMs 5000
-autoScaleThreshPct 80
-fgColor index 13
-bgColor index 7
-gridColor index 33
-font "arial-bold-r-14.0"
-# Operating Modes
-plotMode "plotLastNPts"
-nPts 3000
-updateTimerMs 100
-# X axis properties
-showXAxis
-xAxisStyle "time"
-xAxisSrc "AutoScale"
-xMax 1
-xShowLabelGrid
-# Y axis properties
-showYAxis
-yAxisSrc "AutoScale"
-yMin -10
-yMax 80
-yShowLabelGrid
-yShowMajorGrid
-# Y2 axis properties
-y2AxisSrc "AutoScale"
-y2Max 1
-# Trace Properties
-numTraces 1
-yPv {
-  0 "$(P):TEMP"
-}
-plotColor {
-  0 index 36
-}
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 6
-y 55
-w 308
-h 210
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
 x 0
 y 0
-w 624
+w 675
 h 40
 lineColor index 61
 fill
@@ -137,128 +58,14 @@ value {
 autoSize
 endObjectProperties
 
-# (Button)
-object activeButtonClass
-beginObjectProperties
-major 4
-minor 1
-release 0
-x 387
-y 49
-w 160
-h 26
-fgColor index 25
-onColor index 20
-offColor index 3
-inconsistentColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P):DISABLE"
-3d
-font "arial-bold-r-14.0"
-objType "controls"
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 75
-y 67
-w 70
-h 20
-controlPv "$(P):TEMP"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-precision 1
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 21
-y 71
-w 39
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Temp"
-}
-autoSize
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 218
-y 67
-w 70
-h 20
-controlPv "$(P):DSC"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 174
-y 71
-w 32
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "DSC"
-}
-autoSize
-endObjectProperties
-
 # (Exit Button)
 object activeExitButtonClass
 beginObjectProperties
 major 4
 minor 1
 release 0
-x 521
-y 899
+x 572
+y 1005
 w 90
 h 30
 fgColor index 46
@@ -268,1299 +75,6 @@ botShadowColor index 11
 label "EXIT"
 font "arial-medium-r-18.0"
 3d
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 473
-y 246
-w 134
-h 185
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 484
-y 240
-w 70
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 5
-value {
-  "Cool/Heat"
-}
-autoSize
-border
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 472
-y 89
-w 135
-h 146
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 482
-y 104
-w 115
-h 20
-controlPv "$(P):STAGE:MODEL"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 83
-w 40
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 5
-value {
-  "Stage"
-}
-autoSize
-border
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 566
-y 136
-w 30
-h 75
-controlPv "$(P):STAGE:CONFIG"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-numBits 4
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 137
-w 65
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Standard"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 157
-w 32
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "DSC"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 177
-w 52
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Manual"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 197
-w 34
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Auto"
-}
-autoSize
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 482
-y 293
-w 114
-h 20
-controlPv "$(P):LNP_SPEED"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 482
-y 376
-w 114
-h 20
-controlPv "$(P):POWER"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Variable Scale Bar)
-object activeVsBarClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 482
-y 319
-w 114
-h 20
-indicatorColour index 30
-fgColour index 3
-bgColour index 33
-indicatorPv "$(P):LNP_SPEED"
-font "arial-bold-r-14.0"
-labelTicks 10
-majorTicks 20
-minorTicks 2
-border
-precision 0
-min 0
-max 100
-scaleFormat "FFloat"
-endObjectProperties
-
-# (Variable Scale Bar)
-object activeVsBarClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 482
-y 401
-w 114
-h 20
-indicatorColour index 20
-fgColour index 3
-bgColour index 24
-indicatorPv "$(P):POWER"
-font "arial-medium-r-14.0"
-labelTicks 10
-majorTicks 20
-minorTicks 2
-border
-precision 0
-min 0
-max 100
-scaleFormat "FFloat"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 481
-y 270
-w 77
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "LNP Speed"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 481
-y 356
-w 94
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Heater Power"
-}
-autoSize
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 458
-y 9
-w 100
-h 20
-controlPv "$(P):MODEL"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 590
-y 4
-w 15
-h 30
-controlPv "$(P):CONFIG"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-numBits 2
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 569
-y 20
-w 20
-h 11
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "LNP"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 567
-y 7
-w 23
-h 11
-font "arial-bold-r-10.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "DSC"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 13
-y 50
-w 54
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 5
-value {
-  "Control"
-}
-autoSize
-border
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 14
-y 99
-w 47
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "On/Off"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 14
-y 129
-w 77
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Ramp Rate"
-}
-autoSize
-endObjectProperties
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 124
-y 95
-w 128
-h 20
-fgColor index 25
-fgAlarm
-bgColor index 3
-inconsistentColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P):STARTHEAT"
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 99
-y 124
-w 95
-h 23
-controlPv "$(P):RAMPRATE:SET"
-precision 2
-fgColor index 25
-fgAlarm
-bgColor index 3
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 332
-y 108
-w 38
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Error"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 332
-y 83
-w 45
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 5
-value {
-  "Status"
-}
-autoSize
-border
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 423
-y 105
-w 30
-h 21
-controlPv "$(P):STATUS"
-lineColor index 14
-onColor index 20
-offColor index 24
-numBits 1
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 200
-y 126
-w 100
-h 20
-controlPv "$(P):RAMPRATE"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 14
-y 215
-w 238
-h 20
-
-beginGroup
-
-# (Menu Button)
-object activeMenuButtonClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 124
-y 215
-w 128
-h 20
-fgColor index 25
-fgAlarm
-bgColor index 3
-inconsistentColor index 3
-topShadowColor index 1
-botShadowColor index 11
-controlPv "$(P):LNP_MODE:SET"
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 14
-y 215
-w 100
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pump Control"
-}
-autoSize
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 36
-y 151
-w 155
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Estimated Ramp Time"
-}
-autoSize
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 200
-y 148
-w 100
-h 20
-controlPv "$(P):RAMPTIME"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 331
-y 129
-w 122
-h 20
-controlPv "$(P):CTRLLR:ERR"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 332
-y 175
-w 121
-h 80
-
-beginGroup
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 332
-y 237
-w 80
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Pump Auto"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 332
-y 217
-w 42
-h 16
-font "arial-bold-r-14.0"
-fgColor index 33
-bgColor index 3
-useDisplayBg
-value {
-  "Pump"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 332
-y 197
-w 45
-h 16
-font "arial-bold-r-14.0"
-fgColor index 23
-bgColor index 3
-useDisplayBg
-value {
-  "Heater"
-}
-autoSize
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 423
-y 175
-w 30
-h 80
-controlPv "$(P):STATUS"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-numBits 4
-shift 1
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 332
-y 177
-w 76
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "At setpoint"
-}
-autoSize
-endObjectProperties
-
-endGroup
-
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 8
-y 278
-w 453
-h 40
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 15
-y 273
-w 60
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 5
-value {
-  "Vacuum"
-}
-autoSize
-border
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 120
-y 293
-w 100
-h 20
-controlPv "$(P):VAC_CHAMBER"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 10
-y 296
-w 98
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Chamber Vac"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 260
-y 295
-w 84
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Sensor Vac"
-}
-autoSize
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 350
-y 292
-w 100
-h 20
-controlPv "$(P):VAC_DATA1"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 200
-y 187
-w 100
-h 20
-controlPv "$(P):SETPOINT"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 99
-y 185
-w 95
-h 23
-controlPv "$(P):SETPOINT:SET"
-precision 2
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 14
-y 188
-w 58
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Setpoint"
-}
-autoSize
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 200
-y 242
-w 100
-h 20
-controlPv "$(P):LNP_SPEED"
-font "arial-bold-r-14.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 14
-fastUpdate
-useHexPrefix
-showUnits
-newPos
-objType "monitors"
-noExecuteClipMask
-endObjectProperties
-
-# (Textentry)
-object TextentryClass
-beginObjectProperties
-major 10
-minor 0
-release 0
-x 99
-y 240
-w 95
-h 23
-controlPv "$(P):LNP_SPEED:SET"
-precision 2
-fgColor index 25
-fgAlarm
-bgColor index 3
-fill
-font "arial-bold-r-14.0"
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 14
-y 243
-w 70
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Set Speed"
-}
-autoSize
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 473
-y 529
-w 186
-h 176
-lineColor index 14
-fill
-fillColor index 5
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 478
-y 521
-w 91
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 5
-value {
-  "Motor Status"
-}
-autoSize
-border
-endObjectProperties
-
-# (Byte)
-object ByteClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 600
-y 555
-w 30
-h 140
-controlPv "$(P):TST_STATUS"
-lineColor index 14
-onColor index 15
-offColor index 19
-endian "little"
-numBits 7
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 677
-w 107
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Cycle Dir Open"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 657
-w 83
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Cycle Mode"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 637
-w 96
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Force as Dist"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 617
-w 65
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Direction"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 597
-w 80
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Move Done"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 577
-w 62
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Ref Limit"
-}
-autoSize
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 482
-y 557
-w 72
-h 16
-font "arial-bold-r-14.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Zero Limit"
-}
-autoSize
 endObjectProperties
 
 # (X-Y Graph)
@@ -1576,8 +90,10 @@ w 457
 h 227
 # Appearance
 plotAreaBorder
+autoScaleBothDirections
 autoScaleUpdateMs 5000
 autoScaleThreshPct 80
+graphTitle "Position (um)"
 fgColor index 13
 bgColor index 7
 gridColor index 33
@@ -1605,11 +121,392 @@ y2Max 1
 # Trace Properties
 numTraces 1
 yPv {
-  0 "$(P):TST_MOTOR_POS"
+  0 "$(P):TST:RBV"
 }
 plotColor {
   0 index 36
 }
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 473
+y 565
+w 186
+h 184
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 473
+y 573
+w 186
+h 176
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 478
+y 565
+w 91
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 5
+value {
+  "Motor Status"
+}
+autoSize
+border
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 600
+y 599
+w 30
+h 140
+controlPv "$(P):TST:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+numBits 7
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 482
+y 721
+w 107
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Cycle Dir Open"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 482
+y 701
+w 83
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Cycle Mode"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 482
+y 681
+w 96
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Force as Dist"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 482
+y 661
+w 65
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Direction"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 482
+y 641
+w 80
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Move Done"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 482
+y 621
+w 62
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Ref Limit"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 482
+y 601
+w 72
+h 16
+font "arial-bold-r-14.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Zero Limit"
+}
+autoSize
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 3
+y 44
+w 670
+h 520
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "linkam3Base"
+sizeOfs 5
+numDsps 0
+endObjectProperties
+
+# (X-Y Graph)
+object xyGraphClass
+beginObjectProperties
+major 4
+minor 8
+release 0
+# Geometry
+x 6
+y 808
+w 457
+h 227
+# Appearance
+plotAreaBorder
+autoScaleBothDirections
+autoScaleUpdateMs 5000
+autoScaleThreshPct 80
+graphTitle "Force (N)"
+fgColor index 13
+bgColor index 7
+gridColor index 33
+font "arial-bold-r-14.0"
+# Operating Modes
+plotMode "plotLastNPts"
+nPts 3000
+updateTimerMs 100
+# X axis properties
+showXAxis
+xAxisStyle "time"
+xAxisSrc "AutoScale"
+xMax 1
+xShowLabelGrid
+# Y axis properties
+showYAxis
+yAxisSrc "AutoScale"
+yMin -10
+yMax 80
+yShowLabelGrid
+yShowMajorGrid
+# Y2 axis properties
+y2AxisSrc "AutoScale"
+y2Max 1
+# Trace Properties
+numTraces 1
+yPv {
+  0 "$(P):TSTF:RBV"
+}
+plotColor {
+  0 index 36
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 514
+y 4
+w 147
+h 30
+
+beginGroup
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 514
+y 9
+w 100
+h 20
+controlPv "$(P):MODEL"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 16
+fgAlarm
+bgColor index 10
+nullColor index 14
+fastUpdate
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+noExecuteClipMask
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 625
+y 20
+w 20
+h 11
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "LNP"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 623
+y 7
+w 23
+h 11
+font "arial-bold-r-10.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "DSC"
+}
+autoSize
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 646
+y 4
+w 15
+h 30
+controlPv "$(P):CONFIG"
+lineColor index 14
+onColor index 15
+offColor index 19
+endian "little"
+numBits 2
+endObjectProperties
+
+endGroup
+
 endObjectProperties
 
 # (Rectangle)
@@ -1619,7 +516,7 @@ major 4
 minor 0
 release 0
 x 473
-y 727
+y 767
 w 189
 h 104
 lineColor index 14
@@ -1634,7 +531,7 @@ major 4
 minor 1
 release 0
 x 606
-y 805
+y 845
 w 52
 h 22
 fgColor index 21
@@ -1642,7 +539,7 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_TABLE_MODE:SET"
+controlPv "$(P):TST:TABLE_MODE:SET"
 pressValue "Stop"
 onLabel "STOP"
 offLabel "STOP"
@@ -1659,7 +556,7 @@ major 4
 minor 4
 release 0
 x 478
-y 805
+y 845
 w 52
 h 22
 fgColor index 43
@@ -1682,7 +579,7 @@ major 4
 minor 1
 release 1
 x 473
-y 722
+y 762
 w 45
 h 13
 font "arial-medium-r-12.0"
@@ -1702,10 +599,10 @@ major 4
 minor 6
 release 0
 x 538
-y 807
+y 847
 w 60
 h 16
-controlPv "$(P):TST_MTR_DIST_V"
+controlPv "$(P):TST:TWV"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 14
@@ -1727,7 +624,7 @@ major 4
 minor 1
 release 0
 x 478
-y 743
+y 783
 w 43
 h 29
 fgColor index 25
@@ -1735,7 +632,7 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_STEP_NEG.PROC"
+controlPv "$(P):TST:TWR.PROC"
 pressValue "1"
 onLabel "-"
 offLabel "-"
@@ -1753,10 +650,10 @@ major 10
 minor 0
 release 0
 x 526
-y 741
+y 781
 w 83
 h 33
-controlPv "$(P):TST_MTR_DEST_V"
+controlPv "$(P):TST:VAL"
 displayMode "decimal"
 precision 1
 fgColor index 25
@@ -1773,7 +670,7 @@ major 4
 minor 1
 release 0
 x 614
-y 743
+y 783
 w 43
 h 29
 fgColor index 25
@@ -1781,7 +678,7 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_STEP_POS.PROC"
+controlPv "$(P):TST:TWF.PROC"
 pressValue "1"
 onLabel "+"
 offLabel "+"
@@ -1792,45 +689,207 @@ visMin "0"
 visMax "1"
 endObjectProperties
 
-# (Menu Button)
-object activeMenuButtonClass
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 594
+y 768
+w 18
+h 13
+fgColor index 22
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):TST:TABLE_MODE:SET"
+pressValue "Relax"
+onLabel "Kill"
+offLabel "Kill"
+3d
+font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 614
-y 728
-w 43
-h 13
-fgColor index 25
-bgColor index 3
-inconsistentColor index 14
-topShadowColor index 1
-botShadowColor index 11
-controlPv "BL03I-MO-BS-01:Z.SPMG"
-indicatorPv "BL03I-MO-BS-01:Z.SPMG"
-font "helvetica-medium-r-8.0"
+x 473
+y 887
+w 189
+h 104
+lineColor index 14
+fill
+fillColor index 5
 endObjectProperties
 
-# (Textupdate)
-object TextupdateClass
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 606
+y 965
+w 52
+h 22
+fgColor index 21
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):TST:TABLE_MODE:SET"
+pressValue "Stop"
+onLabel "STOP"
+offLabel "STOP"
+3d
+font "arial-bold-r-14.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 4
+release 0
+x 478
+y 965
+w 52
+h 22
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "More"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "linkam3_TensileStageFDetail.edl"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 473
+y 882
+w 32
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 8
+value {
+  "Force"
+}
+autoSize
+border
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 538
+y 967
+w 60
+h 16
+controlPv "$(P):TSTF:TWV"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 3
+editable
+autoHeight
+limitsFromDb
+nullColor index 30
+useHexPrefix
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 478
+y 903
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):TSTF:TWR.PROC"
+pressValue "1"
+onLabel "-"
+offLabel "-"
+3d
+useEnumNumeric
+font "arial-bold-r-24.0"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
 beginObjectProperties
 major 10
 minor 0
 release 0
-x 511
-y 779
-w 115
-h 20
-controlPv "$(P):TST_MOTOR_POS"
+x 526
+y 901
+w 83
+h 33
+controlPv "$(P):TSTF:VAL"
 displayMode "decimal"
-precision 1
-fgColor index 15
-fgAlarm
-bgColor index 10
-fill
+precision 3
+fgColor index 25
+bgColor index 3
 font "arial-bold-r-14.0"
 fontAlign "center"
+lineWidth -2
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 614
+y 903
+w 43
+h 29
+fgColor index 25
+onColor index 4
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):TSTF:TWF.PROC"
+pressValue "1"
+onLabel "+"
+offLabel "+"
+3d
+useEnumNumeric
+font "arial-bold-r-16.0"
+visMin "0"
+visMax "1"
 endObjectProperties
 
 # (Message Button)
@@ -1840,7 +899,7 @@ major 4
 minor 1
 release 0
 x 594
-y 728
+y 888
 w 18
 h 13
 fgColor index 22
@@ -1848,11 +907,61 @@ onColor index 4
 offColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_TABLE_MODE:SET"
+controlPv "$(P):TST:TABLE_MODE:SET"
 pressValue "Relax"
 onLabel "Kill"
 offLabel "Kill"
 3d
 font "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 511
+y 819
+w 115
+h 20
+controlPv "$(P):TST:RBV"
+format "decimal"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 15
+bgColor index 10
+limitsFromDb
+precision 1
+nullColor index 14
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 6
+release 0
+x 511
+y 939
+w 115
+h 20
+controlPv "$(P):TSTF:RBV"
+format "decimal"
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 15
+bgColor index 10
+limitsFromDb
+precision 1
+nullColor index 14
+useHexPrefix
+showUnits
+newPos
+objType "monitors"
 endObjectProperties
 

@@ -7,6 +7,7 @@
 #include "include/LinkamSDK.h"
 #include "include/CommsAPI.h"
 #include "linkamT96.h"
+#include "epicsThread.h"
 
 CommsHandle handle = 0;
 
@@ -27,11 +28,13 @@ linkamPortDriver::linkamPortDriver(const char *portName)
 {
 
 	// Sensible default move parameters
-	mParams.demandPosition = 4000.0;
-	mParams.demandVelocity = 500.0;
-	mParams.jawToJawZero = 0.0;
-	mParams.stepDirection = false;
-	mParams.stepSize = 50.0;
+	pMotorParams.demandPosition = 4000.0;
+	pMotorParams.demandVelocity = 500.0;
+	pMotorParams.jawToJawZero = 0.0;
+	pMotorParams.stepSize = 50.0;
+
+	fMotorParams.demandForce = 0.0;
+	fMotorParams.stepSize = 10;
 
 	(void) LinkamSDK::ControllerErrorStrings;
 
@@ -113,14 +116,15 @@ linkamPortDriver::linkamPortDriver(const char *portName)
     createParam(P_TstZeroForceString, asynParamInt32, &P_TstZeroForce);
     createParam(P_TstStartMotorString, asynParamInt32, &P_TstStartMotor);
 
-    createParam(P_TstStepMovePosString, asynParamInt32, &P_TstStepMovePos);
-    createParam(P_TstStepMoveNegString, asynParamInt32, &P_TstStepMoveNeg);
+    createParam(P_TstForceKpString, asynParamFloat64, &P_TstForceKp);
+    createParam(P_TstForceKiString, asynParamFloat64, &P_TstForceKi);
+    createParam(P_TstForceKdString, asynParamFloat64, &P_TstForceKd);
 
-    createParam(P_TstMtrVelVString, asynParamFloat64, &P_TstMtrVelV);
-    createParam(P_TstMtrDistVString, asynParamFloat64, &P_TstMtrDistV);
-    createParam(P_TstMtrDestVString, asynParamFloat64, &P_TstMtrDestV);
+    createParam(P_TstpVeloString, asynParamFloat64, &P_TstpVelo);
+    createParam(P_TstpValString, asynParamFloat64, &P_TstpVal);
 
 	
+    createParam(P_TstfValString, asynParamFloat64, &P_TstfVal);
 
 }
 
@@ -171,7 +175,6 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstForceGauge;
     } else if (function == P_JawToJawSize){
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstJawToJawSize;
-		setDoubleParam(P_JawToJawSize,*value);
     } else if (function == P_JawPosition){
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstJawPosition;
     } else if (function == P_Strain){
@@ -184,21 +187,30 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstRawMotorPos;
     } else if (function == P_TstMtrDistSP) {
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstMotorDistanceSetpoint;
-    } else if (function == P_TstMtrVelV){
-		*value = mParams.demandVelocity;
+    } else if (function == P_TstpVelo){
+		*value = pMotorParams.demandVelocity;
 		return status;
-	} else if (function == P_TstMtrDistV){
-		*value = mParams.stepSize;
+	} else if (function == P_TstpVal){
+		*value = pMotorParams.demandPosition;
 		return status;
-	} else if (function == P_TstMtrDestV){
-		*value = mParams.demandPosition;
-		return status;
+	} else if (function == P_TstForceKp){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKp;
+	} else if (function == P_TstForceKi){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKi;
+	} else if (function == P_TstForceKd){
+		param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKd;
 	}
 
-	if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2))
+	if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2)){
 		*value = result.vFloat32;
-	else
+
+		if(function == P_JawToJawSize)
+			setDoubleParam(P_JawToJawSize,*value);
+
+
+	}else{
 		status = asynError;
+	}
 
 	if (status)
 		epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,
@@ -299,15 +311,16 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
 	asynStatus status = asynSuccess;
 
 	// Process functions that do not require hardware interaction
-	if (function == P_TstMtrVelV) {
-		mParams.demandVelocity = value;
+	if (function == P_TstpVelo) {
+		pMotorParams.demandVelocity = value;
 		return status;
-	} else if(function == P_TstMtrDistV) {
-		mParams.stepSize = value;
+	} else if(function == P_TstpVal) {
+		pMotorParams.demandPosition = value;
+		SetTstGotoMode(pMotorParams.demandPosition,pMotorParams.demandVelocity);
 		return status;
-	} else if(function == P_TstMtrDestV) {
-		mParams.demandPosition = value;
-		SetTstGotoMode(mParams.demandPosition,mParams.demandVelocity);
+	} else if(function == P_TstfVal){
+		fMotorParams.demandForce = value;
+		SetTstForceMode(fMotorParams.demandForce);
 		return status;
 	}
 
@@ -331,6 +344,12 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
         param1.vStageValueType = LinkamSDK::eStageValueTypeTstForceSetpoint;
     } else if (function == P_TstMtrDistSPSet) {
         param1.vStageValueType = LinkamSDK::eStageValueTypeTstMotorDistanceSetpoint;
+    } else if (function == P_TstForceKp) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKp;
+    } else if (function == P_TstForceKi) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKi;
+    } else if (function == P_TstForceKd) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKd;
     }
 
 
@@ -453,14 +472,12 @@ asynStatus linkamPortDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
     } else if (function == P_TstCalibDistance) {
         if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_TstCalibrateDistance, handle, &result, param1, param2)) status = asynError;
     } else if (function == P_TstZeroDistance) {
-        printf("Here\n");
         if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_TstZeroPosition, handle, &result, param1, param2)) status = asynError;
         else printf("Success!\n");
         printf("%d\n", result.vInt32);
     } else if (function == P_TstZeroForce) {
         if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_TstZeroForce, handle, &result, param1, param2)) status = asynError;
     } else if (function == P_SampleSizeSet){
-        printf("Here.\n");
         param1.vStageValueType = LinkamSDK::eStageValueTypeTstSampleSize;
         double sampleWidth, sampleThickness;
         getDoubleParam(P_SampleWidthSet, &sampleWidth);
@@ -472,25 +489,7 @@ asynStatus linkamPortDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
         linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue, handle, &result, param1, param2);
         //printf("Set Sample size is %lf, %lf\n", result.vTSTSampleSize.width, result.vTSTSampleSize.thickness);
         callParamCallbacks();
-    } else if (function == P_TstStepMovePos || function == P_TstStepMoveNeg) {
-		printf("Step move\n");
-		param2.vInt32 = 5;
-		param1.vFloat32 = mParams.demandVelocity;
-		param3.vFloat32 = mParams.stepSize;
-		if (function == P_TstStepMovePos){
-			printf("Pos Step \n");
-			if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue, handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableDirection), LinkamSDK::Variant(false), 0)) status = asynError;
-		}else{
-			printf("Neg Step \n");
-			if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue, handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableDirection), LinkamSDK::Variant(true), 0)) status = asynError;
-		}
-
-		if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue, handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableMode), LinkamSDK::Variant(LinkamSDK::eTSTMode_Step), 0)) status = asynError;
-		if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstMotorVel),              param1)) status = asynError;
-		if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstMotorDistanceSetpoint), param3)) status = asynError;
-        if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartMotors, handle, &result, LinkamSDK::Variant(true), param2)) status = asynError;
-
-	}else {
+    }else {
 
         bool toProcess = true;
         if (function == P_ShowForceAsDistSet){
@@ -664,6 +663,9 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
         if (toProcess) {
             linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2);
             *value = result.vInt32;
+
+			if (function == P_TstTableMode)
+				setIntegerParam(P_TstTableMode,*value);
         }
     }
 
@@ -682,9 +684,7 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 //
 // \brief     Used to instruct the TST to move to a specific distance from the closed position. 
 //            You can provide an offset jaw 2 jaw zero distance to shift the closed position.
-// \param[in] device        Handle to the controller.
 // \param[in] position      The raw absolute position to move to (um) (use eStageValueTypeTstRawMotorPos to get raw position).
-// \param[in] JawToJawZero  The raw distance position of the jaws at their zero reference position (default 15000um) (use eStageValueTypeTstRawMotorPos to get raw position).
 // \param[in] vel           Speed in um/s
 //
 asynStatus linkamPortDriver::SetTstGotoMode(float position, float vel)
@@ -695,12 +695,14 @@ asynStatus linkamPortDriver::SetTstGotoMode(float position, float vel)
 	//float JawToJawZero = 0;
 	double JawToJawZero;
     bool    dirClosing      = true;
+	int currentTableMode = 0;
     LinkamSDK::Variant result;
 	LinkamSDK::Variant axis;
 
 	asynStatus status = asynSuccess;
 	axis.vInt32 = 5;
 	getDoubleParam(P_JawToJawSize,&JawToJawZero);
+	getIntegerParam(P_TstTableMode,&currentTableMode);
 	//JawToJawZero = (float)JawToJawZeroD;
 
     // Compute the direction and step to travel for a goto. 'position' will be an absolute
@@ -715,11 +717,34 @@ asynStatus linkamPortDriver::SetTstGotoMode(float position, float vel)
     step        = position - ((cur - JawToJawZero) + j2j);
     dirClosing  = (step > 0) ? false : true;
     step        = (step < 0) ? -step : step;
+
+	// If in force mode, issue a stop command first
+	if(currentTableMode == 3){
+    	linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableMode),             LinkamSDK::Variant(LinkamSDK::eTSTMode_Stop),0);
+        epicsThreadSleep(0.5);
+	}
+
     linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableDirection),        LinkamSDK::Variant(dirClosing),0);
     linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableMode),             LinkamSDK::Variant(LinkamSDK::eTSTMode_Step),0);
     linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstMotorVel),              LinkamSDK::Variant(vel),0);
     linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstMotorDistanceSetpoint), LinkamSDK::Variant(step),0);
     linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartMotors, handle, &result, LinkamSDK::Variant(true),axis,0);
+}
+
+//
+// \brief     Used to instruct the TST to apply a force.
+// \param[in] force  The force in (N) to apply.
+//
+asynStatus linkamPortDriver::SetTstForceMode(float force)
+{
+	asynStatus status = asynSuccess;
+    LinkamSDK::Variant result;
+	LinkamSDK::Variant axis;
+	axis.vInt32 = 5;
+    if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstTableMode),     LinkamSDK::Variant(LinkamSDK::eTSTMode_Force), 0)) status= asynError;
+    if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,    handle, &result, LinkamSDK::Variant(LinkamSDK::eStageValueTypeTstForceSetpoint), LinkamSDK::Variant(force), 0)) status= asynError;
+    if(!linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartMotors, handle, &result, LinkamSDK::Variant(true),axis,0)) status= asynError;
+	return status;
 }
 
 
@@ -774,8 +799,9 @@ static void linkamStatus_CallFunc(const iocshArgBuf *args)
 static const iocshArg linkamConnect_Arg0 = { "asynPort", iocshArgString };
 static const iocshArg linkamConnect_Arg1 = { "serialPort", iocshArgString };
 static const iocshArg linkamConnect_Arg2 = { "logpath", iocshArgString };
-static const iocshArg * const linkamConnect_Args[] = { &linkamConnect_Arg0, &linkamConnect_Arg1, &linkamConnect_Arg2 };
-static const iocshFuncDef linkamConnect_FuncDef = { "linkamConnect", 3, linkamConnect_Args };
+static const iocshArg linkamConnect_Arg3 = { "licPath", iocshArgString };
+static const iocshArg * const linkamConnect_Args[] = { &linkamConnect_Arg0, &linkamConnect_Arg1, &linkamConnect_Arg2 , &linkamConnect_Arg3};
+static const iocshFuncDef linkamConnect_FuncDef = { "linkamConnect", 4, linkamConnect_Args };
 
 static void linkamConnect_CallFunc(const iocshArgBuf *args)
 {
@@ -785,12 +811,13 @@ static void linkamConnect_CallFunc(const iocshArgBuf *args)
 	LinkamSDK::Variant result;
 
 	const char *logpath = args[2].sval;
+	const char *licPath = args[3].sval;
 
 	if (!strcmp(logpath, "/dev/null")) {
 		linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_DisableLogging, 0, &result, param1, param2);
 	}
 	printf("Initialising SDK\n");
-	if (linkamInitialiseSDK(logpath, "/dls_sw/work/R3.14.12.7/support/linkam3/linkamT96App/src/Linkam.lsk", false))
+	if (linkamInitialiseSDK(logpath, licPath, false))
 		printf("LinkamT96: linkamInitialiseSDK successful\n");
 	else
 		printf("LinkamT96: ERROR @ linkamInitialiseSDK\n");

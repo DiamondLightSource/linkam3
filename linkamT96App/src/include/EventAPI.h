@@ -5,7 +5,7 @@
 *   Description:    This header defines the controller event API for the
 *                   Linkam SDK.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__EVENT_API_H
 #define LINKAM_SDK__EVENT_API_H
@@ -216,12 +216,12 @@ namespace LinkamSDK
         /*!
          *  \brief      This error code is issued when the Serial output socket raises a connection error. This error
          *              will force the host-side Serial device Tx service to shutdown. To recover from this error 
-         *              you are required to shut the USB device connection down and establish a new connection to
+         *              you are required to shut the Serial device connection down and establish a new connection to
          *              the device. Please report this problem to Linkam Scientific Instruments.
          *
          *  \remark     Recommended action is to launch an error pop-up dialog box detailing the issue.
          */
-        errorCodeSerialCommsTxError                        = 0xECF00013,
+        errorCodeSerialCommsTxError                     = 0xECF00013,
 
         /*!
          *  \brief      This error code is issued when the Serial output socket raises an unhandled error. This error
@@ -230,14 +230,120 @@ namespace LinkamSDK
          *
          *  \remark     Recommended action is to launch an error pop-up dialog box detailing the issue.
          */
-        errorCodeSerialCommsUnknownTxError                 = 0xECF00014,
+        errorCodeSerialCommsUnknownTxError              = 0xECF00014,
+
+        /*!
+         *  \brief      This error code is issued when a device fails to recieve a complete reply message from the device
+         *              before the timeout limit occurs. If a complete reply fails to be recieved within the timeout limit
+         *              the driver will resend the last command message again to the device. This will occur up to 3 times
+         *              before the driver drops the command message and moves on.
+         *
+         *  \remark     Dropped messages are not considered reportable failures to Linkam Scientific Instruments. These can
+         *              occur for a multitude of reasons, most commonly due to disruption of network traffic, or bandwidth
+         *              optimisation protocols. Linkam devices require raw unmanaged network connections to maintain high
+         *              performance data transfer. If you suffer significant message dropout errors, we recommend increasing
+         *              the Rx comms timeout setting; this can be done at connection by setting the timeout on the appropriate
+         *              CommsInfo structure or after connection using the \link LinkamSDK::eLinkamFunctionMsgCode_SetCommsRxTimeout eLinkamFunctionMsgCode_SetCommsRxTimeout \endlink
+         *              command message.
+         */
+        errorCodeRxRecieveReplyError                    = 0xECF00015,
+
+        /*!
+         *  \brief      This error code is issued when a device fails 3 times to recieve a complete reply message for the current
+         *              command message sent to the device. This event is sent after the command message has been dropped. The system
+         *              is capable of recovering from this error if a valid connection has already been established. If the error occurs
+         *              within the connection process, then the connection process will fail, resulting in a disconnection event.
+         *
+         *  \remark     Command message drop errors are not typically critical errors, they indicate potential bottlenecks in the
+         *              communications network between the driver and the device. If a direct USB or serial connection is in place then
+         *              there may be either a program slowing driver services down, or a problem at the controller side, such as an error.
+         *              You should check the controller status and/or increase the Rx comms timeout.
+         *
+         *              Increasing the Rx comms timeout can be done at connection by setting the timeout on the appropriate CommsInfo structure
+         *              or after connection using the \link LinkamSDK::eLinkamFunctionMsgCode_SetCommsRxTimeout eLinkamFunctionMsgCode_SetCommsRxTimeout \endlink
+         *              command message.
+         *
+         *              If this error occurs during the connection process then connection will fail as replies to connection command messages
+         *              are critical. Ensure you first try increasing the Rx comms timeout to see if this resolves the problem. If not
+         *              please report this problem to Linkam Scientific Instruments.
+         */
+        errorCodeCommandMessageDroppedError             = 0xECF00016,
+
+        /*!
+         *  \brief      This error code is issued when the driver detects packets out of order from a specific device. This indicates that
+         *              a packet was missed and probably was rejected at the network protocol level. It can also be interpreted as a packet
+         *              corruption error. This is a recoverable error. The driver will attempt 3 transmissions of the command message to which
+         *              error relates to before dropping the command message and moving on to the next command message.
+         *
+         *  \remark     Recommended action is to ignore but record.
+         */
+        errorCodeMissalignedPacketStreamError           = 0xECF00017,
+
+        /*!
+            *  \brief      This error code is issued when connecting to the T9X controller. If the version number is less than 1.17 the firmware uses a 3 packet
+            *              system. Post 1.17 we only support a 4 packet system. 
+            *
+            *  \remark     This error will abort the connection
+            */
+        errorCodeUnsuportedFirmwareVersionError         = 0xECF00018,
 
         /*!
          *  The maximum possible error code ID.
          */
         errorCodeMax                                    = 0xECFFFFFF
     };
+
+    /*!
+     *  \enum       LogSeverityCode
+     *  \brief      This enumerated type defines the current supported log message severity codes.
+     *              These codes are used in conjuction with the EventLogCallback callback handler
+     *              type. These codes define the severity of the message and may be used by 3rd
+     *              parties to log Linkam driver information to their own application log, rather
+     *              than using the default driver log.
+     *  @ingroup    Event_API
+     */
+    enum LogSeverityCode
+    {
+        /*!
+         *  Used to provide a message which should be treated as information only.
+         */
+        eLogSeverityCodeInformation     = 1,
+
+        /*!
+         *  Used to provide a message which should be treated as a warning.
+         */
+        eLogSeverityCodeWarning         = 2,
+
+        /*!
+         *  Used to provide a message which should be treated as an error.
+         */
+        eLogSeverityCodeError           = 3
+    };
 }
+
+/*!
+ *  \typedef    EventStageEventCallback
+ *  \brief      This type of function pointer is used to receive stage specifc events.
+ *              Not all stages support this feature.
+ *  \param[in]  hDevice         A valid CommsHandle to the device that raised this event.
+ *  \param[in]  message         The event message code.
+ *  \param[in]  param1          An event paramater.
+ *  \param[in]  param2          An event paramater.
+ *  \param[in]  param3          An event paramater.
+ *  @ingroup    Event_API
+ */
+typedef void (*EventStageEventCallback)(CommsHandle hDevice, uint32_t message, uint32_t param1, uint32_t param2, uint32_t param3);
+
+/*!
+ *  \typedef    EventErrorCallback
+ *  \brief      This type of function pointer is used to receive general error events.
+ *              General errors may require external logging or handling by 3rd party
+ *              applications.
+ *  \param[in]  severity        The severity of the message.
+ *  \param[in]  message         Pointer to the string holding the message.
+ *  @ingroup    Event_API
+ */
+typedef void (*EventLogCallback)(LinkamSDK::LogSeverityCode severity, const char* message);
 
 /*!
  *  \typedef    EventErrorCallback

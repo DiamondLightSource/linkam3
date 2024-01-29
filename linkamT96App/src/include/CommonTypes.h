@@ -5,7 +5,7 @@
 *   Description:    This header defines the common data types used by the
 *                   Linkam SDK library.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__COMMON_TYPES_H
 #define LINKAM_SDK__COMMON_TYPES_H
@@ -42,7 +42,7 @@ typedef uint64_t    CommsHandle;
 
 
 #ifndef unused
-#define unused(inst) inst
+#define unused(inst) inst;
 #endif
 
 #ifndef NULL

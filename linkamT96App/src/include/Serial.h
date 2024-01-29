@@ -5,7 +5,7 @@
 *   Description:    This header defines the serial data types used by the
 *                   Linkam SDK library.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__SERIAL_H
 #define LINKAM_SDK__SERIAL_H
@@ -110,8 +110,9 @@ namespace LinkamSDK
         Parity          parity;       ///< The parity setting for the port.
         Stopbits        stopbits;     ///< The number of bits which determine a stop for the port.
         FlowControl     flowcontrol;  ///< The flow control setting for the port.
-        uint32_t        timeout;      ///< Number of milliseconds to wait for a connection.
-        uint8_t         padding[36];  ///< Reserved for internal use.
+        uint32_t        timeout;      ///< Number of milliseconds to wait for a complete message.
+        uint32_t        portTimeout;  ///< Number of milliseconds to wait for data before aborting port read.
+        uint8_t         padding[32];  ///< Reserved for internal use.
     };
 }
 

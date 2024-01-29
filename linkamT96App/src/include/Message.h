@@ -5,7 +5,7 @@
 *   Description:    This header provides the public interface to the
 *                   command message API for interfacing with the LinkamSDK.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__MESSAGE_API_H
 #define LINKAM_SDK__MESSAGE_API_H
@@ -125,7 +125,8 @@ namespace LinkamSDK
         StageValueType                  vStageValueType;                ///< Use to pass a data value type ID.
         StageCableConfig                vStageCableConfig;              ///< Use to pass a stage cable configuration structure.
         StageConfig                     vStageConfig;                   ///< Use to pass a stage configuration structure.
-        StageGroup                      vStageGroup;                    ///< Use to pass a stage group type ID.
+        StageGroup                      vStageGroup;                    ///< Use to pass a stage firmware group ID.
+        StageType                       vStageType;                     ///< Use to pass a stage configuration type ID.
         StageCableLimit                 vStageCableLimit;               ///< Use to pass a stage cable limit structure.
         CSSStatus                       vCSSStatus;                     ///< Use to pass a CSS status code.
         CSSCheckCodes                   vCSSCheckCodes;                 ///< Use to pass a CSS check code.
@@ -523,9 +524,9 @@ namespace LinkamSDK
         /*!
          *  \brief          Send this message to obtain the resolution for \link LinkamSDK::StageValueType StageValueType \endlink passed.
          *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
-         *  \param[in]      result      Returns the resolution, as a 32 bit float, for this stage value field.
+         *  \param[in]      result      Returns the resolution in decimal places, as a 32 bit float, for this stage value field.
          *  \param[in]      param1      A value from the \link LinkamSDK::StageValueType StageValueType \endlink enumerator.
-         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param2      An unsigned 32 bit integer; 0 = return in decimal format, 1 = return in fractional format.
          *  \param[in]      param3      Ignored, set to 0.
          */
         eLinkamFunctionMsgCode_GetResolution                                    = 0x0000000D,
@@ -776,6 +777,7 @@ namespace LinkamSDK
          *  \param[in]      param1      32-bit Unsigned integer which may be either \link ::LOGGING_LEVEL_MINIMAL LOGGING_LEVEL_MINIMAL\endlink, \link ::LOGGING_LEVEL_INFORMATIVE LOGGING_LEVEL_INFORMATIVE\endlink, \link ::LOGGING_LEVEL_VERBOSE LOGGING_LEVEL_VERBOSE\endlink, or \link ::LOGGING_LEVEL_INVESTIGATION LOGGING_LEVEL_INVESTIGATION\endlink.
          *  \param[in]      param2      Ignored, set to 0.
          *  \param[in]      param3      Ignored, set to 0.
+         *  \note           This will allow log events to be recorded to either a file or to a parent application by callback event.
          */
         eLinkamFunctionMsgCode_EnableLogging                                    = 0x00000023,
 
@@ -786,6 +788,7 @@ namespace LinkamSDK
          *  \param[in]      param1      Ignored, set to 0.
          *  \param[in]      param2      Ignored, set to 0.
          *  \param[in]      param3      Ignored, set to 0.
+         *  \note           This will disable log events to be recorded to either a file or to a parent application by callback event.
          */
         eLinkamFunctionMsgCode_DisableLogging                                   = 0x00000024,
 
@@ -796,6 +799,7 @@ namespace LinkamSDK
          *  \param[in]      param2      The size of the buffer in bytes as a uint32_t.
          *  \param[in]      param3      Ignored, set to 0.
          *  \return         Returns 'true' if successful, else 'false'.
+         *  \note           The firmware string size is 6 characters plus a null terminator character.
          */
         eLinkamFunctionMsgCode_GetControllerFirmwareVersion                     = 0x00000025,
 
@@ -806,6 +810,7 @@ namespace LinkamSDK
          *  \param[in]      param2      The size of the buffer in bytes as a uint32_t.
          *  \param[in]      param3      Ignored, set to 0.
          *  \return         Returns 'true' if successful, else 'false'.
+         *  \note           The hardware string size is 6 characters plus a null terminator character.
          */
         eLinkamFunctionMsgCode_GetControllerHardwareVersion                     = 0x00000026,
 
@@ -816,6 +821,7 @@ namespace LinkamSDK
          *  \param[in]      param2      The size of the buffer in bytes as a uint32_t.
          *  \param[in]      param3      Ignored, set to 0.
          *  \return         Returns 'true' if successful, else 'false'.
+         *  \note           The firmware string size is 6 characters plus a null terminator character.
          */
         eLinkamFunctionMsgCode_GetStageFirmwareVersion                          = 0x00000027,
 
@@ -826,6 +832,7 @@ namespace LinkamSDK
          *  \param[in]      param2      The size of the buffer in bytes as a uint32_t.
          *  \param[in]      param3      Ignored, set to 0.
          *  \return         Returns 'true' if successful, else 'false'.
+         *  \note           The hardware string size is 6 characters plus a null terminator character.
          */
         eLinkamFunctionMsgCode_GetStageHardwareVersion                          = 0x00000028,
 
@@ -940,7 +947,7 @@ namespace LinkamSDK
          */
         eLinkamFunctionMsgCode_GetOptionCardType                                = 0x00000031,
 
-            /*!
+        /*!
          *  \brief          Send this message to obtain the slot ID for a card matching the specified OptionBoardType.
          *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
          *  \param[in]      result      Returns the slot ID of the option board matching the type.
@@ -1029,9 +1036,9 @@ namespace LinkamSDK
         eLinkamFunctionMsgCode_GetOptionCardSensorHardwareVersion               = 0x00000039,
 
         /*!
-         *  \brief          Send this message to obtain the connected stage group type.
+         *  \brief          Send this message to obtain the connected stage firmware group.
          *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
-         *  \param[in]      result      Returns a StageGroupType value.
+         *  \param[in]      result      Returns a StageGroup value.
          *  \param[in]      param1      Ignored, set to 0.
          *  \param[in]      param2      Ignored, set to 0.
          *  \param[in]      param3      Ignored, set to 0.
@@ -1495,6 +1502,377 @@ namespace LinkamSDK
          *                  party developers, outside of diagnostics purposes.
          */
         eLinkamFunctionMsgCode_DisableSerialLoopbackTest                        = 0x00000063,
+
+        /*!
+         *  \brief          Send this message to the driver before initialisation to prevent creation of a driver log file.
+         *
+         * By default logging is enabled within the driver. Logging allows developers to record error events
+         * within a text file that can be sent to Linkam for diagnostics. This message allows developers
+         * to prevent the creation of the log file before the driver is initialised. Once the driver is
+         * initialised the log usage option cannot be changed.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  \note           If log file creation is disabled then the user can still obtain driver log messages by way
+         *                  of registering a callback function to receive logging events.
+         */
+        eLinkamFunctionMsgCode_PreventLogging                                   = 0x00000064,
+
+        /*!
+         *  \brief          Send this message to the driver before initialisation to allow creation of a driver log file.
+         *
+         * By default logging is enabled within the driver. Logging allows developers to record error events
+         * within a text file that can be sent to Linkam for diagnostics. This message allows developers
+         * to enable the creation of the log file before the driver is initialised. Once the driver is
+         * initialised the log usage option cannot be changed.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         */
+        eLinkamFunctionMsgCode_AllowLogging                                     = 0x00000065,
+
+        /*!
+         *  \brief          Send this message to the device to set the maximum time the Rx communications channel will
+         * wait for a complete message reply to the last command message sent before dropping the command message.
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      A 64-bit unsigned integer representing the time in microseconds (us) to wait up to.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *  \note           A valid device must be opened (connected) for this message to work. To set the Rx timeout before
+         *                  a valid connection to a device is established, set the 'timeout' paramater of the specific CommsInfo
+         *                  structure for the device. This will ensure the timeout setting is correct for your system before
+         *                  device connection starts. Device connection relies on the ability to pass connection message to the
+         *                  device and for the replies to these messages to be recieved. If you experience problems establishing 
+         *                  a connection to your device, the problem is most likely due to delays in the network service. Simply
+         *                  increase the timeout to ensure complete replies are obtained.
+         */
+        eLinkamFunctionMsgCode_SetCommsRxTimeout                                = 0x00000066,
+
+        /*!
+         *  \brief          Send this message to a plunger device to execute a command custom script.
+         *
+         * Plunger is the latest new device added to the Linkam communications driver. This device accepts complex command scripts
+         * as a way to control the device. Developer's can provide their own scripts to control the device from an application level.
+         *
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      A 32-bit unsigned integer representing the number of PlungerScriptCommand structure in the command array.
+         *  \param[in]      param2      A pointer to a valid array of PlungerScriptCommand structures, the command array to execute.
+         *  \param[in]      param3      Ignored, set to 0.
+         */
+        eLinkamFunctionMsgCode_PlungerExecuteScript                             = 0x00000067,
+
+        /*!
+         *  \brief          Send this message to get the type of plunger board connected.
+         *
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns a 32bit unsigned interger for the type of ancillary board this device handle represents.
+         *  \param[in]      param1      Reserved by Linkam, set to 0.
+         *  \param[in]      param2      Reserved by Linkam, set to 0.
+         *  \param[in]      param3      Reserved by Linkam, set to 0.
+         */
+        eLinkamFunctionMsgCode_GetPlungerBoardType                              = 0x00000068,
+
+        /*!
+         *  \brief          Send this message to a plunger device to find out if a script is executing.
+         *
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns 'true' if  executing a script, else 'false'.
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *  \note           The ethane bath control can be commanded from scripts. This command has been supplied for convenience.
+         */
+        eLinkamFunctionMsgCode_PlungerIsScriptExecuting                         = 0x00000069,
+
+        /*!
+         *  \brief          Send this message to obtain the connected stage configuration type.
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns a StageType value.
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         */
+        eLinkamFunctionMsgCode_GetStageType                                    = 0x0000006A,
+
+        /*!
+         *  \brief          Send this message to get the number of enumeratable USB devices.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns a 32 bit unsigned integer for the the number of discovered supported devices.
+         *  \param[in]      param1      Reserved by Linkam, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         */
+        eLinkamFunctionMsgCode_DiscoverUSBDeviceCount                           = 0x0000006B,
+
+        /*!
+         *  \brief          Send this message to get the details of all available USB devices.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns a 32 bit unsigned integer for the the number of discovered supported devices.
+         *  \param[in]      param1      A valid pointer to an array of USBDeviceInfo structures.
+         *  \param[in]      param2      A 32 bit unsigned integer providing the number of entries in the array.
+         *  \param[in]      param3      Reserved by Linkam, set to 0.
+         */
+        eLinkamFunctionMsgCode_GetUSBDeviceDetailsList                          = 0x0000006C,
+
+        /*!
+         *  \brief          Send this message to the driver to create a data log file and start recording.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      A valid pointer to a char buffer of 1024 bytes long to pass the full path of the data log file (set to 0 to ignore and use defaults).
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  \note           Data logs are different to standard logs. Data logs record live data from the stage
+         *                  to a CSV file. These logs can be loaded into any application supporting CSV files;
+         *                  for example you can load these into Microsoft Excel and create charts from them.
+         *
+         *  \note           Data logs will be written to the current application directory.
+         *
+         *  \note           This requires an additional licensed option. Please speak to our sales team at Linkam Scientific Instruments.
+         */
+        eLinkamFunctionMsgCode_StartDataLogging                                 = 0x0000006D,
+
+        /*!
+         *  \brief          Send this message to the driver to stop a recording data and close the CSV file.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  \note           This requires an additional licensed option. Please speak to our sales team at Linkam Scientific Instruments.
+         */
+        eLinkamFunctionMsgCode_StopDataLogging                                  = 0x0000006E,
+
+        /*!
+         *  \brief          Send this message to the driver to enable data recording feature.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  \note           Data logs are different to standard logs. Data logs record live data from the stage
+         *                  to a CSV file. These logs can be loaded into any application supporting CSV files;
+         *                  for example you can load these into Microsoft Excel and create charts from them.
+         *
+         *  \note           Data logs will be written to the current application directory.
+         *
+         *  \note           This requires an additional licensed option. Please speak to our sales team at Linkam Scientific Instruments.
+         */
+        eLinkamFunctionMsgCode_EnableDataLogging                                = 0x0000006F,
+
+        /*!
+         *  \brief          Send this message to the driver to disable data recording feature.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  \note           This requires an additional licensed option. Please speak to our sales team at Linkam Scientific Instruments.
+         */
+        eLinkamFunctionMsgCode_DisableDataLogging                               = 0x00000070,
+
+        /*!
+         *  \brief          Send this message to the driver to set the data recording rate.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      A 32 bit unsigned integer for the sample time (ms).
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  \note           This requires an additional licensed option. Please speak to our sales team at Linkam Scientific Instruments.
+         */
+        eLinkamFunctionMsgCode_SetDataLoggingRate                               = 0x00000071,
+
+        /*!
+         *  \brief          Send this message to the driver to set the data recording rate.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns a 32 bit unsigned integer for the sample time (ms).
+         *  \param[in]      param1      Ignored, set to 0.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  \note           This requires an additional licensed option. Please speak to our sales team at Linkam Scientific Instruments.
+         */
+        eLinkamFunctionMsgCode_GetDataLoggingRate                               = 0x00000072,
+
+        /*!
+         *  \brief          Send this message to the driver before initialising the SDK.
+         *                  This will set the optimised COMS mode for improved CPU consumption.
+         *                  By default optimised mode is set.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Ignored.
+         *  \param[in]      param1      A boolean value, true = enabled, false = disabled.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         */
+        eLinkamFunctionMsgCode_SetCPUOptimisation                               = 0x00000073,
+
+        /*!
+         *  \brief          Reserved by Linkam for future use.
+         *
+         *  \param[in]      hDevice     Unknown.
+         *  \param[in]      result      Unknown.
+         *  \param[in]      param1      Unknown.
+         *  \param[in]      param2      Unknown.
+         *  \param[in]      param3      Unknown.
+         */
+        eLinkamFunctionMsgCode_Reserved8                                        = 0x00000074,
+
+        /*!
+         *  \brief          Reserved by Linkam for future use.
+         *
+         *  \param[in]      hDevice     Unknown.
+         *  \param[in]      result      Unknown.
+         *  \param[in]      param1      Unknown.
+         *  \param[in]      param2      Unknown.
+         *  \param[in]      param3      Unknown.
+         */
+        eLinkamFunctionMsgCode_Reserved9                                        = 0x00000075,
+
+        /*!
+         *  \brief          Reserved by Linkam for future use.
+         *
+         *  \param[in]      hDevice     Unknown.
+         *  \param[in]      result      Unknown.
+         *  \param[in]      param1      Unknown.
+         *  \param[in]      param2      Unknown.
+         *  \param[in]      param3      Unknown.
+         */
+        eLinkamFunctionMsgCode_Reserved10                                       = 0x00000076,
+
+        /*!
+         *  \brief          Send this message to set the logging level. This controls the amount of information produced.
+         *
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      32-bit Unsigned integer which may be either \link ::LOGGING_LEVEL_MINIMAL LOGGING_LEVEL_MINIMAL\endlink, \link ::LOGGING_LEVEL_INFORMATIVE LOGGING_LEVEL_INFORMATIVE\endlink, \link ::LOGGING_LEVEL_VERBOSE LOGGING_LEVEL_VERBOSE\endlink, or \link ::LOGGING_LEVEL_INVESTIGATION LOGGING_LEVEL_INVESTIGATION\endlink.
+         *  \param[in]      param2      Ignored, set to 0.
+         *  \param[in]      param3      Ignored, set to 0.
+         *  \note           This command only sets the current logging level required. To create a driver log you must allow loggin prior
+         *                  to initialising the driver. The default is that the driver will create a log file. You can turn logging on/off
+         *                  anytime using the enable and disable logging commands.
+         */
+        eLinkamFunctionMsgCode_SetLoggingLevel                                  = 0x00000077,
+
+        /*!
+         *  \brief          Reserved by Linkam - Do not use!
+         *
+         *  \param[in]      hDevice     Known.
+         *  \param[in]      result      Known.
+         *  \param[in]      param1      Known.
+         *  \param[in]      param2      Known.
+         *  \param[in]      param3      Known.
+         */
+        eLinkamFunctionMsgCode_Reserved1                                        = 0x00000078,
+
+        /*!
+         *  \brief          Reserved by Linkam - Do not use!
+         *
+         *  \param[in]      hDevice     Known.
+         *  \param[in]      result      Known.
+         *  \param[in]      param1      Known.
+         *  \param[in]      param2      Known.
+         *  \param[in]      param3      Known.
+         */
+        eLinkamFunctionMsgCode_Reserved2                                        = 0x00000079,
+
+       /*!
+        *  \brief          Reserved by Linkam - Do not use!
+        *
+        *  \param[in]      hDevice     Known.
+        *  \param[in]      result      Known.
+        *  \param[in]      param1      Known.
+        *  \param[in]      param2      Known.
+        *  \param[in]      param3      Known.
+        */
+        eLinkamFunctionMsgCode_Reserved3                                        = 0x00000080,
+
+       /*!
+        *  \brief          Send this message to force the TST to perform a move to home position.
+        *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+        *  \param[in]      result      Returns 'true' if successful, else 'false'.
+        *  \param[in]      param1      Ignored, set to 0.
+        *  \param[in]      param2      Ignored, set to 0.
+        *  \param[in]      param3      Ignored, set to 0.
+        *  \warning        This command removes all software limits and safegards to allows the jaws to close fully.
+        *                  Ensure anything in its way is removed first.
+        */
+        eLinkamFunctionMsgCode_TstHome                                          = 0x00000081,
+
+        /*!
+         *  \brief          Send this message to get the details of a USB device.
+         *
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      A valid pointer to an array of USBDeviceInfo structures.
+         *  \param[in]      param2      Reserved by Linkam, set to 0.
+         *  \param[in]      param3      Reserved by Linkam, set to 0.
+         */
+        eLinkamFunctionMsgCode_GetUSBDeviceDetails                              = 0x00000082,
+
+        /*!
+         *  \brief          Send this message to start the water pump.
+         *
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      Reserved by Linkam, set to 0.
+         *  \param[in]      param2      Reserved by Linkam, set to 0.
+         *  \param[in]      param3      Reserved by Linkam, set to 0.
+         */
+        eLinkamFunctionMsgCode_StartWaterPump                                   = 0x00000083,
+
+        /*!
+         *  \brief          Send this message to stop the water pump.
+         *
+         *  \param[in]      hDevice     The CommsHandle for the device this command call is for.
+         *  \param[in]      result      Returns 'true' if successful, else 'false'.
+         *  \param[in]      param1      Reserved by Linkam, set to 0.
+         *  \param[in]      param2      Reserved by Linkam, set to 0.
+         *  \param[in]      param3      Reserved by Linkam, set to 0.
+         */
+        eLinkamFunctionMsgCode_StopWaterPump                                    = 0x00000084,
+
+        /*!
+         *  \brief          Send this message to open a connection to a comms device/port, this version does not
+         *                  wait till the connection occurs before returning. This version assumes you are using 
+         *                  the event system to detect controller connection events
+         *  \param[in]      hDevice     Ignored, set to 0.
+         *  \param[in]      result      Returns a ConnectionStatus structure for the connection request.
+         *  \param[in]      param1      A valid pointer to a \link LinkamSDK::CommsInfo CommsInfo \endlink structure instance defining the connection properties.
+         *  \param[out]     param2      A pointer to a CommsHandle instance which will recieve the handle to the comms device/port.
+         *  \param[in]      param3      Ignored, set to 0.
+         *
+         *  Send this message to open a connection to a comms device/port. This is sent via the linkamProcessMessage function.
+         *  Populate the CommsInfo structure with the correct connection information; this may be for a Serial or USB connection.
+         *  Cast the info member to an appropriate SerialCommsInfo or USBCommsInfo structure and populate.
+         *
+         *  This signal will open a valid connection to a Linkam device such as a controller, if one is connected and visible to
+         *  the host machine. A connection event will be raised which will return the device handle. A device handle is required
+         *  to make subsequent calls to the device. Ensure an EventCallback function pointer is registered with the driver, using
+         *  the linkamSetCallbackControllerConnected function, to receive the device handle.
+         */
+        eLinkamFunctionMsgCode_OpenCommsNonBlocking                             = 0x00000085,
 
         /*!
          *  \brief          The maximum command ID in this set.

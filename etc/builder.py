@@ -26,16 +26,17 @@ class LinkamT96(Device):
             ip_address=None,
             ip_port=None,
             log_path="/dev/null",
-            tensile=False
+            tensile=False,
+            lic_path="/dls_sw/prod/R3.14.12.7/support/linkam3Lsk/1-0/Linkam.lsk"
         ):
         # Call super class
         self.__super.__init__()
 
         # Include standard GUI if not tensile
-        if not self.tensile:
+        if not tensile:
             self.template = _LinkamT96Gui(name=name,P=P)
 
-        if self.tensile:
+        if tensile:
             self.template = _LinkamT96Tst(
                 PORT='{}_AP'.format(P),
                 P=P,
@@ -49,13 +50,13 @@ class LinkamT96(Device):
             PORT='{}_AP'.format(P),
             P=P,
             ADDR=0,
-            TIMEOUT=1,
-            name=name
+            TIMEOUT=1
         )
 
         # Store args for boot script
         self.P = P
         self.log_path = log_path
+        self.lic_path = lic_path
         self.serial_port = serial_port
         self.virtual_port = virtual_port
         self.ip_address = ip_address
@@ -85,6 +86,7 @@ class LinkamT96(Device):
         ),
         ip_port=Simple("IP port for virtual port to connect to using socat", int),
         log_path=Simple("Log file path for the Linkam SDK", str),
+        lic_path=Simple("License path for Linkam SDK", str),
         tensile=Simple("Tensile stage present?", bool),
     )
 
@@ -114,9 +116,10 @@ class LinkamT96(Device):
             print('epicsThreadSleep 5')
         print('# Linkam 3.0 connect')
         print(
-            'linkamConnect "{P}_AP", "{serial_port}", "{log_path}"'.format(
+            'linkamConnect "{P}_AP", "{serial_port}", "{log_path}", "{lic_path}"'.format(
                 P=self.P,
                 serial_port=self.serial_port,
-                log_path=self.log_path
+                log_path=self.log_path,
+                lic_path=self.lic_path
             )
         )

@@ -5,7 +5,7 @@
 *   Description:    This header defines the common stage API used by the
 *                   Linkam SDK.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__COMMON_STAGE_API_H
 #define LINKAM_SDK__COMMON_STAGE_API_H
@@ -108,7 +108,7 @@ namespace LinkamSDK
          *  \note           This value may be acquired by the GetValue command.
          */
         eStageValueTypeHeater2Temp                                  =  5,
-#if 0
+
         /*!
          *  \brief          Reserved for future use.
          */
@@ -118,7 +118,7 @@ namespace LinkamSDK
          *  \brief          Reserved for future use.
          */
         eStageValueTypeReserved2                                    =  7,
-#endif
+
         /*!
          *  \brief          The secondary heater power (%). This value defines the power consumption
          *                  of the heater.
@@ -1133,12 +1133,12 @@ namespace LinkamSDK
         eStageValueTypeCmsDewarTopTemperature                       = 98,
 
         /*!
-         *  \brief          Use to start or stop the auto filling feature of the dewar on the CMS .
-         *  \param[in]      param2      Is a Boolean value (false = stop, true = start) if calling (\b Set), else ignored, set to 0.
+         *  \brief          Unused.
+         *  \param[in]      param2      Ignored, set to 0.
          *  \param[out]     result      Ignored, set to 0.
          *  \note           This value may be acquired by the SetValue command.
          */
-        eStageValueTypeCmsAutoDewarFill                             = 99,
+        eStageValueTypeUnused                                       = 99,
 
         /*!
          *  \brief          The DSC power.
@@ -2132,8 +2132,8 @@ namespace LinkamSDK
         /*!
          *  \brief          The tensile gauge compliancy value is a value that describes the amount of distance adjustment in the
          *                  gauge beam due to elasticity.
-         *  \param[in]      param2      Is a 32bit floating point value (mm) if calling (\b Set), else ignored, set to 0.
-         *  \param[out]     result      Returns a 32bit floating point value (mm) if calling (\b Get), else ignored, set to 0.
+         *  \param[in]      param2      Is a 32bit floating point value (mm/N) if calling (\b Set), else ignored, set to 0.
+         *  \param[out]     result      Returns a 32bit floating point value (mm/N) if calling (\b Get), else ignored, set to 0.
          *  \note           This value may be set using the SetValue command or acquired by the GetValue command. This value is 
          *                  not saved to the stage and so is volatile. Ensure your application manages this value. The driver 
          *                  manages the default factory set value.
@@ -2238,6 +2238,78 @@ namespace LinkamSDK
         eStageValueTypeTstCyclesRemaining                           = 216,
 
         /*!
+         *  \brief          The tensile gauge range value is a value that describes the maximum force of the installed beam.
+         *  \param[in]      param2      Is a 32bit floating point value (N) if calling (\b Set), else ignored, set to 0.
+         *  \param[out]     result      Returns a 32bit floating point value (N) if calling (\b Get), else ignored, set to 0.
+         *  \note           This value may be set using the SetValue command or acquired by the GetValue command.
+         *  \warning        Not to be used by 3rd parties. It is possible to cause damage to the stage unit with this cammand.
+         *                  This command should only be used qualified Linkam staff.
+         */
+        eStageValueTypeTstGaugeRange                                = 217,
+
+        /*!
+         *  \brief          Reserved for future use.
+         */
+        eStageValueTypeReserved3 = 218,
+        eStageValueTypeReserved4 = 219,
+        eStageValueTypeReserved5 = 220,
+        eStageValueTypeReserved6 = 221,
+        eStageValueTypeReserved7 = 222,
+        eStageValueTypeReserved8 = 223,
+        eStageValueTypeReserved9 = 224,
+        eStageValueTypeReserved10 = 225,
+        eStageValueTypeReserved11 = 226,
+        eStageValueTypeReserved12 = 227,
+        eStageValueTypeReserved13 = 228,
+        eStageValueTypeReserved14 = 229,
+        eStageValueTypeReserved15 = 230,
+        eStageValueTypeReserved16 = 231,
+        eStageValueTypeReserved17 = 232,
+        eStageValueTypeReserved18 = 233,
+        eStageValueTypeReserved19 = 234,
+        eStageValueTypeReserved20 = 235,
+        eStageValueTypeReserved21 = 236,
+        eStageValueTypeReserved22 = 237,
+        eStageValueTypeReserved23 = 238,
+        eStageValueTypeReserved24 = 239,
+        eStageValueTypeReserved25 = 240,
+        eStageValueTypeReserved26 = 241,
+        eStageValueTypeReserved27 = 242,
+        eStageValueTypeReserved28 = 243,
+        eStageValueTypeReserved29 = 244,
+        eStageValueTypeReserved30 = 245,
+        eStageValueTypeReserved31 = 246,
+        eStageValueTypeReserved32 = 247,
+        eStageValueTypeReserved33 = 248,
+        eStageValueTypeReserved34 = 249,
+        eStageValueTypeReserved35 = 250,
+        eStageValueTypeReserved36 = 251,
+
+        /*!
+         *  \brief          The water pump unit data structure.  This obtains the water data
+         *                  directly from the connected stage.
+         *  \param[in]      param2      Is a valid pointer to a WPUnit structure if calling (\b Get), else ignored, set to 0.
+         *  \param[out]     result      Returns true if the data was copied, else false.
+         *  \note           This value may be set using the SetValue command or acquired by the GetValue command.
+         */
+        eStageValueTypeWaterPumpUnitData                            = 252,
+
+        /*!
+         *  \brief          Reserved for future use.
+         */
+        eStageValueTypeReserved37                                   = 253,
+
+        /*!
+         *  \brief          The vacuum card operational mode.
+         *  \param[in]      param2      set to 0.
+         *  \param[out]     result      Returns a boolean value if calling pressure = true, vaccum = false.
+         *  \note           This value may be acquired by the GetValue command.
+         *  \note           Only applicible if the connected stage is a vacuum based stage.
+         *  \see            eStageValueTypeVacuumBoardUnitOfMeasure
+         */
+        eStageValueTypeVacuumCardMode                               = 254,
+
+        /*!
          *  \brief          This is the maximum value a stage value can be.
          *                  Any value greater than this is an error and must
          *                  be ignored.
@@ -2248,7 +2320,8 @@ namespace LinkamSDK
     /*!
      *  \enum       StageGroup
      *  \brief      Defines a set of return codes for the type of stage connected to the
-     *              the controller.
+     *              the controller as reported by the firmware. These are provided for
+     *              legacy support.
      *
      *  \note       Enums for the StageGroup support the range 0x0001 - 0x7FFF.
      *  @ingroup    Stage_Config_API
@@ -2285,12 +2358,12 @@ namespace LinkamSDK
         eStageGroup_Vacuum                              = 0x0004,
 
         /*!
-         *  1 Control T,P
+         *  The standard pressure stage.
          */
         eStageGroup_Pressure                            = 0x0005,
 
         /*!
-         *  1 Control T,3 motor posn,3 stop switch status
+         *  Motor driven THMS version stages.
          */
         eStageGroup_MotorDriven                         = 0x0006,
 
@@ -2308,14 +2381,16 @@ namespace LinkamSDK
         eStageGroup_CambridgeShearingSystem             = 0x0008,
 
         /*!
-         *  The Temperature Controlled stage group. This difines a wide range of stage systems; -196-600, -196-420, -196-350.
+         *  Deprecated.
          */
         eStageGroup_TemperatureControlled               = 0x0009,
-
+        
         /*!
-         *  The standard warm stage group. For living cell studies.
+         *  The Thermocoupled stage group. Replaces eStageGroup_TemperatureControlled.
          */
-        eStageGroup_Warm                                = 0x000A,
+        eStageGroup_Thermocoupled                       = 0x0009,
+
+        eStageGroup_UNUSED1                             = 0x000A,
 
         /*!
          *  The Cryo-Correlative Microscopy stage group. A tool that uses fluorescence microscopy
@@ -2324,16 +2399,18 @@ namespace LinkamSDK
          */
         eStageGroup_CorrelativeMicroscopy               = 0x000B,
 
-        /*!
-         *  The Indium Tin Oxide (ITO) warm stage group. For living cell studies.
-         */
-        eStageGroup_IndiumTinOxideWarm                  = 0x000C,
+        eStageGroup_UNUSED2                             = 0x000C,
 
         /*!
-         *  The Temperature Controlled Vacuum stage group. These are the same as the eTemperatureControlled
-         *  but with support for vacuum motors for infra-red experiments.
+         *  Deprecated.
          */
         eStageGroup_TemperatureControlledVacuum         = 0x000D,
+        
+        /*!
+         *  The Thermocoupled Vacuum stage group. These are the same as the eStageGroup_Thermocoupled
+         *  but with support for vacuum motors for infra-red experiments.  Replaces eStageGroup_TemperatureControlledVacuum.
+         */
+        eStageGroup_ThermocoupledVacuum                 = 0x000D,
 
         /*!
          *  The Tensile Test version 2 stage group. Tests the tensile properties of your sample 
@@ -2349,10 +2426,17 @@ namespace LinkamSDK
         eStageGroup_DifferentialScanningCalorimetryV2   = 0x000F,
 
         /*!
-         *  Freeze drying vial system (FDVA) stage group. For simulating the industrial freeze 
-         *  drying process in a compact and efficient form.
+         *  Deprecated.
          */
         eStageGroup_FreezeDryingVialSystem              = 0x0010,
+
+        eStageGroup_UNUSED3                             = 0x0011,
+
+        /*!
+         *  Plunger (PLG) stage group. For electron mircoscope sample preperation.
+         *  \warning    The Plunger currently uses a stage group of zero or Standard Stage in its firmware.
+         */
+        eStageGroup_Plunger                             = 0x0012,
 
         /*!
          *  This ID represents the value for 'no valid stage group'.
@@ -2367,6 +2451,122 @@ namespace LinkamSDK
     };
 
     /*!
+     *  \enum       StageType
+     *  \brief      Defines a set type codes for stages. These are Linkam SDK defined
+     *              stage types which represent specific configurations of each stage
+     *              group.
+     *
+     *  \note       Enums for the StageGroup support the range 0x0001 - 0x7FFF.
+     *  \note       Part of the Controller API.
+     *  \ingroup    CS_Controller_API
+     */
+    enum StageType
+    {
+        /*!
+        *  Covers all non-motorised temperature controlling stages.
+        */
+        eStageType_Standard = 0x0000,
+
+        /*!
+        *  Covers stages that use a Peltier cooling system which requires a water cooling unit.
+        */
+        eStageType_Peltier = 0x0001,
+
+        /*!
+        *  Requires 2 T9X controllers of same type to drive this stage.
+        */
+        eStageType_Gradient = 0x0002,
+
+        /*!
+        *  Differential Scanning Calorimetry version 1 stage group. DSC is a technique used to
+        *  measure temperature and heat flow associated with thermal transitions in materials.
+        *  This version supports a single heater.
+        */
+        eStageType_DifferentialScanningCalorimetry = 0x0003,
+
+        /*!
+        *  Low pressure capable temperature controlling stage.
+        */
+        eStageType_Vacuum = 0x0004,
+
+        /*!
+        *  High pressure capable temperature controlling stage.
+        */
+        eStageType_Pressure = 0x0005,
+
+        /*!
+        *  Motorised control of sample temperature controlling stage.
+        */
+        eStageType_MotorDriven = 0x0006,
+
+        /*!
+        *  The Tensile Test stage group. Tests the tensile properties of your sample relative to
+        *  temperature and capture high resolution images of the structural changes.
+        */
+        eStageType_TensileTest = 0x0007,
+
+        /*!
+        *  The Cambridge Shearing System group. An optical shearing system that allows structural
+        *  dynamics of complex fluids to be directly observed via standard optical microscope while
+        *  they are under precisely controlled temperature and various shear modes.
+        */
+        eStageType_CambridgeShearingSystem = 0x0008,
+
+        /*!
+        *   The Thermocoupled stage group. Replaces eTemperatureControlled.
+        */
+        eStageType_Thermocoupled = 0x0009,
+
+        eStageType_Reserved1 = 0x000A,
+
+        /*!
+        *  The Cryo-Correlative Microscopy stage group. A tool that uses fluorescence microscopy
+        *  to help localise structures of interest in samples for high resolution cryo electron
+        *  microscopy imaging.
+        */
+        eStageType_CorrelativeMicroscopy = 0x000B,
+
+        eStageType_Reserved2 = 0x000C,
+
+        /*!
+        *  The Thermocoupled Vacuum stage group. These are the same as the eStageGroup_Thermocoupled
+        *  but with support for vacuum motors for infra-red experiments.  Replaces eTemperatureControlledVacuum.
+        */
+        eStageType_ThermocoupledVacuum = 0x000D,
+
+        /*!
+        *  The Tensile Test version 2 stage group. Tests the tensile properties of your sample
+        *  relative to temperature and capture high resolution images of the structural changes.
+        */
+        eStageType_TensileTestV2 = 0x000E,
+
+        /*!
+        *  Differential Scanning Calorimetry version 2 stage group. DSC is a technique used to
+        *  measure temperature and heat flow associated with thermal transitions in materials.
+        *  This version supports dual heaters.
+        */
+        eStageType_DifferentialScanningCalorimetryV2 = 0x000F,
+
+        /*!
+        *  Freeze drying vial system (FDVA) stage group. For simulating the industrial freeze
+        *  drying process in a compact and efficient form.
+        */
+        eStageType_FreezeDryingVialSystem = 0x0010,
+
+        eStageType_Reserved3 = 0x0011,
+
+        /*!
+        *  Plunger (PLG) stage group. For electron mircoscope sample preperation systems.
+        */
+        eStageType_Plunger = 0x0012,
+
+        /*!
+        *  This ID represents the value for 'no valid stage group'.
+        */
+        eStageType_None = 0x7FFF,
+    };
+
+    /*!
      *  \union      StageConfig
      *  \brief      This structure defines a set of flags which detail the stage configuration.
      *
@@ -2374,7 +2574,7 @@ namespace LinkamSDK
      */
     union StageConfig
     {
-        struct
+        struct Flags
         {
             /*!
              *  \brief      Flag defining stages based on a metal block heater with PT100 temperature se sensor.
@@ -2791,42 +2991,42 @@ namespace LinkamSDK
      */
     union CSSStatus
     {
-        struct
+        struct Flags
         {
-            unsigned    moveDone       : 1;     ///< Bit  0: Flag used to indicate that the current move has completed.
-            unsigned    segComp        : 1;     ///< Bit  1: Flag used to indicate that the stepper motor segment has compeleted (deprecated).
-            unsigned    motorDirn      : 1;     ///< Bit  2: Flag used to indicate the rotational motor direction (set = anti-clockwise, unset = clockwise).
-            unsigned    gapMoving      : 1;     ///< Bit  3: Flag used to indicate that the gap motor is moving.
-            unsigned    lidOn          : 1;     ///< Bit  4: Flag used to indicate that the lid is on.
-            unsigned    refLimit       : 1;     ///< Bit  5: Flag used to indicate that the CSS has reached the reference limit.
-            unsigned    zeroLimit      : 1;     ///< Bit  6: Flag used to indicate that the CSS has reached the zero limit.
-            unsigned    gapMotDirn     : 1;     ///< Bit  7: Flag used to indicate that gap motor direction (set = opening, unset = closing).
-            unsigned    unused8        : 1;     ///< bit  8: Reserved for future use.
-            unsigned    unused9        : 1;     ///< bit  9: Reserved for future use.
-            unsigned    unused10       : 1;     ///< bit 10: Reserved for future use.
-            unsigned    unused11       : 1;     ///< bit 11: Reserved for future use.
-            unsigned    unused12       : 1;     ///< bit 12: Reserved for future use.
-            unsigned    unused13       : 1;     ///< bit 13: Reserved for future use.
-            unsigned    unused14       : 1;     ///< bit 14: Reserved for future use.
-            unsigned    unused15       : 1;     ///< bit 15: Reserved for future use.
-            unsigned    unused16       : 1;     ///< bit 16: Reserved for future use.
-            unsigned    unused17       : 1;     ///< bit 17: Reserved for future use.
-            unsigned    unused18       : 1;     ///< bit 18: Reserved for future use.
-            unsigned    unused19       : 1;     ///< bit 19: Reserved for future use.
-            unsigned    unused20       : 1;     ///< bit 20: Reserved for future use.
-            unsigned    unused21       : 1;     ///< bit 21: Reserved for future use.
-            unsigned    unused22       : 1;     ///< bit 22: Reserved for future use.
-            unsigned    unused23       : 1;     ///< bit 23: Reserved for future use.
-            unsigned    unused24       : 1;     ///< bit 24: Reserved for future use.
-            unsigned    unused25       : 1;     ///< bit 25: Reserved for future use.
-            unsigned    unused26       : 1;     ///< bit 26: Reserved for future use.
-            unsigned    unused27       : 1;     ///< bit 27: Reserved for future use.
-            unsigned    unused28       : 1;     ///< bit 28: Reserved for future use.
-            unsigned    unused29       : 1;     ///< bit 29: Reserved for future use.
-            unsigned    unused30       : 1;     ///< bit 30: Reserved for future use.
-            unsigned    unused31       : 1;     ///< bit 31: Reserved for future use.
-        }            flags;                     ///< The flag feild accessor.
-        uint32_t     value;                     ///< The value that represents the state of the flags as a 32-bit value.
+            unsigned    rotMotorStopped : 1;     ///< Bit  0: Flag used to indicate that the rotational motor has stopped.
+            unsigned    segComp         : 1;     ///< Bit  1: Flag used to indicate that the stepper motor segment has compeleted (deprecated).
+            unsigned    rotMotorDirn    : 1;     ///< Bit  2: Flag used to indicate the rotational motor direction (set = anti-clockwise, unset = clockwise).
+            unsigned    gapMotorStopped : 1;     ///< Bit  3: Flag used to indicate that the gap motor has stopped.
+            unsigned    lidOn           : 1;     ///< Bit  4: Flag used to indicate that the lid is on.
+            unsigned    refLimit        : 1;     ///< Bit  5: Flag used to indicate that the CSS has reached the reference limit.
+            unsigned    zeroLimit       : 1;     ///< Bit  6: Flag used to indicate that the CSS has reached the zero limit.
+            unsigned    gapMotorDirn    : 1;     ///< Bit  7: Flag used to indicate that gap motor direction (set = opening, unset = closing).
+            unsigned    unused8         : 1;     ///< bit  8: Reserved for future use.
+            unsigned    unused9         : 1;     ///< bit  9: Reserved for future use.
+            unsigned    unused10        : 1;     ///< bit 10: Reserved for future use.
+            unsigned    unused11        : 1;     ///< bit 11: Reserved for future use.
+            unsigned    unused12        : 1;     ///< bit 12: Reserved for future use.
+            unsigned    unused13        : 1;     ///< bit 13: Reserved for future use.
+            unsigned    unused14        : 1;     ///< bit 14: Reserved for future use.
+            unsigned    unused15        : 1;     ///< bit 15: Reserved for future use.
+            unsigned    unused16        : 1;     ///< bit 16: Reserved for future use.
+            unsigned    unused17        : 1;     ///< bit 17: Reserved for future use.
+            unsigned    unused18        : 1;     ///< bit 18: Reserved for future use.
+            unsigned    unused19        : 1;     ///< bit 19: Reserved for future use.
+            unsigned    unused20        : 1;     ///< bit 20: Reserved for future use.
+            unsigned    unused21        : 1;     ///< bit 21: Reserved for future use.
+            unsigned    unused22        : 1;     ///< bit 22: Reserved for future use.
+            unsigned    unused23        : 1;     ///< bit 23: Reserved for future use.
+            unsigned    unused24        : 1;     ///< bit 24: Reserved for future use.
+            unsigned    unused25        : 1;     ///< bit 25: Reserved for future use.
+            unsigned    unused26        : 1;     ///< bit 26: Reserved for future use.
+            unsigned    unused27        : 1;     ///< bit 27: Reserved for future use.
+            unsigned    unused28        : 1;     ///< bit 28: Reserved for future use.
+            unsigned    unused29        : 1;     ///< bit 29: Reserved for future use.
+            unsigned    unused30        : 1;     ///< bit 30: Reserved for future use.
+            unsigned    unused31        : 1;     ///< bit 31: Reserved for future use.
+        }            flags;                      ///< The flag feild accessor.
+        uint32_t     value;                      ///< The value that represents the state of the flags as a 32-bit value.
     };
 
     /*!
@@ -2952,7 +3152,7 @@ namespace LinkamSDK
      */
     union CMSError
     {
-        struct
+        struct Flags
         {
             unsigned mainSensorOC           : 1;    ///< Bit  0: Flag used to indicate that the main chamber sensor at 0°C.
             unsigned mainSensorOver         : 1;    ///< Bit  1: Flag used to indicate that the main chamber sensor reads over temperature.
@@ -3000,7 +3200,7 @@ namespace LinkamSDK
      */
     union CMSStatus
     {
-        struct
+        struct Flags
         {
             unsigned on                     : 1;    ///< Bit  0: The stage has been switched on and is connected.
             unsigned onNoLN2                : 1;    ///< Bit  1: The stage has been switched on but needs Liquid Nitrogen.
@@ -3094,7 +3294,7 @@ namespace LinkamSDK
      */
     union RHStatus
     {
-        struct
+        struct Flags
         {
             unsigned colSel             : 4;    ///< Bits 0-3: Flag used to indicate which tube is selected.
             unsigned present            : 1;    ///< Bit  4: Flag used to indicate that a humidity unit is present (connected).
@@ -3132,7 +3332,7 @@ namespace LinkamSDK
      *  \brief      The relative humidity unit information structure contains generic status information
      *              about the state of the humidity within the stage. This structure is used within 
      *              applicable stage information structures, sent to the host PC on request.
-     *  \note       Size of structure is 52 bytes.
+     *  \note       Size of structure is 56 bytes.
      *  @ingroup    Stage_Config_API
      */
     struct RHUnit
@@ -3149,7 +3349,77 @@ namespace LinkamSDK
         float       waterTemp;                      ///< The current temperature of the water.
         float       waterSetpoint;                  ///< The programmed temperature of the water.
         int32_t     columnDryModeCountTimeSecs;     ///< A timer (s) ?
-        RHStatus    status;
+        RHStatus    status;                         ///< RH unit status.
+                                                    ///< Auto-padding of 4-byte alignment to next 8-byte boundary.
+    };
+
+    /*!
+     *  \union      WPStatus
+     *  \brief      The Water Pump status value is a bit feild of
+     *              status flags used to feed back information about the
+     *              status of the water pump element of applicable stages.
+     *  \remark     Size of structure is 4 bytes.
+     *
+     *  @ingroup    Stage_Config_API
+     */
+    union WPStatus
+    {
+        struct
+        {
+            unsigned started : 1;    ///< Bit   0: Flag to indicate if the pump has started.
+            unsigned present : 1;    ///< Bit   1: Flag to indicate if the pump is present/connected.
+            unsigned unused2 : 1;    ///< Bit   2: Reserved for future use.
+            unsigned unused3 : 1;    ///< Bit   3: Reserved for future use.
+            unsigned unused4 : 1;    ///< Bit   4: Reserved for future use.
+            unsigned unused5 : 1;    ///< Bit   5: Reserved for future use.
+            unsigned unused6 : 1;    ///< Bit   6: Reserved for future use.
+            unsigned unused7 : 1;    ///< Bit   7: Reserved for future use.
+            unsigned unused8 : 1;    ///< Bit   8: Reserved for future use.
+            unsigned unused9 : 1;    ///< Bit   9: Reserved for future use.
+            unsigned unused10 : 1;    ///< Bit  10: Reserved for future use.
+            unsigned unused11 : 1;    ///< Bit  11: Reserved for future use.
+            unsigned unused12 : 1;    ///< Bit  12: Reserved for future use.
+            unsigned unused13 : 1;    ///< Bit  13: Reserved for future use.
+            unsigned unused14 : 1;    ///< Bit  14: Reserved for future use.
+            unsigned unused15 : 1;    ///< Bit  15: Reserved for future use.
+            unsigned unused16 : 1;    ///< Bit  16: Reserved for future use.
+            unsigned unused17 : 1;    ///< Bit  17: Reserved for future use.
+            unsigned unused18 : 1;    ///< Bit  18: Reserved for future use.
+            unsigned unused19 : 1;    ///< Bit  19: Reserved for future use.
+            unsigned unused20 : 1;    ///< Bit  20: Reserved for future use.
+            unsigned unused21 : 1;    ///< Bit  21: Reserved for future use.
+            unsigned unused22 : 1;    ///< Bit  22: Reserved for future use.
+            unsigned unused23 : 1;    ///< Bit  23: Reserved for future use.
+            unsigned unused24 : 1;    ///< Bit  24: Reserved for future use.
+            unsigned unused25 : 1;    ///< Bit  25: Reserved for future use.
+            unsigned unused26 : 1;    ///< Bit  26: Reserved for future use.
+            unsigned unused27 : 1;    ///< Bit  27: Reserved for future use.
+            unsigned unused28 : 1;    ///< Bit  28: Reserved for future use.
+            unsigned unused29 : 1;    ///< Bit  29: Reserved for future use.
+            unsigned unused30 : 1;    ///< Bit  30: Reserved for future use.
+            unsigned unused31 : 1;    ///< Bit  31: Reserved for future use.
+        }            flags;                     ///< The flag feild accessor.
+        uint32_t     value;                     ///< The value that represents the state of the flags as a 32-bit value.
+    };
+
+    /*!
+     *  \struct     WPUnit
+     *  \brief      The water pump unit information structure contains generic status information
+     *              about the state of the water pump unit. This structure is used within
+     *              applicable stage information structures, sent to the host PC on request.
+     *  \remark     Size of structure is 32 bytes.
+     *
+     *  @ingroup    Stage_Config_API
+     */
+    struct WPUnit
+    {
+        float       waterTemp;      ///< The current water temperature in the water pump unit.
+        float       fanRpm;         ///< The fan rpm speed.
+        float       Current;        ///< The current (A).
+        float       Vdc;            ///< The voltage supply (Vdc).
+        WPStatus    status;         ///< The current status of the water pump unit.
+        uint32_t    errors;         ///< Error codes from the water pump unit.
+        uint32_t    spare[2];       ///< Reserverd for future use.
     };
 
     /*!
@@ -3161,7 +3431,7 @@ namespace LinkamSDK
      */
 	union TSTStatus
     {
-		struct
+		struct Flags
         {
 			unsigned zeroLimit              : 1;    ///< Bit   0: Flag used to indicate that the jaws are at the zero limit; the relaxed distance.
 			unsigned refLimit               : 1;    ///< Bit   1: Flag used to indicate that the jaws are at the reference limit; the max distance to travel.
@@ -3237,7 +3507,7 @@ namespace LinkamSDK
      */
     union MVStatus
     {
-        struct
+        struct Flags
         {
             unsigned closed             : 1;    ///< Bit  0: The valve is fully closed.
             unsigned open               : 1;    ///< Bit  1: The valve is fully open.
@@ -3285,7 +3555,7 @@ namespace LinkamSDK
      */
     union MDSStatus
     {
-        struct
+        struct Flags
         {
             unsigned xMinLimit          : 1;    ///< Bit   0: The minimum limit on the X axis has been reached.
             unsigned xMaxLimit          : 1;    ///< Bit   1: The maximum limit on the X axis has been reached.

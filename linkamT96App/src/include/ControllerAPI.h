@@ -5,7 +5,7 @@
 *   Description:    This header defines the controller API for the Linkam
 *                   SDK.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__CONTROLLER_API_H
 #define LINKAM_SDK__CONTROLLER_API_H
@@ -31,10 +31,10 @@ namespace LinkamSDK
         "Stage cable identifier error",
         "Stage temperature sensor open circuit or over-range",
         "Load power supply is incorrect for the stage type",
+        "Load power supply output voltage incorrect",
         "The stage requires a relay fitted in the T95",
         "The controller has the wrong combination of option boards",
         "Cable disconnected from one of the option boards",
-        "Load power supply is incorrect for the stage type",
         "Incorrect cable connected to one of the option boards",
         "Sensor open circuit or overrange on one of the option boards",
         "The controller unit fan is not working correctly",
@@ -42,11 +42,13 @@ namespace LinkamSDK
         "There has been a communications error",
         "The cooling water is too warm or is not flowing through the stage",
         "CSS450 motor drive overheating error",
-        "CSS450 motor winding error (type 1)",
-        "CSS450 motor winding error (type 2)",
-        "(reserved for future development)",
-        "(reserved for future development)",
-        "(reserved for future development)",
+        "CSS450 motor winding error",
+        "The RH95 humidity unit is reporting an error",
+        "T96 Protection error",
+        "T96 power driver overheating error",
+        "A standard single output LNP is required for the stage type",
+        "A dual output LNP is required for the stage type",
+        "Incorrect cable limits for stage type",
         "CMS196 Chamber sensor open circuit",
         "CMS196 Chamber sensor over range",
         "CMS196 LN2 Switch sensor open circuit",
@@ -67,37 +69,40 @@ namespace LinkamSDK
      */
     enum ControllerError
     {
-        eControllerErrorNone                            =  0,    ///< No errors
-        eControllerErrorStageCableDisconnected          =  1,    ///< Stage cable disconnected from the controller
-        eControllerErrorStageCableError                 =  2,    ///< Stage cable identifier error
-        eControllerErrorStageTempSensorOpenOverrange    =  3,    ///< Stage temperature sensor open circuit or over-range
-        eControllerErrorLoadPowerOutputVoltageWrong     =  4,    ///< Load power supply output voltage incorrect
-        eControllerErrorT95RelayMissing                 =  5,    ///< The stage requires a relay fitted in the T95
-        eControllerErrorT95OptionBoardWongConfig        =  6,    ///< The controller has the wrong combination of option boards
-        eControllerErrorOptionBoardCableDisconnect      =  7,    ///< Cable disconnected from one of the option boards
-        eControllerErrorLoadPowerIncorrectForStage      =  8,    ///< Load power supply is incorrect for the stage type
-        eControllerErrorOptionBoardIncorrectCable       =  9,    ///< Incorrect cable connected to one of the option boards
-        eControllerErrorOptionBoardSensorOenOverrange   = 10,    ///< Sensor open circuit or overrange on one of the option boards
-        eControllerErrorT95FanNotWorking                = 11,    ///< The controller fan is not working correctly
-        eControllerErrorLNP95Error                      = 12,    ///< The LNP is reporting an error
-        eControllerErrorCommsError                      = 13,    ///< There has been a communications error
-        eControllerErrorCoolingWaterTooWarmNotFlowing   = 14,    ///< The cooling water is too warm or is not flowing through the stage
-        eControllerErrorCSS450MotorDriveOverTemp        = 15,    ///< CSS motor drive overheating error (reserved for future development)
-        eControllerErrorCSS450MotorWindingError1        = 16,    ///< CSS motor winding error (reserved for future development)
-        eControllerErrorCSS450MotorWindingError2        = 17,    ///< CSS motor winding error (reserved for future development)
-        eControllerErrorReserved1                       = 18,    ///< Reserved.
-        eControllerErrorReserved2                       = 19,    ///< Reserved.
-        eControllerErrorReserved3                       = 20,    ///< Reserved.
-        eControllerErrorCMS196ChamberSensorOpen         = 21,    ///< CMS Chamber sensor open circuit
-        eControllerErrorCMS196ChamberSensorOverrange    = 22,    ///< CMS Chamber sensor over range
-        eControllerErrorCMS196LN2SwitchSensorOpen       = 23,    ///< CMS LN2 Switch sensor open circuit
-        eControllerErrorCMS196LN2SwitchSensorOverrange  = 24,    ///< CMS LN2 Switch sensor over range
-        eControllerErrorCMS196DewarSensorOpen           = 25,    ///< CMS Dewar sensor open circuit
-        eControllerErrorCMS196DewarSensorOverrange      = 26,    ///< CMS Dewar sensor over range
-        eControllerErrorCMS196DewarEmpty                = 27,    ///< CMS Dewar empty
-        eControllerErrorCMS196BaseSensorOpen            = 28,    ///< CMS Base sensor open circuit
-        eControllerErrorCMS196BaseSensorOverrange       = 29,    ///< CMS Base sensor over range
-        eControllerErrorCMS196MotorPosnError            = 30     ///< CMS Motor position error
+        eControllerErrorNone                                =  0,   ///< No errors
+        eControllerErrorStageCableDisconnected              =  1,   ///< Stage cable disconnected from the controller
+        eControllerErrorStageCableError                     =  2,   ///< Stage cable identifier error
+        eControllerErrorStageTempSensorOpenOverrange        =  3,   ///< Stage temperature sensor open circuit or over-range
+        eControllerErrorLoadPowerIncorrectForStage          =  4,   ///< Load power supply is incorrect for the stage type
+        eControllerErrorLoadPowerOutputVoltageWrong         =  5,   ///< Load power supply output voltage incorrect
+        eControllerErrorT95RelayMissing                     =  6,   ///< The stage requires a relay fitted in the T95
+        eControllerErrorT95OptionBoardWongConfig            =  7,   ///< The controller has the wrong combination of option boards
+        eControllerErrorOptionBoardCableDisconnect          =  8,   ///< Cable disconnected from one of the option boards
+        eControllerErrorOptionBoardIncorrectCable           =  9,   ///< Incorrect cable connected to one of the option boards
+        eControllerErrorOptionBoardSensorOenOverrange       = 10,   ///< Sensor open circuit or overrange on one of the option boards
+        eControllerErrorT95FanNotWorking                    = 11,   ///< The controller fan is not working correctly
+        eControllerErrorLNP95Error                          = 12,   ///< The LNP is reporting an error
+        eControllerErrorCommsError                          = 13,   ///< There has been a communications error
+        eControllerErrorCoolingWaterTooWarmNotFlowing       = 14,   ///< The cooling water is too warm or is not flowing through the stage
+        eControllerErrorCSS450MotorDriveOverTemp            = 15,   ///< CSS motor drive overheating error (reserved for future development)
+        eControllerErrorCSS450MotorWindingError             = 16,   ///< CSS motor winding error
+        eControllerErrorRH95UnitError                       = 17,   ///< The RH95 humidity unit is reporting an error
+        eControllerErrorControllerProtectionError           = 18,   ///< T96 Protection error
+        eControllerErrorControllerPowerDriverOverheating    = 19,   ///< T96 power driver overheating error
+        eControllerErrorRequiresSignleOutputLNP             = 20,   ///< A standard single output LNP is required for the stage type
+        eControllerErrorRequiresDualOutputLNP               = 21,   ///< A dual output LNP is required for the stage type
+        eControllerErrorIncorrectStageCableLimits           = 22,   ///< Incorrect cable limits for stage type
+        eControllerErrorReserved1                           = 23,   ///< Reserved for future use.
+        eControllerErrorCMS196ChamberSensorOpen             = 24,   ///< CMS Chamber sensor open circuit
+        eControllerErrorCMS196ChamberSensorOverrange        = 25,   ///< CMS Chamber sensor over range
+        eControllerErrorCMS196LN2SwitchSensorOpen           = 26,   ///< CMS LN2 Switch sensor open circuit
+        eControllerErrorCMS196LN2SwitchSensorOverrange      = 27,   ///< CMS LN2 Switch sensor over range
+        eControllerErrorCMS196DewarSensorOpen               = 28,   ///< CMS Dewar sensor open circuit
+        eControllerErrorCMS196DewarSensorOverrange          = 29,   ///< CMS Dewar sensor over range
+        eControllerErrorCMS196DewarEmpty                    = 30,   ///< CMS Dewar empty
+        eControllerErrorCMS196BaseSensorOpen                = 31,   ///< CMS Base sensor open circuit
+        eControllerErrorCMS196BaseSensorOverrange           = 32,   ///< CMS Base sensor over range
+        eControllerErrorCMS196MotorPosnError                = 33    ///< CMS Motor position error
     };
 
     /*!
@@ -111,7 +116,7 @@ namespace LinkamSDK
      */
     union ControllerConfig
     {
-        struct
+        struct Flags
         {
             unsigned    supportsHeater                          : 1; ///< Bit  0:    Single heater supported.
             unsigned    supportsDualHeater                      : 1; ///< Bit  1:    Dual heater supported.
@@ -192,7 +197,7 @@ namespace LinkamSDK
      */
     union ControllerStatus
     {
-        struct
+        struct Flags
         {
             unsigned    controllerError                 : 1;    ///< Bit   0:       The controller is reporting an error, use GetControllerError method.
             unsigned    heater1RampSetPoint             : 1;    ///< Bit   1:       The Stages' 1st (primary) heater ramp at set point.
@@ -303,7 +308,7 @@ namespace LinkamSDK
      */    
     union StageCableConfig
     {
-        struct
+        struct Flags
         {
             unsigned stageOk            :  4; ///< Stage OK status.
             unsigned sensorA            :  1; ///< Sensor A present.
@@ -353,7 +358,12 @@ namespace LinkamSDK
         /*!
          *  The type value for a Linkpad device.
          */
-        eInstrumentBusDeviceType_ImagingStation                         = 0x00000004
+        eInstrumentBusDeviceType_ImagingStation                         = 0x00000004,
+
+        /*!
+         *  The type value for a Water Pump device.
+         */
+         eInstrumentBusDeviceType_WaterPump                             = 0x00000005,
     };
 
     /*!
@@ -390,6 +400,16 @@ namespace LinkamSDK
          *  The type value for a T96 S12 controller.
          */
         eControllerType_T96_S12         = 0x00000004,
+
+        /*!
+         *  The type value for a v2 T96 P12 controller.
+         */
+        eControllerType_T96v2_P12       = 0x00000005,
+
+        /*!
+         *  The type value for a v2 T96 S12 controller.
+         */
+        eControllerType_T96v2_S12       = 0x00000006
     };
 
     /*!
@@ -402,7 +422,7 @@ namespace LinkamSDK
      */
     union ControllerProgramStatus
     {
-        struct
+        struct Flags
         {
             /*!
              *  Bit  0: Direction of temperature to target setpoint.

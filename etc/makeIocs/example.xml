@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<linkam3.LinkamT96 P="EA-LINKAM-01" name="LINKAM1"/>
+</components>

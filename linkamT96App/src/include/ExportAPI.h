@@ -5,7 +5,7 @@
 *   Description:    This header defines the export/import symbols for
 *                   the Linkam SDK library.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__EXPORT_API
 #define LINKAM_SDK__EXPORT_API

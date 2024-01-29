@@ -5,7 +5,7 @@
 *   Description:    This header defines the communication port handling
 *                   API used by the Linkam SDK.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM_SDK__COMMS_API_H
 #define LINKAM_SDK__COMMS_API_H
@@ -13,6 +13,7 @@
 #include "CommonTypes.h"
 #include "Serial.h"
 #include "USB.h"
+#include "Emulator.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,8 +29,17 @@ extern "C" {
  */
 #define LINKAM_SDK__USB_HID__VENDOR_ID          (0x16DA)
 
+ /*!
+  *  \brief      The USB HID product ID for no USB HID.
+  *
+  *  Use this product ID to command the LinkamSDK library to attempt a serial RS232 connection.
+  *
+  *  @ingroup    Comms_API
+  */
+#define LINKAM_SDK__USB_HID__NONE_ID            (0x0000)
+
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for automatically determineing the type of Linkam device connected.
  *
  *  Use this product ID to command the LinkamSDK library to automatically detect the type of
  *  controller device connected to the host machine. If you are connecting multiple controller
@@ -41,7 +51,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__AUTO_ID            (0x0001)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam T9X series controllers.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a T9x generation controller 
  *  (for example, T95 or T96). If you have multiple T9x controllers connected to the host machine 
@@ -52,7 +62,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__T9X_ID             (0x0002)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam T9X series Liquid Nitrogen Pumps.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a LNP9x generation pump 
  *  (for example, LNP95 or LNP96). If you have multiple LNP9x pumps connected to the host machine 
@@ -63,7 +73,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__LNP9X_ID           (0x0003)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam Incubator Stage.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a INC95 device.
  *  If you have multiple INC95 devices connected to the host machine then you must specify the serial
@@ -76,7 +86,7 @@ extern "C" {
 /*!
  *  \brief      The USB HID product ID for Linkam ...
  *
- *  Use this product ID to request the LinkamSDK library to connect to a D95 device.
+ *  Use this product ID to request the LinkamSDK library to connect to a DC95 device.
  *  If you have multiple DC95 devices connected to the host machine then you must specify the serial
  *  number of the specific device you wish to connect to.
  *
@@ -85,7 +95,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__DC95_ID            (0x0005)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam Remote Humidity instrument bus device (95 series).
  *
  *  Use this product ID to request the LinkamSDK library to connect to a RH95 humidifier device.
  *  If you have multiple RH95 devices connected to the host machine then you must specify the serial
@@ -96,7 +106,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__RH95_ID            (0x0006)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam CMS stage.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a COR95 controller.
  *  If you have multiple COR95 controller connected to the host machine then you must specify the serial
@@ -107,7 +117,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__COR95_ID           (0x0007)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam Warm Stage Controller.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a WSC96 device.
  *  If you have multiple WSC96 devices connected to the host machine then you must specify the serial
@@ -118,7 +128,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__WSC96_ID           (0x0008)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam motorized joypad controller.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a joystick.
  *  If you have multiple joystick devices connected to the host machine then you must specify the serial
@@ -129,7 +139,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__JOYSTICK_ID        (0x0009)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam Remote Light Source USB device.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a Remote Light Source (RLS).
  *  If you have multiple RLS systems connected to the host machine then you must specify the serial
@@ -162,7 +172,7 @@ extern "C" {
 #define LINKAM_SDK__USB_HID__GLOWDISCHARGE_ID   (0x000C)
 
 /*!
- *  \brief      The USB HID product ID for Linkam ...
+ *  \brief      The USB HID product ID for Linkam Cryo-electron Microscope Sample Preperation device.
  *
  *  Use this product ID to request the LinkamSDK library to connect to a Electron Microscope Plunger device.
  *  If you have multiple Electron Microscope Plunger devices connected to the host machine then you must 
@@ -171,6 +181,17 @@ extern "C" {
  *  @ingroup    Comms_API
  */
 #define LINKAM_SDK__USB_HID__PLUNGER_ID         (0x000D)
+
+ /*!
+  *  \brief      The USB HID product ID for Linkam Remote Humidity instrument bus device (GEN10 series).
+  *
+  *  Use this product ID to request the LinkamSDK library to connect to a RHGEN10 humidifier device.
+  *  If you have multiple RHGEN10 devices connected to the host machine then you must specify the serial
+  *  number of the specific device you wish to connect to.
+  *
+  *  @ingroup    Comms_API
+  */
+#define LINKAM_SDK__USB_HID__RHGEN10_ID          (0x000E)
 
 
 namespace LinkamSDK
@@ -187,7 +208,8 @@ namespace LinkamSDK
     {
         eCommsTypeNone          = 0,    ///< Invalid type value, use for initialistion of variables.
         eCommsTypeSerial        = 1,    ///< Open a connection to a serial COM port.
-        eCommsTypeUSB           = 2     ///< Open a connection to a USB device.
+        eCommsTypeUSB           = 2,    ///< Open a connection to a USB device.
+        eCommsTypeEmulator      = 3     ///< Open a connection to a device emulator.
     };
 
     /*!
@@ -216,7 +238,7 @@ namespace LinkamSDK
      */
     union ConnectionStatus
     {
-        struct
+        struct Flags
         {
             unsigned    connected                       : 1;    ///< bit  0: Flag defining successful connection (0 = Not Connected, 1 = Connected).
             unsigned    errorNoDeviceFound              : 1;    ///< bit  1: Flag defining vendor ID and/or product ID was not found.

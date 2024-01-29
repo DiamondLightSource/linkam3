@@ -240,7 +240,7 @@ x 200
 y 99
 w 128
 h 23
-controlPv "$(P):TST_MTR_VEL_V"
+controlPv "$(P):TST:VELO"
 precision 2
 fgColor index 25
 fgAlarm
@@ -259,7 +259,7 @@ x 346
 y 100
 w 100
 h 20
-controlPv "$(P):TST_MTR_VEL_V"
+controlPv "$(P):TST:VELO"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16

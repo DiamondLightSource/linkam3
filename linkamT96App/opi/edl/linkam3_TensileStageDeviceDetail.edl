@@ -171,7 +171,7 @@ x 145
 y 74
 w 100
 h 20
-controlPv "$(P):TST_MOTOR_POS"
+controlPv "$(P):TST:RBV"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -218,7 +218,7 @@ x 145
 y 97
 w 100
 h 20
-controlPv "$(P):TST_RAW_MOTOR_POS"
+controlPv "$(P):TST:RAW_MOTOR_POS"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -265,7 +265,7 @@ x 145
 y 120
 w 100
 h 20
-controlPv "$(P):TST_JAW_POSITION"
+controlPv "$(P):TST:JAW_POSITION"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -312,7 +312,7 @@ x 145
 y 143
 w 100
 h 20
-controlPv "$(P):TST_CYCLES_REMAINING"
+controlPv "$(P):TST:CYCLES_REMAINING"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -359,7 +359,7 @@ x 347
 y 166
 w 100
 h 20
-controlPv "$(P):TST_FORCE_GAUGE"
+controlPv "$(P):TST:FORCE_GAUGE"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -406,7 +406,7 @@ x 347
 y 143
 w 100
 h 20
-controlPv "$(P):TST_MAX_FORCE"
+controlPv "$(P):TST:MAX_FORCE"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -453,7 +453,7 @@ x 347
 y 120
 w 100
 h 20
-controlPv "$(P):TST_STRESS"
+controlPv "$(P):TST:STRESS"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -500,7 +500,7 @@ x 347
 y 97
 w 100
 h 20
-controlPv "$(P):TST_STRAIN"
+controlPv "$(P):TST:STRAIN"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -547,7 +547,7 @@ x 347
 y 74
 w 100
 h 20
-controlPv "$(P):TST_FORCE"
+controlPv "$(P):TST:FORCE"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -680,7 +680,7 @@ bgColor index 3
 inconsistentColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_TABLE_MODE:SET"
+controlPv "$(P):TST:TABLE_MODE:SET"
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -694,7 +694,7 @@ x 349
 y 251
 w 100
 h 20
-controlPv "$(P):TST_TABLE_MODE"
+controlPv "$(P):TST:TABLE_MODE"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -762,7 +762,7 @@ bgColor index 3
 inconsistentColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_TABLE_DIR:SET"
+controlPv "$(P):TST:TABLE_DIR:SET"
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -776,7 +776,7 @@ x 349
 y 227
 w 100
 h 20
-controlPv "$(P):TST_TABLE_DIR"
+controlPv "$(P):TST:TABLE_DIR"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -919,7 +919,7 @@ x 200
 y 337
 w 128
 h 23
-controlPv "$(P):TST_MTR_VEL:SET"
+controlPv "$(P):TST:MTR_VEL:SET"
 precision 2
 fgColor index 25
 fgAlarm
@@ -938,7 +938,7 @@ x 346
 y 338
 w 100
 h 20
-controlPv "$(P):TST_MTR_VEL"
+controlPv "$(P):TST:MTR_VEL"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1000,7 +1000,7 @@ x 200
 y 312
 w 128
 h 23
-controlPv "$(P):TST_MTR_DIST_SP:SET"
+controlPv "$(P):TST:MTR_DIST_SP:SET"
 precision 2
 fgColor index 25
 fgAlarm
@@ -1019,7 +1019,7 @@ x 346
 y 313
 w 100
 h 20
-controlPv "$(P):TST_MTR_DIST_SP"
+controlPv "$(P):TST:MTR_DIST_SP"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1154,7 +1154,7 @@ bgColor index 3
 inconsistentColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_SHOW_FORCE_AS_DIST:SET"
+controlPv "$(P):TST:SHOW_FORCE_AS_DIST:SET"
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -1168,7 +1168,7 @@ x 342
 y 475
 w 100
 h 20
-controlPv "$(P):TST_SHOW_FORCE_AS_DIST"
+controlPv "$(P):TST:SHOW_FORCE_AS_DIST"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1236,7 +1236,7 @@ bgColor index 3
 inconsistentColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_STRAIN_PERCENTAGE:SET"
+controlPv "$(P):TST:STRAIN_PERCENTAGE:SET"
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -1250,7 +1250,7 @@ x 342
 y 450
 w 100
 h 20
-controlPv "$(P):TST_STRAIN_PERCENTAGE"
+controlPv "$(P):TST:STRAIN_PERCENTAGE"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1318,7 +1318,7 @@ bgColor index 3
 inconsistentColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_STRAIN_EGU:SET"
+controlPv "$(P):TST:STRAIN_EGU:SET"
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -1332,7 +1332,7 @@ x 342
 y 425
 w 100
 h 20
-controlPv "$(P):TST_STRAIN_EGU"
+controlPv "$(P):TST:STRAIN_EGU"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1394,7 +1394,7 @@ x 196
 y 398
 w 128
 h 23
-controlPv "$(P):TST_FORCE_SETPOINT:SET"
+controlPv "$(P):TST:FORCE_SETPOINT:SET"
 precision 2
 fgColor index 25
 fgAlarm
@@ -1413,7 +1413,7 @@ x 342
 y 399
 w 100
 h 20
-controlPv "$(P):TST_FORCE_SETPOINT"
+controlPv "$(P):TST:FORCE_SETPOINT"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1542,7 +1542,7 @@ x 199
 y 585
 w 128
 h 23
-controlPv "$(P):TST_MIN_JAW_POS:SET"
+controlPv "$(P):TST:MIN_JAW_POS:SET"
 precision 2
 fgColor index 25
 fgAlarm
@@ -1561,7 +1561,7 @@ x 345
 y 586
 w 100
 h 20
-controlPv "$(P):TST_MIN_JAW_POS"
+controlPv "$(P):TST:MIN_JAW_POS"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1623,7 +1623,7 @@ x 199
 y 560
 w 128
 h 23
-controlPv "$(P):TST_MAX_JAW_POS:SET"
+controlPv "$(P):TST:MAX_JAW_POS:SET"
 precision 2
 fgColor index 25
 fgAlarm
@@ -1642,7 +1642,7 @@ x 345
 y 561
 w 100
 h 20
-controlPv "$(P):TST_MAX_JAW_POS"
+controlPv "$(P):TST:MAX_JAW_POS"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16
@@ -1710,7 +1710,7 @@ bgColor index 3
 inconsistentColor index 3
 topShadowColor index 1
 botShadowColor index 11
-controlPv "$(P):TST_JAW_MONITOR:SET"
+controlPv "$(P):TST:JAW_MONITOR:SET"
 font "arial-bold-r-14.0"
 endObjectProperties
 
@@ -1724,7 +1724,7 @@ x 345
 y 537
 w 100
 h 20
-controlPv "$(P):TST_JAW_MONITOR"
+controlPv "$(P):TST:JAW_MONITOR"
 font "arial-bold-r-14.0"
 fontAlign "center"
 fgColor index 16

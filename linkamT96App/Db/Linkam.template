@@ -2,13 +2,11 @@
 # Linkam template
 #
 # MACROS
-# % macro, name,    Reference name for GUI objects
 # % macro, P,       PV Prefix for Linkam temp. controller
 # % macro, PORT,    Asyn PORT
 # % macro, ADDR,    Asyn ADDR
 # % macro, TIMEOUT, Asyn TIMEOUT
 #
-include "Linkam_detail.template"
 #
 #==============================================================================
 

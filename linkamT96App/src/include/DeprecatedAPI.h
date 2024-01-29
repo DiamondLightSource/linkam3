@@ -11,7 +11,7 @@
 *                   start making the move over to the new API as defined
 *                   in version 3.0.0.0 and above.
 *
-*   Copyright © 2018-2019 Linkam Scientific Instruments. All rights reserved
+*   Copyright © 2018-2023 Linkam Scientific Instruments. All rights reserved
 ************************************************************************/
 #ifndef LINKAM__SDK__DEPRECATED_API_H
 #define LINKAM__SDK__DEPRECATED_API_H
