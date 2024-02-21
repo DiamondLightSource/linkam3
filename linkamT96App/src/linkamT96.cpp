@@ -306,6 +306,7 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
 	LinkamSDK::Variant param1;
 	LinkamSDK::Variant param2;
 	LinkamSDK::Variant result;
+	int linkamStatus = 0;
 	int function = pasynUser->reason;
 	const char *functionName = "writeFloat64";
 	asynStatus status = asynSuccess;
@@ -360,6 +361,22 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
 		status = asynError;
 	}
 
+	/*
+		If driver is trying to set the heating setpoint then resubmitt eLinkamFunctionMsgCode_StartHeating
+		to take new value. This step is needed due to a change in the behaviour of the SDK, somewhere between
+		versions 3.0.4 and 3.0.19
+	*/
+	if (function == P_SetpointSet){
+		getIntegerParam(P_CtrlStatus,&linkamStatus);
+
+		// If heater is on, resend eLinkamFunctionMsgCode_StartHeating
+		if((linkamStatus & 4) == 4 ){
+			param2.vBoolean = true;
+			linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartHeating,
+								handle, &result, param2);
+		}
+	}
+
 	if (status)
 		epicsSnprintf(pasynUser->errorMessage, pasynUser->errorMessageSize,
 			"%s:%s: status=%d, function=%d",
@@ -387,6 +404,7 @@ asynStatus linkamPortDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
 
 		if (value > 0){
 			param1.vBoolean = true;
+			
 		} else {
 			param1.vBoolean = false;
 		}
@@ -592,6 +610,9 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 				 result.vControllerStatus.flags.cssLidOn                      << 10 |
 				 result.vControllerStatus.flags.cssRefLimit                   << 11 |
 				 result.vControllerStatus.flags.cssZeroLimit                  << 12;*/
+
+			// Set asyn parameter for linkam status for later use
+			setIntegerParam(P_CtrlStatus,*value);
       if (result.vControllerStatus.flags.controllerError) {
         errorcode = linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetControllerError, handle, &result);
         printf("Controller Error %i: %s\n", errorcode, LinkamSDK::ControllerErrorStrings[errorcode]);
