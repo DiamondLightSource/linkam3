@@ -1,0 +1,61 @@
+record(bo, "$(P):STARTVAC")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_START_VACUUM")
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ao, "$(P):VACUUM:SET")
+{
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VACUUM_SET")
+	field(EGU,  "tbdn")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):VACUUM")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VACUUM")
+	field(EGU,  "tbd")
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(mbbo, "$(P):VACUUM:UNIT:SET")
+{
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VACUUM_UNIT_SET")
+	field(ZRST, "mBar")
+	field(ZRVL, 15)
+	field(ONST, "kPa")
+	field(ONVL, 16)
+	field(TWST, "mTorr")
+	field(TWVL, 17)
+	field(VAL,  15)
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(mbbi, "$(P):VACUUM:UNIT")
+{
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_VACUUM_UNIT")
+	field(ZRST, "mBar")
+	field(ZRVL, 15)
+	field(ONST, "kPa")
+	field(ONVL, 16)
+	field(TWST, "mTorr")
+	field(TWVL, 17)
+	field(SDIS, "$(P):DISABLE")
+}
+
+record(ai, "$(P):PRESSURE")
+{
+	field(SCAN, ".1 second")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))LINKAM_PRESSURE")
+	field(EGU,  "mBar")
+	field(SDIS, "$(P):DISABLE")
+}

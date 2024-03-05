@@ -123,8 +123,14 @@ linkamPortDriver::linkamPortDriver(const char *portName)
     createParam(P_TstpVeloString, asynParamFloat64, &P_TstpVelo);
     createParam(P_TstpValString, asynParamFloat64, &P_TstpVal);
 
-	
     createParam(P_TstfValString, asynParamFloat64, &P_TstfVal);
+
+    createParam(P_StartVacuumString, asynParamInt32,   &P_StartVacuum);
+    createParam(P_VacuumSetString,   asynParamFloat64, &P_VacuumSet);
+    createParam(P_VacuumString,      asynParamFloat64, &P_Vacuum);
+    createParam(P_VacuumUnitSetString, asynParamInt32, &P_VacuumUnitSet);
+    createParam(P_VacuumUnitString,  asynParamInt32,   &P_VacuumUnit);
+    createParam(P_PressureString,    asynParamFloat64, &P_Pressure);
 
 }
 
@@ -199,6 +205,10 @@ asynStatus linkamPortDriver::readFloat64(asynUser *pasynUser, epicsFloat64 *valu
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKi;
 	} else if (function == P_TstForceKd){
 		param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKd;
+	} else if (function == P_Vacuum) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuum;
+	} else if (function == P_Pressure) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypePressure;
 	}
 
 	if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2)){
@@ -351,6 +361,8 @@ asynStatus linkamPortDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 valu
         param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKi;
     } else if (function == P_TstForceKd) {
         param1.vStageValueType = LinkamSDK::eStageValueTypeTstPidKd;
+    } else if (function == P_VacuumSet) {
+        param1.vStageValueType = LinkamSDK::eStageValueTypeVacuumSetpoint;
     }
 
 
@@ -454,6 +466,38 @@ asynStatus linkamPortDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
 			if (!result.vBoolean) {
 				status = asynError;
 			}
+		}
+	} else if (function == P_StartVacuum) {
+		param2.vUint64 = 0; /* unused */
+
+		if (value > 0){
+			param1.vBoolean = true;
+		} else {
+			param1.vBoolean = false;
+		}
+
+		linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_StartVacuum,
+		                     handle, &result, param1, param2);
+
+		if (!result.vBoolean) {
+			status = asynError;
+		}
+	} else if (function == P_VacuumUnitSet) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuumBoardUnitOfMeasure;
+
+		if (value < 15) {
+			param2.vUint32 = 15;
+		} else if (value > 17) {
+			param2.vUint32 = 17;
+		} else {
+			param2.vUint32 = value;
+		}
+
+		linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_SetValue,
+		                     handle, &result, param1, param2);
+
+		if (!result.vBoolean) {
+			status = asynError;
 		}
 	} else if (function == P_TstTableModeSet) {
         switch(value){
@@ -651,6 +695,13 @@ asynStatus linkamPortDriver::readInt32(asynUser *pasynUser, epicsInt32 *value)
 		} else {
 			status = asynError;
 		} 
+	} else if (function == P_VacuumUnit) {
+		param1.vStageValueType = LinkamSDK::eStageValueTypeVacuumBoardUnitOfMeasure;
+
+		if (linkamProcessMessage(LinkamSDK::eLinkamFunctionMsgCode_GetValue, handle, &result, param1, param2))
+			*value = result.vUint32;
+		else
+			status = asynError;
 	} 
     else if (function == P_SampleSize){
         param1.vStageValueType = LinkamSDK::eStageValueTypeTstSampleSize;
