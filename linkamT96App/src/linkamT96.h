@@ -82,7 +82,6 @@
 #define P_TstForceKiString "LINKAM_TST_FORCE_KI"
 #define P_TstForceKdString "LINKAM_TST_FORCE_KD"
 
-
 // Position motor variables
 #define P_TstpVeloString "LINKAM_TSTP_VELO"
 #define P_TstpValString "LINKAM_TSTP_VAL"
@@ -90,6 +89,13 @@
 // Force motor variables 
 #define P_TstfValString "LINKAM_TSTF_VAL"
 
+// Vacuum stage parameters
+#define P_StartVacuumString   "LINKAM_START_VACUUM"
+#define P_VacuumSetString     "LINKAM_VACUUM_SET"
+#define P_VacuumString        "LINKAM_VACUUM"
+#define P_VacuumUnitSetString "LINKAM_VACUUM_UNIT_SET"
+#define P_VacuumUnitString    "LINKAM_VACUUM_UNIT"
+#define P_PressureString      "LINKAM_PRESSURE"
 
 struct PositionMotorParams
 {
@@ -204,7 +210,15 @@ protected:
 
     int P_TstfVal;
 
-    #define LAST_LINKAM_COMMAND P_TstStartMotor
+    // Vacuum stage parameters
+    int P_StartVacuum;
+    int P_VacuumSet;
+    int P_Vacuum;
+    int P_VacuumUnitSet;
+    int P_VacuumUnit;
+    int P_Pressure;
+
+    #define LAST_LINKAM_COMMAND P_Pressure
 
     // Connection functions
     bool initUSBConnection(unsigned int vendorID, unsigned int productID);
